@@ -1,0 +1,66 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-test-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-jsr223-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-datetime-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-nio-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-servlet-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-groovydoc-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-console-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-dateutil-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-templates-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-groovysh-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-ginq-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-toml-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-swing-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-templates-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-datetime-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-astbuilder-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-astbuilder-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-contracts-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-jmx-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-ant-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-cli-picocli-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-cli-commons-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-ant-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-cli-picocli-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-json-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-toml-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-docgenerator-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-docgenerator-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-xml-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-test-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-macro-library-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-test-junit5-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-typecheckers-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-jsr223-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-sql-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-dateutil-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-groovysh-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-swing-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-sql-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-json-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-console-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-ginq-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-testng-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-servlet-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-macro-library-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-macro-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-xml-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-testng-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-groovydoc-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-cli-commons-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-test-junit5-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-nio-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-typecheckers-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-contracts-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-macro-4.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/A4/lib/groovy-jmx-4.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
