@@ -8,13 +8,13 @@ import collage.model.pixel.HSLPixel;
  * Represents a collection of utility methods.
  */
 public class Utils {
-  public static ProjConstPPM readPPM(String path) {
-
-  }
-
-  public static void writePPM(String content) {
-
-  }
+//  public static ProjConstPPM readPPM(String path) {
+//
+//  }
+//
+//  public static void writePPM(String content) {
+//
+//  }
 
   public static HSLPixel RGBToHSL(RGBPixel pixel) {
     double r = pixel.getRed();
@@ -49,20 +49,31 @@ public class Utils {
     return new HSLPixel(hue, saturation, lightness);
   }
 
-  public static RGBPixel HSLToRGB(HSLPixel pixel) {
-    double convertFn(double hue, double saturation, double lightness, int n) {
-      double k = (n + (hue / 30)) % 12;
-      double a = saturation * Math.min(lightness, 1 - lightness);
+  // create a local interface with one abstract
+  // method run()
+  interface FNHolder {
+    double convertFn(double hue, double saturation, double lightness, int n);
+  }
 
-      return lightness - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1)));
-    }
+  public static RGBPixel HSLToRGB(HSLPixel pixel) {
+
+    FNHolder h = new FNHolder() {
+
+      public double convertFn(double hue, double saturation, double lightness, int n) {
+        double k = (n + (hue / 30)) % 12;
+        double a = saturation * Math.min(lightness, 1 - lightness);
+
+        return lightness - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1)));
+      }
+    };
+
     double hue = pixel.getHue();
     double saturation = pixel.getHue();
     double lightness = pixel.getHue();
-    double r = convertFn(hue, saturation, lightness, 0) * 255;
-    double g = convertFn(hue, saturation, lightness, 8) * 255;
-    double b = convertFn(hue, saturation, lightness, 4) * 255;
+    int r = (int) h.convertFn(hue, saturation, lightness, 0) * 255;
+    int g = (int) h.convertFn(hue, saturation, lightness, 8) * 255;
+    int b = (int) h.convertFn(hue, saturation, lightness, 4) * 255;
 
-    return new RGBPixel(r, g, b);
+    return new RGBPixel(255, r, g, b);
   }
 }

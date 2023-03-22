@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Represents the test suite for the Pixel class.
  */
-public class PixelTest {
+public class RGBPixelTest {
   private RGBPixel p1;
 
   @Before
@@ -23,7 +23,6 @@ public class PixelTest {
     assertEquals(2, constructorTest.getRed());
     assertEquals(3, constructorTest.getGreen());
     assertEquals(4, constructorTest.getBlue());
-
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -36,7 +35,11 @@ public class PixelTest {
 
   @Test
   public void testConvertToPPMRepresentation() {
-    // TODO: implement
+    p1.convertToPPMRepresentation();
+    assertEquals(1, this.p1.getAlpha());
+    assertEquals(2, this.p1.getRed());
+    assertEquals(3, this.p1.getGreen());
+    assertEquals(4, this.p1.getBlue());
   }
 
   @Test

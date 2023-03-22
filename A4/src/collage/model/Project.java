@@ -4,8 +4,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import collage.model.filter.BlueComponentFilter;
+import collage.model.filter.BrightenIntensityFilter;
+import collage.model.filter.BrightenLumaFilter;
+import collage.model.filter.BrightenValueFilter;
+import collage.model.filter.DarkenIntensityFilter;
+import collage.model.filter.DarkenLumaFilter;
+import collage.model.filter.DarkenValueFilter;
+import collage.model.filter.DifferenceFilter;
+import collage.model.filter.GreenComponentFilter;
 import collage.model.filter.IFilter;
+import collage.model.filter.MultiplyFilter;
+import collage.model.filter.NormalFilter;
 import collage.model.filter.RedComponentFilter;
+import collage.model.filter.ScreenFilter;
 import collage.model.pixel.RGBPixel;
 
 /**
@@ -168,7 +180,7 @@ public class Project {
           filter = new BrightenIntensityFilter(curLayer.getPixels());
           break;
         case "BRIGHTEN_LUNA":
-          filter = new BrightenLunaFilter(curLayer.getPixels());
+          filter = new BrightenLumaFilter(curLayer.getPixels());
           break;
         case "DARKEN_VALUE":
           filter = new DarkenValueFilter(curLayer.getPixels());
@@ -177,24 +189,28 @@ public class Project {
           filter = new DarkenIntensityFilter(curLayer.getPixels());
           break;
         case "DARKEN_LUNA":
-          filter = new DarkenLunaFilter(curLayer.getPixels());
+          filter = new DarkenLumaFilter(curLayer.getPixels());
           break;
         case "DIFFERENCE":
           filter = new DifferenceFilter(curLayer.getPixels(), this.layers.get(i - 1));
           break;
-          // TODO: add more filters
+        case "MULTIPLY":
+          filter = new MultiplyFilter(curLayer.getPixels(), this.layers.get(i - 1));
+          break;
+        case "SCREEN":
+          filter = new ScreenFilter(curLayer.getPixels(), this.layers.get(i - 1));
+          break;
+        default:
+          throw new IllegalStateException("Layer does not have a filter!");
       }
 
-      if (filter == null) {
-        throw new IllegalStateException("Invalid filter");
-      }
-      ArrayList<ArrayList<RGBPixel> newPixels = filter.apply();
+      ArrayList<ArrayList<RGBPixel>> newPixels = filter.apply();
       curLayer.setPixels(newPixels);
     }
 
 
     for (Layer layer : layers) {
-      filter.apply();
+      layer.filter.apply();
     }
 
     ArrayList<ArrayList<RGBPixel>> layerPixels = new ArrayList<ArrayList<RGBPixel>>();
