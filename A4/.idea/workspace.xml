@@ -5,43 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/collage/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collage/model/filter/IFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collage/model/filter/RedComponentFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collage/model/pixel/HSLPixel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collage/model/pixel/IPixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A4 Class Diagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cp_goat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jp_jersey_2017.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/controller/IController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/controller/IController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Filter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Filter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Filter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/IModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/IModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/ImageUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Layer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Layer$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Layer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Pixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Pixel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/ProjConstPPM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/ProjConstPPM.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/view/IView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/view/IView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/view/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/view/View.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/A4/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ControllerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/A4/FilterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/FilterTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/A4/ImageUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ImageUtilTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bi.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/bi.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bl.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/bl.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bv.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/bv.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/di.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/di.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dl.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/dl.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dv.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/dv.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/IModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/LayerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/LayerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/ModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/PixelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/PixelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/ProjConstPPMTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ProjConstPPMTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/ProjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ProjectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/ViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ViewTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/collage/model/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/ProjConstPPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ProjConstPPM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/pixel/RGBPixel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/collage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/view/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/IView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tako.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tako.ppm.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/takotest.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImageUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageUtilTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PixelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PixelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +49,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -75,6 +74,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/noahshinn/Desktop/cs3500/Collager/A4&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,7 +90,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProjectTest.testSaveImageNullFilename">
+  <component name="RunManager" selected="JUnit.All in A4">
     <configuration name="All in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
@@ -140,8 +140,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProjectTest.testSaveImageNullFilename" />
         <item itemvalue="JUnit.All in A4" />
+        <item itemvalue="JUnit.ProjectTest.testSaveImageNullFilename" />
         <item itemvalue="JUnit.LayerTest" />
         <item itemvalue="JUnit.ControllerTest.testFullScript1" />
         <item itemvalue="JUnit.ProjectTest.testSaveImage" />
@@ -159,6 +159,8 @@
       <workItem from="1679022594175" duration="918000" />
       <workItem from="1679028781470" duration="25548000" />
       <workItem from="1679171845044" duration="9220000" />
+      <workItem from="1679442320480" duration="92000" />
+      <workItem from="1679442428316" duration="6728000" />
     </task>
     <servers />
   </component>

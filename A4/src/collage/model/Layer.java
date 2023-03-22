@@ -2,6 +2,8 @@ package collage.model;
 
 import java.util.ArrayList;
 
+import collage.model.pixel.RGBPixel;
+
 /**
  * Represents a layer within a project.
  */
@@ -10,7 +12,7 @@ public class Layer {
   private int height;
   private int width;
   private int maxVal;
-  private ArrayList<ArrayList<Pixel>> pixels = new ArrayList<ArrayList<Pixel>>();
+  private ArrayList<ArrayList<RGBPixel>> pixels = new ArrayList<ArrayList<RGBPixel>>();
   private Filter filter;
 
   /**
@@ -28,13 +30,13 @@ public class Layer {
     this.height = height;
     this.width = width;
     this.maxVal = maxVal;
-    this.pixels = new ArrayList<ArrayList<Pixel>>();
+    this.pixels = new ArrayList<ArrayList<RGBPixel>>();
     this.setFilter("NORMAL");
 
     for (int i = 0; i < height; i++) {
-      ArrayList<Pixel> row = new ArrayList<Pixel>();
+      ArrayList<RGBPixel> row = new ArrayList<RGBPixel>();
       for (int j = 0; j < width; j++) {
-        row.add(new Pixel(0, 255, 255, 255));
+        row.add(new RGBPixel(0, 255, 255, 255));
       }
       this.pixels.add(row);
     }
@@ -58,9 +60,9 @@ public class Layer {
     this.setFilter("NORMAL");
 
     // convert the rgb values into pixels
-    ArrayList<Pixel> pixels = new ArrayList<Pixel>();
+    ArrayList<RGBPixel> pixels = new ArrayList<RGBPixel>();
     for (int i = 0; i < imageData.getRgbVals().size(); i += 3) {
-      pixels.add(new Pixel(this.maxVal,
+      pixels.add(new RGBPixel(this.maxVal,
               imageData.getRgbVals().get(i),
               imageData.getRgbVals().get(i + 1),
               imageData.getRgbVals().get(i + 2)));
@@ -68,7 +70,7 @@ public class Layer {
 
     // send pixels to row/col list
     for (int i = 0; i < pixels.size() / this.width; i++) {
-      ArrayList<Pixel> row = new ArrayList<Pixel>(pixels.subList(this.width * i,
+      ArrayList<RGBPixel> row = new ArrayList<RGBPixel>(pixels.subList(this.width * i,
               this.width * (i + 1)));
       this.pixels.add(row);
     }
@@ -117,8 +119,8 @@ public class Layer {
         break;
       case RED_COMPONENT:
         // set red component to max and green/blue to zero
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             pixel.setGreen(0);
             pixel.setBlue(0);
           }
@@ -126,8 +128,8 @@ public class Layer {
         break;
       case GREEN_COMPONENT:
         // set green component to max and red/blue to zero
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             pixel.setRed(0);
             pixel.setBlue(0);
           }
@@ -135,16 +137,16 @@ public class Layer {
         break;
       case BLUE_COMPONENT:
         // set blue component to max and red/green to zero
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             pixel.setRed(0);
             pixel.setGreen(0);
           }
         }
         break;
       case BRIGHTEN_VALUE:
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             pixel.setRed(Math.min((pixel.getRed() + this.maxVal), this.maxVal));
             pixel.setGreen(Math.min((pixel.getGreen() + this.maxVal), this.maxVal));
             pixel.setBlue(Math.min((pixel.getBlue() + this.maxVal), this.maxVal));
@@ -152,8 +154,8 @@ public class Layer {
         }
         break;
       case BRIGHTEN_INTENSITY:
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             int avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
             pixel.setRed(Math.min((pixel.getRed() + avg), this.maxVal));
             pixel.setGreen(Math.min((pixel.getGreen() + avg), this.maxVal));
@@ -162,8 +164,8 @@ public class Layer {
         }
         break;
       case BRIGHTEN_LUMA:
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             int luma = (int) ((0.2126 * pixel.getRed())
                     + (0.7152 * pixel.getGreen())
                     + (0.0722 * pixel.getBlue()));
@@ -174,8 +176,8 @@ public class Layer {
         }
         break;
       case DARKEN_VALUE:
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             pixel.setRed(Math.max((pixel.getRed() - this.maxVal), 0));
             pixel.setGreen(Math.max((pixel.getGreen() - this.maxVal), 0));
             pixel.setBlue(Math.max((pixel.getBlue() - this.maxVal), 0));
@@ -183,8 +185,8 @@ public class Layer {
         }
         break;
       case DARKEN_INTENSITY:
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             int avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
             pixel.setRed(Math.max((pixel.getRed() - avg), 0));
             pixel.setGreen(Math.max((pixel.getGreen() - avg), 0));
@@ -193,8 +195,8 @@ public class Layer {
         }
         break;
       case DARKEN_LUMA:
-        for (ArrayList<Pixel> row : this.pixels) {
-          for (Pixel pixel : row) {
+        for (ArrayList<RGBPixel> row : this.pixels) {
+          for (RGBPixel pixel : row) {
             int luma = (int) ((0.2126 * pixel.getRed())
                     + (0.7152 * pixel.getGreen())
                     + (0.0722 * pixel.getBlue()));
@@ -239,12 +241,12 @@ public class Layer {
     int height = imageData.getHeight();
     int maxVal = imageData.getMaxVal();
     ArrayList<Integer> rgbVals = imageData.getRgbVals();
-    ArrayList<ArrayList<Pixel>> image = new ArrayList<ArrayList<Pixel>>();
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<ArrayList<RGBPixel>>();
 
     // convert the rgb values into pixels
-    ArrayList<Pixel> pixels = new ArrayList<Pixel>();
+    ArrayList<RGBPixel> pixels = new ArrayList<RGBPixel>();
     for (int i = 0; i < rgbVals.size(); i += 3) {
-      pixels.add(new Pixel(maxVal,
+      pixels.add(new RGBPixel(maxVal,
               imageData.getRgbVals().get(i),
               imageData.getRgbVals().get(i + 1),
               imageData.getRgbVals().get(i + 2)));
@@ -252,7 +254,7 @@ public class Layer {
 
     // send pixels to row/col list
     for (int i = 0; i < pixels.size() / width; i++) {
-      ArrayList<Pixel> row = new ArrayList<Pixel>(pixels.subList(width * i, width * (i + 1)));
+      ArrayList<RGBPixel> row = new ArrayList<RGBPixel>(pixels.subList(width * i, width * (i + 1)));
       image.add(row);
     }
 
@@ -308,8 +310,8 @@ public class Layer {
    * Gets the pixels within this layer.
    * @return an ArrayList of pixels
    */
-  public ArrayList<Pixel> getPixels() {
-    ArrayList<Pixel> output = new ArrayList<Pixel>();
+  public ArrayList<RGBPixel> getRawPixels() {
+    ArrayList<RGBPixel> output = new ArrayList<RGBPixel>();
 
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
@@ -318,5 +320,21 @@ public class Layer {
     }
 
     return output;
+  }
+
+  /**
+   * Gets the pixels within this layer.
+   * @return an ArrayList of ArrayList of pixels
+   */
+  public ArrayList<ArrayList<RGBPixel>> getPixels() {
+    return this.pixels;
+  }
+
+  /**
+   * Sets the pixels within this layer.
+   * @param pixels - the pixels to set
+   */
+  public void setPixels(ArrayList<ArrayList<RGBPixel>> pixels) {
+    this.pixels = pixels;
   }
 }

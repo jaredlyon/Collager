@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import collage.model.Pixel;
+import collage.model.pixel.RGBPixel;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,16 +9,16 @@ import static org.junit.Assert.assertEquals;
  * Represents the test suite for the Pixel class.
  */
 public class PixelTest {
-  private Pixel p1;
+  private RGBPixel p1;
 
   @Before
   public void init() {
-    p1 = new Pixel(1, 1, 1, 1);
+    p1 = new RGBPixel(1, 1, 1, 1);
   }
 
   @Test
   public void testConstructor() {
-    Pixel constructorTest = new Pixel(1, 2, 3, 4);
+    RGBPixel constructorTest = new RGBPixel(1, 2, 3, 4);
     assertEquals(1, constructorTest.getAlpha());
     assertEquals(2, constructorTest.getRed());
     assertEquals(3, constructorTest.getGreen());
@@ -28,21 +28,15 @@ public class PixelTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidConstructor() {
-    Pixel badConstructorTest1 = new Pixel(-1, 2, 3, 4);
-    Pixel badConstructorTest2 = new Pixel(1, -2, 3, 4);
-    Pixel badConstructorTest3 = new Pixel(1, 2, -3, 4);
-    Pixel badConstructorTest4 = new Pixel(1, 2, 3, -4);
+    RGBPixel badConstructorTest1 = new RGBPixel(-1, 2, 3, 4);
+    RGBPixel badConstructorTest2 = new RGBPixel(1, -2, 3, 4);
+    RGBPixel badConstructorTest3 = new RGBPixel(1, 2, -3, 4);
+    RGBPixel badConstructorTest4 = new RGBPixel(1, 2, 3, -4);
   }
 
   @Test
-  public void testConvertToPPM() {
-    assertEquals(1, this.p1.getRed());
-    assertEquals(1, this.p1.getGreen());
-    assertEquals(1, this.p1.getBlue());
-    this.p1.convertToPPM();
-    assertEquals(0, this.p1.getRed());
-    assertEquals(0, this.p1.getGreen());
-    assertEquals(0, this.p1.getBlue());
+  public void testConvertToPPMRepresentation() {
+    // TODO: implement
   }
 
   @Test

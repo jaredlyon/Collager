@@ -4,6 +4,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import collage.model.filter.IFilter;
+import collage.model.filter.RedComponentFilter;
+import collage.model.pixel.RGBPixel;
+
 /**
  * Represents a collage project.
  */
@@ -139,29 +143,78 @@ public class Project {
       }
     }
 
+    // TODO: assert somewhere that 2-layer-dependent filters cant be applied to the 0 index layer
     // apply the filters
-    for (Layer layer : layers) {
-      layer.applyFilter();
+    for (int i = 0; i < layers.size(); i++) {
+      Layer curLayer = layers.get(i);
+      IFilter filter = null;
+      switch (curLayer.getFilter()) {
+        case "NORMAL":
+          filter = new NormalFilter(curLayer.getPixels());
+          break;
+        case "RED_COMPONENT":
+          filter = new RedComponentFilter(curLayer.getPixels());
+          break;
+        case "GREEN_COMPONENT":
+          filter = new GreenComponentFilter(curLayer.getPixels());
+          break;
+        case "BLUE_COMPONENT":
+          filter = new BlueComponentFilter(curLayer.getPixels());
+          break;
+        case "BRIGHTEN_VALUE":
+          filter = new BrightenValueFilter(curLayer.getPixels());
+          break;
+        case "BRIGHTEN_INTENSITY":
+          filter = new BrightenIntensityFilter(curLayer.getPixels());
+          break;
+        case "BRIGHTEN_LUNA":
+          filter = new BrightenLunaFilter(curLayer.getPixels());
+          break;
+        case "DARKEN_VALUE":
+          filter = new DarkenValueFilter(curLayer.getPixels());
+          break;
+        case "DARKEN_INTENSITY":
+          filter = new DarkenIntensityFilter(curLayer.getPixels());
+          break;
+        case "DARKEN_LUNA":
+          filter = new DarkenLunaFilter(curLayer.getPixels());
+          break;
+        case "DIFFERENCE":
+          filter = new DifferenceFilter(curLayer.getPixels(), this.layers.get(i - 1));
+          break;
+          // TODO: add more filters
+      }
+
+      if (filter == null) {
+        throw new IllegalStateException("Invalid filter");
+      }
+      ArrayList<ArrayList<RGBPixel> newPixels = filter.apply();
+      curLayer.setPixels(newPixels);
     }
 
-    ArrayList<ArrayList<Pixel>> layerPixels = new ArrayList<ArrayList<Pixel>>();
+
     for (Layer layer : layers) {
-      layerPixels.add(layer.getPixels());
+      filter.apply();
+    }
+
+    ArrayList<ArrayList<RGBPixel>> layerPixels = new ArrayList<ArrayList<RGBPixel>>();
+    for (Layer layer : layers) {
+      layerPixels.add(layer.getRawPixels());
     }
 
     for (int i = 0; i <= this.layers.size() - 2; i++) {
-      ArrayList<Pixel> top = layerPixels.get(i + 1); //1
-      ArrayList<Pixel> bot = layerPixels.get(i); //0
+      ArrayList<RGBPixel> top = layerPixels.get(i + 1); //1
+      ArrayList<RGBPixel> bot = layerPixels.get(i); //0
 
       for (int j = 0; j < top.size() - 1; j++) {
-        Pixel topPixel = top.get(j); //1
+        RGBPixel topPixel = top.get(j); //1
         // r g b a
         double topR = topPixel.getRed();
         double topG = topPixel.getGreen();
         double topB = topPixel.getBlue();
         double topA = topPixel.getAlpha();
 
-        Pixel botPixel = bot.get(j); //0
+        RGBPixel botPixel = bot.get(j); //0
         // dr dg db da
         double botR = botPixel.getRed();
         double botG = botPixel.getGreen();
@@ -179,14 +232,14 @@ public class Project {
         int b = (int) (((topA / 255.0) * topB + (botB * (botA / 255.0) * (1 - (topA / 255.0))))
                 * (1 / percentAlpha));
 
-        top.set(j, new Pixel(a, r, g, b));
+        top.set(j, new RGBPixel(a, r, g, b));
       }
     }
 
-    ArrayList<Pixel> condensedPixels = layerPixels.get(layerPixels.size() - 1);
+    ArrayList<RGBPixel> condensedPixels = layerPixels.get(layerPixels.size() - 1);
     StringBuilder rgbVals = new StringBuilder();
 
-    for (Pixel p : condensedPixels) {
+    for (RGBPixel p : condensedPixels) {
       p.setRed(p.getRed() * (p.getAlpha() / 255));
       p.setGreen(p.getGreen() * (p.getAlpha() / 255));
       p.setBlue(p.getBlue() * (p.getAlpha() / 255));

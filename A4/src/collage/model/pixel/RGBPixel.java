@@ -1,9 +1,9 @@
-package collage.model;
+package collage.model.pixel;
 
 /**
  * Represents a pixel within an image.
  */
-public class Pixel {
+public class RGBPixel implements IPixel {
   private int a; //alpha
   private int r; //red
   private int g; //green
@@ -17,7 +17,7 @@ public class Pixel {
    * @param g - the green value
    * @param b - the blue value
    */
-  public Pixel(int a, int r, int g, int b) throws IllegalArgumentException {
+  public RGBPixel(int a, int r, int g, int b) throws IllegalArgumentException {
     if (a < 0 || r < 0 || g < 0 || b < 0) {
       throw new IllegalArgumentException("Pixel vals cannot be negative.");
     }
@@ -30,11 +30,12 @@ public class Pixel {
   /**
    * Converts this pixel to the 3-val PPM model.
    */
-  public void convertToPPM() {
-    this.r = r * a / 255;
-    this.g = g * a / 255;
-    this.b = b * a / 255;
-    this.a = -a;
+  @Override
+  public String convertToPPMRepresentation() {
+    int red = this.r * this.a / 255;
+    int green = this.g * this.g / 255;
+    int blue = this.b * this.b / 255;
+    return red + " " + green + " " + blue;
   }
 
   /**
@@ -126,6 +127,7 @@ public class Pixel {
    *
    * @return a string of RGB vals
    */
+  @Override
   public String getVals() {
     return this.r + " " + this.g + " " + this.b + " ";
   }
