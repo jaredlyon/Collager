@@ -49,7 +49,7 @@ public class JFrameView extends JFrame implements IView, ActionListener {
             this.content.getPixels()))));
 
     // display the project layers
-    String[] layers = this.content.getLayers();
+    ArrayList<String> layers = this.content.getLayers();
     String layersOutput = "";
     for (String layer : layers) {
       layersOutput += layer + "\n";
