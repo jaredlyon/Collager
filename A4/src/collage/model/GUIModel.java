@@ -50,4 +50,12 @@ public class GUIModel extends Model {
     );
     return content;
   }
+
+  /**
+   * Selects a layer.
+   * @param layerName the name of the layer to select
+   */
+  public void selectLayer(String layerName) {
+    this.currentLayerName = layerName;
+  }
 }
