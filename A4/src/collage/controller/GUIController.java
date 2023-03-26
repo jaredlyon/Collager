@@ -27,6 +27,7 @@ public class GUIController {
       case "new-project" -> {
         try {
           this.model.newProject(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]));
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
@@ -38,6 +39,7 @@ public class GUIController {
       case "load-project" -> {
         try {
           this.model.loadProject(commands[1]);
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
@@ -49,6 +51,7 @@ public class GUIController {
       case "save-project" -> {
         try {
           this.model.saveProject(commands[1]);
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
@@ -60,6 +63,7 @@ public class GUIController {
       case "save-image" -> {
         try {
           this.model.saveImage(commands[1]);
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
@@ -71,6 +75,7 @@ public class GUIController {
       case "add-layer" -> {
         try {
           this.model.addLayer(commands[1]);
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
@@ -82,6 +87,7 @@ public class GUIController {
       case "set-filter" -> {
         try {
           this.model.setFilter(commands[1], commands[2]);
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
@@ -94,6 +100,7 @@ public class GUIController {
         try {
           this.model.addImageToLayer(commands[1], commands[2],
                   Integer.parseInt(commands[3]), Integer.parseInt(commands[4]));
+          this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
