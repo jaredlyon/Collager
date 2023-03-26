@@ -13,14 +13,16 @@ import collage.controller.GUIController;
 import collage.model.pixel.RGBPixel;
 
 public class JFrameView extends JFrame implements IView, ActionListener {
-  private GUIController controller;
+  private final GUIController controller;
+  private final JButton newProjectButton;
+  private final JButton loadProjectButton;
+  private final JButton saveProjectButton;
+  private final JButton saveImageButton;
+  private final JButton addLayerButton;
+  private final JButton selectLayerButton;
+  private final JButton setFilterButton;
+  private final JButton addImageToLayerButton;
   private RenderContent content;
-  private JButton saveProjectButton;
-  private JButton saveImageButton;
-  private JButton addLayerButton;
-  private JButton selectLayerButton;
-  private JButton setFilterButton;
-  private JButton addImageToLayerButton;
 
   public JFrameView(GUIController controller) {
     super();
@@ -64,6 +66,12 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
     buttonPanel.setBorder(BorderFactory.createTitledBorder("User Controls"));
+    this.newProjectButton = new JButton("New Project");
+    this.newProjectButton.addActionListener(this);
+    buttonPanel.add(this.newProjectButton);
+    this.loadProjectButton = new JButton("Load Project");
+    this.loadProjectButton.addActionListener(this);
+    buttonPanel.add(this.loadProjectButton);
     this.saveProjectButton = new JButton("Save Project");
     this.saveProjectButton.addActionListener(this);
     buttonPanel.add(this.saveProjectButton);
@@ -133,7 +141,31 @@ public class JFrameView extends JFrame implements IView, ActionListener {
   }
 
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == this.saveProjectButton) {
+    if (e.getSource() == this.newProjectButton) {
+      String s = (String)JOptionPane.showInputDialog(
+              this,
+              "Enter the width and height of the project, separated by a space:",
+              "New Project",
+              JOptionPane.PLAIN_MESSAGE,
+              null,
+              null,
+              "500 500");
+      if ((s != null) && (s.length() > 0)) {
+        this.controller.executeCommand("new-project " + s);
+      }
+    } else if (e.getSource() == this.loadProjectButton) {
+      String s = (String)JOptionPane.showInputDialog(
+              this,
+              "Enter file path to load project from:",
+              "Load Project",
+              JOptionPane.PLAIN_MESSAGE,
+              null,
+              null,
+              "/");
+      if ((s != null) && (s.length() > 0)) {
+        this.controller.executeCommand("load-project " + s);
+      }
+    } else if (e.getSource() == this.saveProjectButton) {
       String s = (String)JOptionPane.showInputDialog(
               this,
               "Enter file path to save project to:",
@@ -160,7 +192,7 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     } else if (e.getSource() == this.addLayerButton) {
       String s = (String)JOptionPane.showInputDialog(
               this,
-              "Layer name:",
+              "New layer name:",
               "Add Layer",
               JOptionPane.PLAIN_MESSAGE,
               null,
@@ -172,19 +204,40 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     } else if (e.getSource() == this.selectLayerButton) {
       String s = (String)JOptionPane.showInputDialog(
               this,
-              "Layer name:",
-              "Add Layer",
+              "Target layer name:",
+              "Select Layer",
               JOptionPane.PLAIN_MESSAGE,
               null,
               null,
               "");
       if ((s != null) && (s.length() > 0)) {
-        this.controller.executeCommand("add-layer " + s);
+        this.controller.executeCommand("select-layer " + s);
       }
     } else if (e.getSource() == this.setFilterButton) {
-
+      String s = (String)JOptionPane.showInputDialog(
+              this,
+              "Filter name:",
+              "Set Filter",
+              JOptionPane.PLAIN_MESSAGE,
+              null,
+              null,
+              "");
+      if ((s != null) && (s.length() > 0)) {
+        this.controller.executeCommand("set-filter " + s);
+      }
     } else if (e.getSource() == this.addImageToLayerButton) {
-
+      String s = (String)JOptionPane.showInputDialog(
+              this,
+              "Enter file path to load image from as well as target layer and" +
+                      " positional coordinates separated by spaces",
+              "Add Image to Layer",
+              JOptionPane.PLAIN_MESSAGE,
+              null,
+              null,
+              "/path/to/image.png layer-name 100 100");
+      if ((s != null) && (s.length() > 0)) {
+        this.controller.executeCommand("add-image-to-layer " + s);
+      }
     }
   }
 }
