@@ -13,7 +13,13 @@ import collage.model.pixel.RGBPixel;
 
 public class JFrameView extends JFrame implements IView {
   private RenderContent content;
-
+  private JButton saveProjectButton;
+  private JButton saveImageButton;
+  private JButton addLayerButton;
+  private JButton removeLayerButton;
+  private JButton selectLayerButton;
+  private JButton setFilterButton;
+  private JButton addImageToLayerButton;
 
   public JFrameView(IController controller) {
     super();
@@ -54,7 +60,23 @@ public class JFrameView extends JFrame implements IView {
     mainPanel.add(currentLayer);
 
     // generate the buttons for the user to interact with
-
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.setBorder(BorderFactory.createTitledBorder("User Controls"));
+    this.saveProjectButton = new JButton("Save Project");
+    buttonPanel.add(this.saveProjectButton);
+    this.saveImageButton = new JButton("Save Image");
+    buttonPanel.add(this.saveImageButton);
+    this.addLayerButton = new JButton("Add Layer");
+    buttonPanel.add(this.addLayerButton);
+    this.removeLayerButton = new JButton("Remove Layer");
+    buttonPanel.add(this.removeLayerButton);
+    this.selectLayerButton = new JButton("Select Layer");
+    buttonPanel.add(this.selectLayerButton);
+    this.setFilterButton = new JButton("Set Filter");
+    buttonPanel.add(this.setFilterButton);
+    this.addImageToLayerButton = new JButton("Add Image to Layer");
+    buttonPanel.add(this.addImageToLayerButton);
+    mainPanel.add(buttonPanel);
   }
 
   private Image createImageFromScratch(int width, int height, ArrayList<ArrayList<RGBPixel>> pixels) {
@@ -63,9 +85,7 @@ public class JFrameView extends JFrame implements IView {
     // convert pixels to 1D arrayList
     ArrayList<RGBPixel> pixels1D = new ArrayList<RGBPixel>();
     for (ArrayList<RGBPixel> row : pixels) {
-      for (RGBPixel pixel : row) {
-        pixels1D.add(pixel);
-      }
+      pixels1D.addAll(row);
     }
 
     int pixelIndex = 0;
@@ -107,6 +127,6 @@ public class JFrameView extends JFrame implements IView {
   }
 
   public void setListener(ActionListener listener) {
-    echoButton.addActionListener(listener); // Rather than adding *this* as a listener,
+    saveProjectButton.addActionListener(listener);
   }
 }
