@@ -4,12 +4,18 @@ import collage.model.GUIModel;
 import collage.view.JFrameView;
 
 /**
- * Represents the controller for the collage program.
+ * A controller designed to work with a JFrame GUI.
  */
 public class GUIController {
   private final GUIModel model;
   private final JFrameView view;
 
+  /**
+   * Generates a new instance of this GUIController.
+   * @param model - the model to use
+   * @param view - the view to use
+   * @throws IllegalArgumentException if any arguments are null
+   */
   public GUIController(GUIModel model, JFrameView view) throws IllegalArgumentException {
     if (model == null || view == null) {
       throw new IllegalArgumentException("Model, view, or input is null within controller "
@@ -20,6 +26,11 @@ public class GUIController {
     this.view = view;
   }
 
+  /**
+   * Based on a String returned from the view based on user input, instructs the model to perform.
+   * @param command - the command coming from the view
+   * @throws IllegalStateException if the model cannot perform the command
+   */
   public void executeCommand(String command) throws IllegalStateException {
     String[] commands = command.split(" ");
 
@@ -75,6 +86,18 @@ public class GUIController {
       case "add-layer" -> {
         try {
           this.model.addLayer(commands[1]);
+          this.view.updateContent(this.model.getRenderContent());
+        } catch (Exception ex) {
+          try {
+            this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
+          } catch (Exception e) {
+            throw new IllegalStateException(e);
+          }
+        }
+      }
+      case "select-layer" -> {
+        try {
+          this.model.selectLayer(commands[1]);
           this.view.updateContent(this.model.getRenderContent());
         } catch (Exception ex) {
           try {

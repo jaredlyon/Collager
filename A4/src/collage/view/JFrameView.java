@@ -12,6 +12,9 @@ import javax.swing.*;
 import collage.controller.GUIController;
 import collage.model.pixel.RGBPixel;
 
+/**
+ * Represents a class that renders the view of the collage program.
+ */
 public class JFrameView extends JFrame implements IView, ActionListener {
   private final GUIController controller;
   private final JButton newProjectButton;
@@ -24,6 +27,12 @@ public class JFrameView extends JFrame implements IView, ActionListener {
   private final JButton addImageToLayerButton;
   private RenderContent content;
 
+  /**
+   * Constructs a new JFrameView using arguments.
+   *
+   * @param controller - a controller of a collage program
+   * @throws IllegalArgumentException if the controller is null
+   */
   public JFrameView(GUIController controller) {
     super();
     this.controller = controller;
@@ -93,6 +102,14 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     mainPanel.add(buttonPanel);
   }
 
+  /**
+   * Creates an image from scratch using the given arguments.
+   *
+   * @param width - the width of the image
+   * @param height - the height of the image
+   * @param pixels - the pixels of the image
+   * @return an image created from scratch
+   */
   private Image createImageFromScratch(int width, int height, ArrayList<ArrayList<RGBPixel>> pixels) {
     BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
@@ -124,6 +141,12 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     return image;
   }
 
+  /**
+   * Renders a message to the user.
+   *
+   * @param message - the message to be rendered
+   * @throws IOException if the message cannot be rendered
+   */
   @Override
   public void renderMessage(String message) throws IOException {
     try {
@@ -133,13 +156,28 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     }
   }
 
-  public void updateContent(RenderContent content) {
-    this.removeAll();
-    this.content = content;
-    this.repaint();
-    this.revalidate();
+  /**
+   * Updates the content that the view renders for the user.
+   *
+   * @param content - the content to be rendered
+   * @throws IOException if the content cannot be rendered
+   */
+  public void updateContent(RenderContent content) throws IOException {
+    try {
+      this.removeAll();
+      this.content = content;
+      this.repaint();
+      this.revalidate();
+    } catch (Exception e) {
+      throw new IOException("Error updating content!");
+    }
   }
 
+  /**
+   * Handles the user's interaction with the buttons.
+   *
+   * @param e - the event that the user triggers
+   */
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == this.newProjectButton) {
       String s = (String)JOptionPane.showInputDialog(
