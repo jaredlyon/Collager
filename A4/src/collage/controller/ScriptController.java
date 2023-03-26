@@ -9,7 +9,7 @@ import collage.view.IView;
 /**
  * Represents the controller for the collage program.
  */
-public class Controller implements IController {
+public class ScriptController implements IController {
   private final IModel model;
   private final IView view;
   private final Readable in;
@@ -23,7 +23,7 @@ public class Controller implements IController {
    * @param in    - inputs in the form of a readable
    * @throws IllegalArgumentException if any arguments are null
    */
-  public Controller(IModel model, IView view, Readable in)
+  public ScriptController(IModel model, IView view, Readable in)
           throws IllegalArgumentException {
     if (model == null || view == null || in == null) {
       throw new IllegalArgumentException("Model, view, or input is null within controller "

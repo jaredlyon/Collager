@@ -1,6 +1,6 @@
 import java.io.InputStreamReader;
 
-import collage.controller.Controller;
+import collage.controller.ScriptController;
 import collage.controller.IController;
 import collage.model.IModel;
 import collage.model.Model;
@@ -19,7 +19,7 @@ public final class Main {
     IModel model = new Model();
     IView view = new View(model);
     Readable in = new InputStreamReader(System.in);
-    IController controller = new Controller(model, view, in);
+    IController controller = new ScriptController(model, view, in);
     controller.startCollage();
   }
 }

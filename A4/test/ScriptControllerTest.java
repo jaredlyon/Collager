@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import java.io.StringReader;
 
-import collage.controller.Controller;
+import collage.controller.ScriptController;
 import collage.controller.IController;
 import collage.model.IModel;
 import collage.model.Model;
@@ -15,7 +15,7 @@ import static org.junit.Assert.fail;
 /**
  * Represents the test suite for the controller.
  */
-public class ControllerTest {
+public class ScriptControllerTest {
 
   @Test
   public void testFullScript1() {
@@ -26,7 +26,7 @@ public class ControllerTest {
     Appendable log = new StringBuilder();
     IModel model = new Model();
     IView view = new View(model, log);
-    IController controller = new Controller(model, view, in);
+    IController controller = new ScriptController(model, view, in);
 
     try {
       controller.startCollage();
@@ -63,7 +63,7 @@ public class ControllerTest {
     Appendable log = new StringBuilder();
     IModel model = new Model();
     IView view = new View(model, log);
-    IController controller = new Controller(model, view, in);
+    IController controller = new ScriptController(model, view, in);
 
     try {
       controller.startCollage();
