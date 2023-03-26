@@ -132,14 +132,7 @@ public class Project {
     return this.maxVal;
   }
 
-  /**
-   * Saves this project to a file.
-   *
-   * @param filename - the filepath
-   * @throws IllegalArgumentException if the filepath is null
-   * @throws IllegalStateException    if there are no layers or the layers dont match dimensions
-   */
-  public void saveImage(String filename) throws IllegalArgumentException, IllegalStateException {
+  private ArrayList<ArrayList<RGBPixel>> buildImage() {
     // Check if the project can be condensed
     if (layers.size() == 0) {
       throw new IllegalStateException("Project has no layers.");
@@ -155,8 +148,8 @@ public class Project {
       }
     }
 
-    // TODO: assert somewhere that 2-layer-dependent filters cant be applied to the 0 index layer
-    // apply the filters
+    // a project will always have at least 1 layer
+    ArrayList<ArrayList<RGBPixel>> curImage = this.layers.get(0).getPixels();
     for (int i = 0; i < layers.size(); i++) {
       Layer curLayer = layers.get(i);
       IFilter filter = null;
@@ -192,74 +185,86 @@ public class Project {
           filter = new DarkenLumaFilter(curLayer.getPixels());
           break;
         case "DIFFERENCE":
-          filter = new DifferenceFilter(curLayer.getPixels(), this.layers.get(i - 1));
+          if (i == 0) {
+            throw new IllegalStateException("Difference filter cannot be applied to the " +
+                    "first layer.");
+          }
+          filter = new DifferenceFilter(curLayer.getPixels(), curImage);
           break;
         case "MULTIPLY":
-          filter = new MultiplyFilter(curLayer.getPixels(), this.layers.get(i - 1));
+          if (i == 0) {
+            throw new IllegalStateException("Multiply filter cannot be applied to the " +
+                    "first layer.");
+          }
+          filter = new MultiplyFilter(curLayer.getPixels(), curImage);
           break;
         case "SCREEN":
-          filter = new ScreenFilter(curLayer.getPixels(), this.layers.get(i - 1));
+          if (i == 0) {
+            throw new IllegalStateException("Screen filter cannot be applied to the " +
+                    "first layer.");
+          }
+          filter = new ScreenFilter(curLayer.getPixels(), curImage);
           break;
         default:
-          throw new IllegalStateException("Layer does not have a filter!");
+          throw new IllegalStateException("Invalid filter");
       }
 
-      ArrayList<ArrayList<RGBPixel>> newPixels = filter.apply();
-      curLayer.setPixels(newPixels);
-    }
+      if (filter != null) {
+        ArrayList<ArrayList<RGBPixel>> curImageOnLayer = filter.apply();
 
-
-    for (Layer layer : layers) {
-      layer.filter.apply();
-    }
-
-    ArrayList<ArrayList<RGBPixel>> layerPixels = new ArrayList<ArrayList<RGBPixel>>();
-    for (Layer layer : layers) {
-      layerPixels.add(layer.getRawPixels());
-    }
-
-    for (int i = 0; i <= this.layers.size() - 2; i++) {
-      ArrayList<RGBPixel> top = layerPixels.get(i + 1); //1
-      ArrayList<RGBPixel> bot = layerPixels.get(i); //0
-
-      for (int j = 0; j < top.size() - 1; j++) {
-        RGBPixel topPixel = top.get(j); //1
-        // r g b a
-        double topR = topPixel.getRed();
-        double topG = topPixel.getGreen();
-        double topB = topPixel.getBlue();
-        double topA = topPixel.getAlpha();
-
-        RGBPixel botPixel = bot.get(j); //0
-        // dr dg db da
-        double botR = botPixel.getRed();
-        double botG = botPixel.getGreen();
-        double botB = botPixel.getBlue();
-        double botA = botPixel.getAlpha();
-
-        // a''
-        double percentAlpha = ((topA / 255.0) + (botA / 255.0) * (1 - (topA / 255.0)));
-        // r' b' g' a'
-        int a = (int) percentAlpha * 255;
-        int r = (int) (((topA / 255.0) * topR + (botR * (botA / 255.0) * (1 - (topA / 255.0))))
-                * (1 / percentAlpha));
-        int g = (int) (((topA / 255.0) * topG + (botG * (botA / 255.0) * (1 - (topA / 255.0))))
-                * (1 / percentAlpha));
-        int b = (int) (((topA / 255.0) * topB + (botB * (botA / 255.0) * (1 - (topA / 255.0))))
-                * (1 / percentAlpha));
-
-        top.set(j, new RGBPixel(a, r, g, b));
+        // add the current image to the cumulative image
+        ArrayList<ArrayList<RGBPixel>> newImage = new ArrayList<>();
+        for (int j = 0; j < curImageOnLayer.size(); j++) {
+          ArrayList<RGBPixel> newRow = new ArrayList<>();
+          for (int k = 0; k < curImageOnLayer.get(j).size(); k++) {
+            RGBPixel curPixel = curImageOnLayer.get(j).get(k);
+            RGBPixel botPixel = curImage.get(j).get(k);
+            int topAlpha = curPixel.getAlpha();
+            int topRed = curPixel.getRed();
+            int topGreen = curPixel.getGreen();
+            int topBlue = curPixel.getBlue();
+            int botAlpha = botPixel.getAlpha();
+            int botRed = botPixel.getRed();
+            int botGreen = botPixel.getGreen();
+            int botBlue = botPixel.getBlue();
+            int alphaPrimePrime = (topAlpha / 255 + botAlpha / 255 * (1 - (topAlpha / 255)));
+            int alphaPrime = alphaPrimePrime * 255;
+            int redPrime = (topAlpha / 255 * topRed
+                    + botRed * botAlpha / 255 * (1 - (topAlpha / 255))) / alphaPrimePrime;
+            int greenPrime = (topAlpha / 255 * topGreen
+                    + botGreen * botAlpha / 255 * (1 - (topAlpha / 255))) / alphaPrimePrime;
+            int bluePrime = (topAlpha / 255 * topBlue
+                    + botBlue * botAlpha / 255 * (1 - (topAlpha / 255))) / alphaPrimePrime;
+            RGBPixel newPixel = new RGBPixel(alphaPrime, redPrime, greenPrime, bluePrime);
+            newRow.add(newPixel);
+          }
+          newImage.add(newRow);
+        }
+        curImage = newImage;
       }
     }
+    return curImage;
+  }
 
-    ArrayList<RGBPixel> condensedPixels = layerPixels.get(layerPixels.size() - 1);
+  /**
+   * Saves this project to a file.
+   *
+   * @param filename - the filepath
+   * @throws IllegalArgumentException if the filepath is null
+   * @throws IllegalStateException    if there are no layers or the layers dont match dimensions
+   */
+  public void saveImage(String filename) throws IllegalArgumentException, IllegalStateException {
+    ArrayList<ArrayList<RGBPixel>> image = this.buildImage();
+
     StringBuilder rgbVals = new StringBuilder();
-
-    for (RGBPixel p : condensedPixels) {
-      p.setRed(p.getRed() * (p.getAlpha() / 255));
-      p.setGreen(p.getGreen() * (p.getAlpha() / 255));
-      p.setBlue(p.getBlue() * (p.getAlpha() / 255));
-      rgbVals.append(p.getVals());
+    for (ArrayList<RGBPixel> row : image) {
+      for (RGBPixel p : row) {
+        int alpha = p.getAlpha();
+        p.setRed(p.getRed() * (alpha / 255));
+        p.setGreen(p.getGreen() * (alpha / 255));
+        p.setBlue(p.getBlue() * (alpha / 255));
+        rgbVals.append(p.getVals());
+      }
     }
 
     // save the file

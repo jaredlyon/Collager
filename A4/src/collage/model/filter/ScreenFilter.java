@@ -2,6 +2,8 @@ package collage.model.filter;
 
 import java.util.ArrayList;
 
+import collage.Utils;
+import collage.model.pixel.HSLPixel;
 import collage.model.pixel.RGBPixel;
 
 /**
@@ -9,17 +11,22 @@ import collage.model.pixel.RGBPixel;
  */
 public class ScreenFilter implements IFilter {
   private ArrayList<ArrayList<RGBPixel>> topImage;
-  private ArrayList<ArrayList<RGBPixel>> botImage;
+  private ArrayList<ArrayList<RGBPixel>> botImageCumulative;
 
   /**
    * Constructs a ScreenFilter.
    * @param topImage the top layer
-   * @param botImage the bottom layer
+   * @param botImageCumulative the bottom layer
    */
   public ScreenFilter(ArrayList<ArrayList<RGBPixel>> topImage,
-                        ArrayList<ArrayList<RGBPixel>> botImage) {
+                        ArrayList<ArrayList<RGBPixel>> botImageCumulative) {
+    // assert that the images are the same size
+    if (topImage.size() != botImageCumulative.size()
+            || topImage.get(0).size() != botImageCumulative.get(0).size()) {
+      throw new IllegalArgumentException("The images are not the same size.");
+    }
     this.topImage = topImage;
-    this.botImage = botImage;
+    this.botImageCumulative = botImageCumulative;
   }
 
   /**
@@ -29,7 +36,18 @@ public class ScreenFilter implements IFilter {
    */
   @Override
   public ArrayList<ArrayList<RGBPixel>> apply() {
-
+    ArrayList<ArrayList<RGBPixel>> newImage = new ArrayList<>();
+    for (int i = 0; i < topImage.size(); i++) {
+      ArrayList<RGBPixel> row = new ArrayList<>();
+      for (int j = 0; j < topImage.get(i).size(); j++) {
+        RGBPixel p1 = topImage.get(i).get(j);
+        RGBPixel p2 = botImageCumulative.get(i).get(j);
+        RGBPixel newPixel = this.generateNewPixel(p1, p2);
+        row.add(newPixel);
+      }
+      newImage.add(row);
+    }
+    return newImage;
   }
 
   /**
@@ -39,6 +57,15 @@ public class ScreenFilter implements IFilter {
    * @return a new filtered pixel
    */
   private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2) {
-
+    HSLPixel hsl1 = Utils.RGBToHSL(p1);
+    HSLPixel hsl2 = Utils.RGBToHSL(p2);
+    double newLightness = 1 - ((1 - hsl1.getLightness()) * (1 - hsl2.getLightness()));
+    HSLPixel transformedPixelHSL = new HSLPixel(
+            hsl1.getHue(),
+            hsl1.getSaturation(),
+            newLightness
+    );
+    RGBPixel newPixel = Utils.HSLToRGB(transformedPixelHSL);
+    return newPixel;
   }
 }

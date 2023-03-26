@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="" />
+    <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/filter/DifferenceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/filter/DifferenceFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/filter/IFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/filter/IFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/filter/MultiplyFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/filter/MultiplyFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/filter/ScreenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/filter/ScreenFilter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +132,7 @@
       <workItem from="1679171845044" duration="9220000" />
       <workItem from="1679442320480" duration="92000" />
       <workItem from="1679442428316" duration="6955000" />
+      <workItem from="1679858381871" duration="7110000" />
     </task>
     <servers />
   </component>
