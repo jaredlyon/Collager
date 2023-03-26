@@ -10,15 +10,15 @@ import collage.model.pixel.RGBPixel;
 public class RenderContent {
   private int width;
   private int height;
-  private String[] layers;
+  private ArrayList<String> layerNames;
   private String currentLayer;
   private ArrayList<ArrayList<RGBPixel>> pixels;
 
-  RenderContent(int width, int height, String[] layers, String currentLayer,
+  public RenderContent(int width, int height, ArrayList<String> layerNames, String currentLayer,
                 ArrayList<ArrayList<RGBPixel>> pixels) {
     this.width = width;
     this.height = height;
-    this.layers = layers;
+    this.layerNames = layerNames;
     this.currentLayer = currentLayer;
     this.pixels = pixels;
   }
@@ -31,8 +31,8 @@ public class RenderContent {
     return this.height;
   }
 
-  public String[] getLayers() {
-    return this.layers;
+  public ArrayList<String> getLayers() {
+    return this.layerNames;
   }
 
   public String getCurrentLayer() {

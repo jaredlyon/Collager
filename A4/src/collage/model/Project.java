@@ -132,7 +132,12 @@ public class Project {
     return this.maxVal;
   }
 
-  private ArrayList<ArrayList<RGBPixel>> buildImage() {
+  /**
+   * Builds the current image of this project.
+   *
+   * @return an ArrayList of ArrayList of RGBPixel
+   */
+  public ArrayList<ArrayList<RGBPixel>> buildImage() {
     // Check if the project can be condensed
     if (layers.size() == 0) {
       throw new IllegalStateException("Project has no layers.");

@@ -1,16 +1,16 @@
 package collage.controller;
 
-import collage.model.IModel;
+import collage.model.GUIModel;
 import collage.view.JFrameView;
 
 /**
  * Represents the controller for the collage program.
  */
 public class GUIController {
-  private final IModel model;
+  private final GUIModel model;
   private final JFrameView view;
 
-  public GUIController(IModel model, JFrameView view) throws IllegalArgumentException {
+  public GUIController(GUIModel model, JFrameView view) throws IllegalArgumentException {
     if (model == null || view == null) {
       throw new IllegalArgumentException("Model, view, or input is null within controller "
               + "implementation!");
