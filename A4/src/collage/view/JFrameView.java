@@ -48,7 +48,7 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     JScrollPane mainScrollPane = new JScrollPane(mainPanel);
     add(mainScrollPane);
 
-    if (this.content != null) {
+    try {
       // show the composite image with a scrollbar
       JPanel imagePanel = new JPanel();
       imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
@@ -71,11 +71,8 @@ public class JFrameView extends JFrame implements IView, ActionListener {
       JTextArea currentLayer = new JTextArea(this.content.getCurrentLayer());
       currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
       mainPanel.add(currentLayer);
-    } else {
-      // tell the user that there is no project loaded
-      JTextArea noProject = new JTextArea("No project loaded.");
-      noProject.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-      mainPanel.add(noProject);
+    } catch (Exception e) {
+      // do nothing
     }
 
     // generate the buttons for the user to interact with
@@ -181,12 +178,13 @@ public class JFrameView extends JFrame implements IView, ActionListener {
    */
   public void updateContent(RenderContent content) throws IOException {
     try {
-      this.removeAll();
       this.content = content;
+      this.invalidate();
+      this.validate();
       this.repaint();
-      this.revalidate();
+      SwingUtilities.updateComponentTreeUI(this);
     } catch (Exception e) {
-      throw new IOException("Error updating content!");
+      this.renderMessage("Failed with error trace: " + e.getMessage());
     }
   }
 
