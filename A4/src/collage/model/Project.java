@@ -155,7 +155,7 @@ public class Project {
 
     // a project will always have at least 1 layer
     ArrayList<ArrayList<RGBPixel>> curImage = this.layers.get(0).getPixels();
-    for (int i = 0; i < layers.size(); i++) {
+    for (int i = 0; i < layers.size() - 1; i++) {
       Layer curLayer = layers.get(i);
       IFilter filter = null;
       switch (curLayer.getFilter()) {
