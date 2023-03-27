@@ -48,33 +48,6 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     JScrollPane mainScrollPane = new JScrollPane(mainPanel);
     add(mainScrollPane);
 
-    try {
-      // show the composite image with a scrollbar
-      JPanel imagePanel = new JPanel();
-      imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
-      mainPanel.add(imagePanel);
-      imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
-              this.content.getHeight(),
-              this.content.getPixels()))));
-
-      // display the project layers
-      ArrayList<String> layers = this.content.getLayers();
-      String layersOutput = "";
-      for (String layer : layers) {
-        layersOutput += layer + "\n";
-      }
-      JTextArea layerText = new JTextArea(layersOutput);
-      layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-      mainPanel.add(layerText);
-
-      // tell the use which layer they're currently on
-      JTextArea currentLayer = new JTextArea(this.content.getCurrentLayer());
-      currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
-      mainPanel.add(currentLayer);
-    } catch (Exception e) {
-      // do nothing
-    }
-
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
     buttonPanel.setBorder(BorderFactory.createTitledBorder("User Controls"));
@@ -105,6 +78,36 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     mainPanel.add(buttonPanel);
     this.setVisible(true);
   }
+
+  private void render() {
+    JPanel mainPanel = new JPanel();
+    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+    JScrollPane mainScrollPane = new JScrollPane(mainPanel);
+    add(mainScrollPane);
+    // show the composite image with a scrollbar
+    JPanel imagePanel = new JPanel();
+    imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
+    mainPanel.add(imagePanel);
+    imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
+            this.content.getHeight(),
+            this.content.getPixels()))));
+
+    // display the project layers
+    ArrayList<String> layers = this.content.getLayers();
+    String layersOutput = "";
+    for (String layer : layers) {
+      layersOutput += layer + "\n";
+    }
+    JTextArea layerText = new JTextArea(layersOutput);
+    layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
+    mainPanel.add(layerText);
+
+    // tell the use which layer they're currently on
+    JTextArea currentLayer = new JTextArea(this.content.getCurrentLayer());
+    currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
+    mainPanel.add(currentLayer);
+  }
+
 
   /**
    * Sets the controller of this view.
@@ -182,6 +185,7 @@ public class JFrameView extends JFrame implements IView, ActionListener {
       this.invalidate();
       this.validate();
       this.repaint();
+      this.render();
       SwingUtilities.updateComponentTreeUI(this);
     } catch (Exception e) {
       this.renderMessage("Failed with error trace: " + e.getMessage());
