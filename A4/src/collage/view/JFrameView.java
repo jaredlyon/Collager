@@ -42,12 +42,6 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(1200, 1200);
 
-    // configure the frame with scrollers
-    JPanel mainPanel = new JPanel();
-    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-    JScrollPane mainScrollPane = new JScrollPane(mainPanel);
-    add(mainScrollPane);
-
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
     buttonPanel.setBorder(BorderFactory.createTitledBorder("User Controls"));
@@ -75,22 +69,36 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     this.addImageToLayerButton = new JButton("Add Image to Layer");
     this.addImageToLayerButton.addActionListener(this);
     buttonPanel.add(this.addImageToLayerButton);
-    mainPanel.add(buttonPanel);
+    this.add(buttonPanel);
     this.setVisible(true);
   }
 
+  /**
+   * Updates the content that the view renders for the user.
+   *
+   * @param content - the content to be rendered
+   * @throws IOException if the content cannot be rendered
+   */
+  public void updateContent(RenderContent content) throws IOException {
+    try {
+      this.content = content;
+      this.render();
+    } catch (Exception e) {
+      throw new IOException("The content could not be rendered");
+    }
+  }
+
+  /**
+   * Renders the collager data to the user.
+   */
   private void render() {
-    JPanel mainPanel = new JPanel();
-    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-    JScrollPane mainScrollPane = new JScrollPane(mainPanel);
-    add(mainScrollPane);
     // show the composite image with a scrollbar
     JPanel imagePanel = new JPanel();
     imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
-    mainPanel.add(imagePanel);
     imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
             this.content.getHeight(),
             this.content.getPixels()))));
+    this.add(imagePanel);
 
     // display the project layers
     ArrayList<String> layers = this.content.getLayers();
@@ -98,16 +106,22 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     for (String layer : layers) {
       layersOutput += layer + "\n";
     }
-    JTextArea layerText = new JTextArea(layersOutput);
+    JLabel layerText = new JLabel(layersOutput);
     layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-    mainPanel.add(layerText);
+    this.add(layerText);
 
     // tell the use which layer they're currently on
-    JTextArea currentLayer = new JTextArea(this.content.getCurrentLayer());
+    JLabel currentLayer = new JLabel(this.content.getCurrentLayer());
     currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
-    mainPanel.add(currentLayer);
-  }
+    this.add(currentLayer);
 
+    try {
+      this.repaint();
+      this.setVisible(true);
+    } catch (Exception e) {
+      System.out.println("Could not repaint");
+    }
+  }
 
   /**
    * Sets the controller of this view.
@@ -170,25 +184,6 @@ public class JFrameView extends JFrame implements IView, ActionListener {
       JOptionPane.showMessageDialog(this, message);
     } catch (Exception e) {
       throw new IOException("Error rendering message");
-    }
-  }
-
-  /**
-   * Updates the content that the view renders for the user.
-   *
-   * @param content - the content to be rendered
-   * @throws IOException if the content cannot be rendered
-   */
-  public void updateContent(RenderContent content) throws IOException {
-    try {
-      this.content = content;
-      this.invalidate();
-      this.validate();
-      this.repaint();
-      this.render();
-      SwingUtilities.updateComponentTreeUI(this);
-    } catch (Exception e) {
-      this.renderMessage("Failed with error trace: " + e.getMessage());
     }
   }
 
