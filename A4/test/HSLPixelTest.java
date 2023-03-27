@@ -9,7 +9,6 @@ import static org.junit.Assert.assertEquals;
  * Represents the test suite for the HSLPixel class.
  */
 public class HSLPixelTest {
-
   private HSLPixel p1;
 
   @Before
@@ -34,7 +33,8 @@ public class HSLPixelTest {
 
   @Test
   public void testConvertToPPMRepresentation() {
-    // TODO: implement
+    HSLPixel pixel = new HSLPixel(306.2, 78.4, 14.5);
+    assertEquals("66 8 60", pixel.convertToPPMRepresentation());
   }
 
   @Test

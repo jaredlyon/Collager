@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/collage/view/JFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/JFrameView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/FilterTests/BlueComponentFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GUIModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GUIModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/HSLPixelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/HSLPixelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GUICollage">
+  <component name="RunManager" selected="JUnit.HSLPixelTest.testConvertToPPMRepresentation">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
@@ -85,21 +88,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HSLPixelTest.testConvertToPPMRepresentation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HSLPixelTest" />
+      <option name="METHOD_NAME" value="testConvertToPPMRepresentation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LayerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProjectTest.testSaveImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectTest" />
-      <option name="METHOD_NAME" value="testSaveImage" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,19 +125,19 @@
     <list>
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.HSLPixelTest.testConvertToPPMRepresentation" />
       <item itemvalue="JUnit.All in A4" />
       <item itemvalue="JUnit.ControllerTest.testFullScript1" />
       <item itemvalue="JUnit.LayerTest" />
-      <item itemvalue="JUnit.ProjectTest.testSaveImage" />
       <item itemvalue="JUnit.ProjectTest.testSaveImageNullFilename" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HSLPixelTest.testConvertToPPMRepresentation" />
         <item itemvalue="JUnit.All in A4" />
         <item itemvalue="JUnit.ProjectTest.testSaveImageNullFilename" />
         <item itemvalue="JUnit.LayerTest" />
         <item itemvalue="JUnit.ControllerTest.testFullScript1" />
-        <item itemvalue="JUnit.ProjectTest.testSaveImage" />
       </list>
     </recent_temporary>
   </component>
@@ -152,6 +155,7 @@
       <workItem from="1679442320480" duration="92000" />
       <workItem from="1679442428316" duration="6955000" />
       <workItem from="1679858381871" duration="7110000" />
+      <workItem from="1679959405065" duration="1339000" />
     </task>
     <servers />
   </component>
