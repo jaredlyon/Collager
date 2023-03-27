@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/GUIModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/view/RenderContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/RenderContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +57,20 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in A4">
+  <component name="RunManager" selected="Application.GUICollage">
+    <configuration name="GUICollage" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="A4" />
+      <option name="PROGRAM_PARAMETERS" value="gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -106,6 +115,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.GUICollage" />
+      <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.All in A4" />
+      <item itemvalue="JUnit.ControllerTest.testFullScript1" />
+      <item itemvalue="JUnit.LayerTest" />
+      <item itemvalue="JUnit.ProjectTest.testSaveImage" />
+      <item itemvalue="JUnit.ProjectTest.testSaveImageNullFilename" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in A4" />
