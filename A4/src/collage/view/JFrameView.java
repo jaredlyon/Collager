@@ -14,9 +14,13 @@ import collage.model.pixel.RGBPixel;
 
 /**
  * Represents a class that renders the view of the collage program.
+ * This class is a JFrame that contains a JPanel with a JLabel that contains an image.
+ * The image is generated from the RenderContent object.
+ * This view DOES NOT interact with the model in any way, all actions and data must instead be
+ * passed through the controller in order to prevent unwanted mutable errors.
  */
 public class JFrameView extends JFrame implements IView, ActionListener {
-  private final GUIController controller;
+  private GUIController controller;
   private final JButton newProjectButton;
   private final JButton loadProjectButton;
   private final JButton saveProjectButton;
@@ -28,20 +32,15 @@ public class JFrameView extends JFrame implements IView, ActionListener {
   private RenderContent content;
 
   /**
-   * Constructs a new JFrameView using arguments.
-   *
-   * @param controller - a controller of a collage program
-   * @throws IllegalArgumentException if the controller is null
+   * Constructs a new JFrameView.
    */
-  public JFrameView(GUIController controller) {
+  public JFrameView() {
     super();
-    this.controller = controller;
 
     // generate the base frame
     this.setTitle("Collager");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(6000, 1200);
-    this.setVisible(true);
+    this.setSize(1200, 1200);
 
     // configure the frame with scrollers
     JPanel mainPanel = new JPanel();
@@ -49,28 +48,35 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     JScrollPane mainScrollPane = new JScrollPane(mainPanel);
     add(mainScrollPane);
 
-    // show the composite image with a scrollbar
-    JPanel imagePanel = new JPanel();
-    imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
-    mainPanel.add(imagePanel);
-    imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
-            this.content.getHeight(),
-            this.content.getPixels()))));
+    if (this.content != null) {
+      // show the composite image with a scrollbar
+      JPanel imagePanel = new JPanel();
+      imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
+      mainPanel.add(imagePanel);
+      imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
+              this.content.getHeight(),
+              this.content.getPixels()))));
 
-    // display the project layers
-    ArrayList<String> layers = this.content.getLayers();
-    String layersOutput = "";
-    for (String layer : layers) {
-      layersOutput += layer + "\n";
+      // display the project layers
+      ArrayList<String> layers = this.content.getLayers();
+      String layersOutput = "";
+      for (String layer : layers) {
+        layersOutput += layer + "\n";
+      }
+      JTextArea layerText = new JTextArea(layersOutput);
+      layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
+      mainPanel.add(layerText);
+
+      // tell the use which layer they're currently on
+      JTextArea currentLayer = new JTextArea(this.content.getCurrentLayer());
+      currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
+      mainPanel.add(currentLayer);
+    } else {
+      // tell the user that there is no project loaded
+      JTextArea noProject = new JTextArea("No project loaded.");
+      noProject.setBorder(BorderFactory.createTitledBorder("Project Layers"));
+      mainPanel.add(noProject);
     }
-    JTextArea layerText = new JTextArea(layersOutput);
-    layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-    mainPanel.add(layerText);
-
-    // tell the use which layer they're currently on
-    JTextArea currentLayer = new JTextArea(this.content.getCurrentLayer());
-    currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
-    mainPanel.add(currentLayer);
 
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
@@ -100,6 +106,17 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     this.addImageToLayerButton.addActionListener(this);
     buttonPanel.add(this.addImageToLayerButton);
     mainPanel.add(buttonPanel);
+    this.setVisible(true);
+  }
+
+  /**
+   * Sets the controller of this view.
+   *
+   * @param controller - the controller of this view
+   * @throws IllegalArgumentException if the controller is null
+   */
+  public void setController(GUIController controller) {
+    this.controller = controller;
   }
 
   /**
