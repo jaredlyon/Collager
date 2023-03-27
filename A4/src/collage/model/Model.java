@@ -1,5 +1,7 @@
 package collage.model;
 
+import java.io.IOException;
+
 /**
  * Represents the model of the collage program.
  */
@@ -26,7 +28,7 @@ public class Model implements IModel {
    * @throws IllegalArgumentException if the filename is null
    */
   @Override
-  public void loadProject(String filename) throws IllegalArgumentException {
+  public void loadProject(String filename) throws IllegalArgumentException, IOException {
     if (filename == null) {
       throw new IllegalArgumentException("File cannot be null.");
     }

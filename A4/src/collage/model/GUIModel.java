@@ -1,5 +1,6 @@
 package collage.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import collage.view.RenderContent;
@@ -16,7 +17,7 @@ public class GUIModel extends Model {
    * @param fileName the name of the file to load
    * @throws IllegalArgumentException if the file name is null
    */
-  public void loadProject(String fileName) throws IllegalArgumentException {
+  public void loadProject(String fileName) throws IllegalArgumentException, IOException {
     super.loadProject(fileName);
     this.currentLayerName = this.project.getLayers().get(-1).getName();
   }

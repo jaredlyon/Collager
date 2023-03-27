@@ -1,5 +1,7 @@
 package collage.model;
 
+import java.io.IOException;
+
 /**
  * Represents the model for the collage project.
  */
@@ -21,7 +23,7 @@ public interface IModel {
    * @param filename - the new name of the file
    * @throws IllegalArgumentException if the file does not exist
    */
-  void loadProject(String filename) throws IllegalArgumentException;
+  void loadProject(String filename) throws IllegalArgumentException, IOException;
 
   /**
    * Saves the existing project to a file.
