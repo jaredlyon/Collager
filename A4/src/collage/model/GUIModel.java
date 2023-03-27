@@ -18,7 +18,8 @@ public class GUIModel extends Model {
    */
   public void loadProject(String fileName) throws IllegalArgumentException {
     super.loadProject(fileName);
-    this.currentLayerName = this.project.getLayers().get(-1).getName();
+    this.currentLayerName = this.project.getLayers().get(
+            this.project.getLayers().size() - 1).getName();
   }
 
   /**

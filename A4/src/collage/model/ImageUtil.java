@@ -22,6 +22,7 @@ public class ImageUtil {
     try {
       sc = new Scanner(new FileInputStream(filename));
     } catch (FileNotFoundException e) {
+      System.out.println(System.getProperty("user.dir"));
       System.out.println("File " + filename + " not found!");
       return null;
     }
