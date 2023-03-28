@@ -4,15 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import collage.model.filter.RedComponentFilter;
+import collage.model.filter.NormalFilter;
 import collage.model.filter.IFilter;
 import collage.model.pixel.RGBPixel;
 
 /**
- * Tests the RedComponentFilter class.
+ * Tests the NormalFilter class.
  */
-public class RedComponentFilterTest {
-
+public class NormalFilterTest {
   /**
    * Tests the apply method.
    */
@@ -26,12 +25,12 @@ public class RedComponentFilterTest {
     image.add(row);
     ArrayList<ArrayList<RGBPixel>> expectedImage = new ArrayList<>();
     ArrayList<RGBPixel> expectedRow = new ArrayList<>();
-    row.add(new RGBPixel(1, 255, 0, 0));
-    row.add(new RGBPixel(1, 255, 0, 0));
-    row.add(new RGBPixel(1, 255, 0, 0));
+    row.add(new RGBPixel(1, 255, 255, 255));
+    row.add(new RGBPixel(1, 255, 255, 255));
+    row.add(new RGBPixel(1, 255, 255, 255));
     expectedImage.add(expectedRow);
     expectedImage.add(row);
-    IFilter filter = new RedComponentFilter(image);
+    IFilter filter = new NormalFilter(image);
     ArrayList<ArrayList<RGBPixel>> newImage = filter.apply();
     assertEquals(expectedImage, newImage);
   }
