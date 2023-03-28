@@ -6,9 +6,9 @@ import collage.controller.IController;
 import collage.model.GUIModel;
 import collage.model.IModel;
 import collage.model.Model;
-import collage.view.IView;
-import collage.view.JFrameView;
-import collage.view.View;
+import collage.view.IScriptView;
+import collage.view.JFrameScriptView;
+import collage.view.ScriptView;
 
 /**
  * Represents the main method for the collage program.
@@ -23,13 +23,13 @@ public final class Main {
       for (String argument : args) {
         if (argument.equals("script")) {
           IModel model = new Model();
-          IView view = new View(model);
+          IScriptView view = new ScriptView(model);
           Readable in = new InputStreamReader(System.in);
           IController controller = new ScriptController(model, view, in);
           controller.startCollage();
         } else if (argument.equals("gui")) {
           GUIModel model = new GUIModel();
-          JFrameView view = new JFrameView();
+          JFrameScriptView view = new JFrameScriptView();
           GUIController controller = new GUIController(model, view);
           view.setController(controller);
         }

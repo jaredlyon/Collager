@@ -19,7 +19,7 @@ import collage.model.pixel.RGBPixel;
  * This view DOES NOT interact with the model in any way, all actions and data must instead be
  * passed through the controller in order to prevent unwanted mutable errors.
  */
-public class JFrameView extends JFrame implements IView, ActionListener {
+public class JFrameScriptView extends JFrame implements IGUIView, ActionListener {
   private GUIController controller;
   private final JButton newProjectButton;
   private final JButton loadProjectButton;
@@ -37,17 +37,19 @@ public class JFrameView extends JFrame implements IView, ActionListener {
   /**
    * Constructs a new JFrameView.
    */
-  public JFrameView() {
+  public JFrameScriptView() {
     super();
 
     // generate the base frame
     this.setTitle("Collager");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(1200, 1200);
-    this.setLayout(new GridLayout(5, 1));
+    this.setLayout(new GridLayout(4, 1));
+    // this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
+    buttonPanel.setSize(new Dimension(1200, 100));
     buttonPanel.setBorder(BorderFactory.createTitledBorder("User Controls"));
     this.newProjectButton = new JButton("New Project");
     this.newProjectButton.addActionListener(this);
@@ -77,16 +79,19 @@ public class JFrameView extends JFrame implements IView, ActionListener {
 
     // show the composite image field
     this.imagePanel = new JPanel();
+    this.imagePanel.setSize(new Dimension(1200, 900));
     this.imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
     this.add(this.imagePanel);
 
     // display the project layers
     this.layerText = new JLabel("No layers yet");
+    this.layerText.setSize(new Dimension(1200, 100));
     this.layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
     this.add(this.layerText);
 
     // tell the use which layer they're currently on
     this.currentLayer = new JLabel("No layer selected");
+    this.currentLayer.setSize(new Dimension(1200, 100));
     this.currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
     this.add(this.currentLayer);
 

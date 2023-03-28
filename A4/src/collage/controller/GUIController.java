@@ -1,14 +1,14 @@
 package collage.controller;
 
 import collage.model.GUIModel;
-import collage.view.JFrameView;
+import collage.view.JFrameScriptView;
 
 /**
  * A controller designed to work with a JFrame GUI.
  */
-public class GUIController {
+public class GUIController implements IGUIController {
   private final GUIModel model;
-  private final JFrameView view;
+  private final JFrameScriptView view;
 
   /**
    * Generates a new instance of this GUIController.
@@ -16,7 +16,7 @@ public class GUIController {
    * @param view - the view to use
    * @throws IllegalArgumentException if any arguments are null
    */
-  public GUIController(GUIModel model, JFrameView view) throws IllegalArgumentException {
+  public GUIController(GUIModel model, JFrameScriptView view) throws IllegalArgumentException {
     if (model == null || view == null) {
       throw new IllegalArgumentException("Model, view, or input is null within controller "
               + "implementation!");

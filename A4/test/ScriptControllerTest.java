@@ -6,8 +6,8 @@ import collage.controller.ScriptController;
 import collage.controller.IController;
 import collage.model.IModel;
 import collage.model.Model;
-import collage.view.IView;
-import collage.view.View;
+import collage.view.IScriptView;
+import collage.view.ScriptView;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -25,7 +25,7 @@ public class ScriptControllerTest {
             "quit\n"); // quit
     Appendable log = new StringBuilder();
     IModel model = new Model();
-    IView view = new View(model, log);
+    IScriptView view = new ScriptView(model, log);
     IController controller = new ScriptController(model, view, in);
 
     try {
@@ -62,7 +62,7 @@ public class ScriptControllerTest {
             "quit\n"); // quit
     Appendable log = new StringBuilder();
     IModel model = new Model();
-    IView view = new View(model, log);
+    IScriptView view = new ScriptView(model, log);
     IController controller = new ScriptController(model, view, in);
 
     try {

@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import collage.model.IModel;
-import collage.view.IView;
+import collage.view.IScriptView;
 
 /**
  * Represents the controller for the collage program.
  */
 public class ScriptController implements IController {
   private final IModel model;
-  private final IView view;
+  private final IScriptView view;
   private final Readable in;
   private boolean quit = false;
 
@@ -23,7 +23,7 @@ public class ScriptController implements IController {
    * @param in    - inputs in the form of a readable
    * @throws IllegalArgumentException if any arguments are null
    */
-  public ScriptController(IModel model, IView view, Readable in)
+  public ScriptController(IModel model, IScriptView view, Readable in)
           throws IllegalArgumentException {
     if (model == null || view == null || in == null) {
       throw new IllegalArgumentException("Model, view, or input is null within controller "

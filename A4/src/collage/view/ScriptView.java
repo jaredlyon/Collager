@@ -7,7 +7,7 @@ import collage.model.IModel;
 /**
  * Represents the view for the collage model.
  */
-public class View implements IView {
+public class ScriptView implements IScriptView {
   public IModel model;
   public Appendable view;
 
@@ -16,7 +16,7 @@ public class View implements IView {
    * @param model - The game's ModelState, aka current behavior
    * @throws IllegalArgumentException when the ModelState is null
    */
-  public View(IModel model) throws IllegalArgumentException {
+  public ScriptView(IModel model) throws IllegalArgumentException {
     if (model == null) {
       throw new IllegalArgumentException("Model is null.");
     }
@@ -31,7 +31,7 @@ public class View implements IView {
    * @param view - A 'view', which is an Appendable that rendered messages are sent to
    * @throws IllegalArgumentException if any arguments are null
    */
-  public View(IModel model, Appendable view) throws IllegalArgumentException {
+  public ScriptView(IModel model, Appendable view) throws IllegalArgumentException {
     if (model == null || view == null) {
       throw new IllegalArgumentException("State or view is null.");
     }

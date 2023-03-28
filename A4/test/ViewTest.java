@@ -1,8 +1,8 @@
 import org.junit.Test;
 
 import collage.model.Model;
-import collage.view.IView;
-import collage.view.View;
+import collage.view.IScriptView;
+import collage.view.ScriptView;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -13,12 +13,12 @@ public class ViewTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidConstructor() {
-    IView invalidView = new View(null);
+    IScriptView invalidView = new ScriptView(null);
   }
 
   @Test
   public void testValidConstructor() {
-    IView validView = new View(new Model());
+    IScriptView validView = new ScriptView(new Model());
     assertNotNull(validView);
   }
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * Represents the view for the collage program.
  */
-public interface IView {
+public interface IScriptView {
 
   /**
    * Renders a message for the user.
