@@ -18,7 +18,11 @@ public class GUIModel extends Model {
    * @throws IllegalArgumentException if the file name is null
    */
   public void loadProject(String fileName) throws IllegalArgumentException, IOException {
-    super.loadProject(fileName);
+    try {
+      super.loadProject(fileName);
+    } catch (IOException e) {
+      throw new IOException("File not found");
+    }
     this.currentLayerName = this.project.getLayers().get(
             this.project.getLayers().size() - 1).getName();
   }

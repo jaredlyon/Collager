@@ -26,6 +26,7 @@ public class Model implements IModel {
    * Loads an existing file into a project.
    * @param filename - the new name of the file
    * @throws IllegalArgumentException if the filename is null
+   * @throws IOException              if the file is not found
    */
   @Override
   public void loadProject(String filename) throws IllegalArgumentException, IOException {

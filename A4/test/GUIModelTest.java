@@ -22,6 +22,7 @@ public class GUIModelTest {
       this.log.append("loadProject called with " + fileName);
     }
   }
+
   @Test
   public void testLoadProject() {
     StringBuilder log = new StringBuilder();
