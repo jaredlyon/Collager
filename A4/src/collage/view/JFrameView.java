@@ -29,6 +29,9 @@ public class JFrameView extends JFrame implements IView, ActionListener {
   private final JButton selectLayerButton;
   private final JButton setFilterButton;
   private final JButton addImageToLayerButton;
+  private final JPanel imagePanel;
+  private final JLabel layerText;
+  private final JLabel currentLayer;
   private RenderContent content;
 
   /**
@@ -41,6 +44,7 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     this.setTitle("Collager");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(1200, 1200);
+    this.setLayout(new GridLayout(5, 1));
 
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
@@ -70,6 +74,23 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     this.addImageToLayerButton.addActionListener(this);
     buttonPanel.add(this.addImageToLayerButton);
     this.add(buttonPanel);
+
+    // show the composite image field
+    this.imagePanel = new JPanel();
+    this.imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
+    this.add(this.imagePanel);
+
+    // display the project layers
+    this.layerText = new JLabel("No layers yet");
+    this.layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
+    this.add(this.layerText);
+
+    // tell the use which layer they're currently on
+    this.currentLayer = new JLabel("No layer selected");
+    this.currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
+    this.add(this.currentLayer);
+
+    // set the window to visible
     this.setVisible(true);
   }
 
@@ -79,10 +100,17 @@ public class JFrameView extends JFrame implements IView, ActionListener {
    * @param content - the content to be rendered
    * @throws IOException if the content cannot be rendered
    */
-  public void updateContent(RenderContent content) throws IOException {
+  public void render(RenderContent content) throws IOException {
     try {
       this.content = content;
-      this.render();
+      this.updateComponents();
+
+      try {
+        this.revalidate();
+        this.repaint();
+      } catch (Exception e) {
+        System.out.println("Could not update");
+      }
     } catch (Exception e) {
       throw new IOException("The content could not be rendered");
     }
@@ -91,14 +119,11 @@ public class JFrameView extends JFrame implements IView, ActionListener {
   /**
    * Renders the collager data to the user.
    */
-  private void render() {
+  private void updateComponents() {
     // show the composite image with a scrollbar
-    JPanel imagePanel = new JPanel();
-    imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
-    imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
+    this.imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
             this.content.getHeight(),
             this.content.getPixels()))));
-    this.add(imagePanel);
 
     // display the project layers
     ArrayList<String> layers = this.content.getLayers();
@@ -106,21 +131,10 @@ public class JFrameView extends JFrame implements IView, ActionListener {
     for (String layer : layers) {
       layersOutput += layer + "\n";
     }
-    JLabel layerText = new JLabel(layersOutput);
-    layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-    this.add(layerText);
+    this.layerText.setText(layersOutput);
 
     // tell the use which layer they're currently on
-    JLabel currentLayer = new JLabel(this.content.getCurrentLayer());
-    currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
-    this.add(currentLayer);
-
-    try {
-      this.repaint();
-      this.setVisible(true);
-    } catch (Exception e) {
-      System.out.println("Could not repaint");
-    }
+    this.currentLayer.setText(this.content.getCurrentLayer());
   }
 
   /**
