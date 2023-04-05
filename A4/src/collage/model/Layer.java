@@ -2,7 +2,6 @@ package collage.model;
 
 import java.util.ArrayList;
 
-import collage.model.filter.IFilter;
 import collage.model.pixel.RGBPixel;
 
 /**
