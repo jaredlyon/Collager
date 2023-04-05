@@ -19,7 +19,7 @@ import collage.model.pixel.RGBPixel;
  * This view DOES NOT interact with the model in any way, all actions and data must instead be
  * passed through the controller in order to prevent unwanted mutable errors.
  */
-public class JFrameScriptView extends JFrame implements IGUIView, ActionListener {
+public class JFrameView extends JFrame implements IGUIView, ActionListener {
   private GUIController controller;
   private final JButton newProjectButton;
   private final JButton loadProjectButton;
@@ -37,7 +37,7 @@ public class JFrameScriptView extends JFrame implements IGUIView, ActionListener
   /**
    * Constructs a new JFrameView.
    */
-  public JFrameScriptView() {
+  public JFrameView() {
     super();
 
     // generate the base frame

@@ -7,7 +7,7 @@ import collage.model.GUIModel;
 import collage.model.IModel;
 import collage.model.Model;
 import collage.view.IScriptView;
-import collage.view.JFrameScriptView;
+import collage.view.JFrameView;
 import collage.view.ScriptView;
 
 /**
@@ -29,7 +29,7 @@ public final class Main {
           controller.startCollage();
         } else if (argument.equals("gui")) {
           GUIModel model = new GUIModel();
-          JFrameScriptView view = new JFrameScriptView();
+          JFrameView view = new JFrameView();
           GUIController controller = new GUIController(model, view);
           view.setController(controller);
         }
