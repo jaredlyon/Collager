@@ -15,36 +15,36 @@ public class Utils {
    * @return the HSL pixel
    */
   public static HSLPixel RGBToHSL(RGBPixel pixel) {
-    double r = pixel.getRed();
-    double g = pixel.getGreen();
-    double b = pixel.getBlue();
-    double componentMax = Math.max(r, Math.max(g, b));
-    double componentMin = Math.min(r, Math.min(g, b));
-    double delta = componentMax - componentMin;
-
-    double lightness = (componentMax + componentMin) / 2;
-    double hue, saturation;
-    if (delta == 0) {
-      hue = 0;
-      saturation = 0;
+    double var0 = pixel.getRed();
+    double var2 = pixel.getGreen();
+    double var4 = pixel.getBlue();
+    double var6 = Math.max(var0, Math.max(var2, var4));
+    double var8 = Math.min(var0, Math.min(var2, var4));
+    double var10 = var6 - var8;
+    double var12 = (var6 + var8) / 2.0;
+    double var16;
+    double var14;
+    if (var10 == 0.0) {
+      var14 = 0.0;
+      var16 = 0.0;
     } else {
-      saturation = delta / (1 - Math.abs(2 * lightness - 1));
-      hue = 0;
-      if (componentMax == r) {
-        hue = (g - b) / delta;
-        hue = hue % 6;
-      } else if (componentMax == g) {
-        hue = (b - r) / delta;
-        hue += 2;
-      } else if (componentMax == b) {
-        hue = (r - g) / delta;
-        hue += 4;
+      var16 = var10 / (1.0 - Math.abs(2.0 * var12 - 1.0));
+      var14 = 0.0;
+      if (var6 == var0) {
+        var14 = (var2 - var4) / var10;
+        var14 %= 6.0;
+      } else if (var6 == var2) {
+        var14 = (var4 - var0) / var10;
+        var14 += 2.0;
+      } else if (var6 == var4) {
+        var14 = (var0 - var2) / var10;
+        var14 += 4.0;
       }
 
-      hue = hue * 60;
+      var14 *= 60.0;
     }
 
-    return new HSLPixel(hue, saturation, lightness);
+    return new HSLPixel(var14, var16, var12);
   }
 
   /**
