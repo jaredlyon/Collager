@@ -166,7 +166,6 @@ public class Project {
 
     // a project will always have at least 1 layer
     ArrayList<ArrayList<RGBPixel>> curImage = this.layers.get(0).getPixels();
-    System.out.println("after cur image");
     for (int i = 1; i < layers.size(); i++) {
       System.out.println("in layer here");
       Layer curLayer = layers.get(i);

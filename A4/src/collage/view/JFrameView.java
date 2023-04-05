@@ -125,6 +125,9 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
    * Renders the collager data to the user.
    */
   private void updateComponents() {
+    // clear the image component
+    this.imagePanel.removeAll();
+
     // show the composite image with a scrollbar
     this.imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
             this.content.getHeight(),
@@ -298,7 +301,6 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
               null,
               "");
       if ((s != null) && (s.length() > 0)) {
-        System.out.println("in view");
         this.controller.executeCommand("set-filter " + s);
       }
     } else if (e.getSource() == this.addImageToLayerButton) {
