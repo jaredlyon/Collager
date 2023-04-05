@@ -104,7 +104,6 @@ public class Model implements IModel {
       throw new IllegalArgumentException("layer or filer are null.");
     }
 
-    System.out.println("in model");
     this.project.setFilter(layer, filter);
   }
 

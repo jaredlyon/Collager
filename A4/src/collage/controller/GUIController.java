@@ -111,7 +111,6 @@ public class GUIController implements IGUIController {
       }
       case "set-filter" -> {
         try {
-          System.out.println("in controller");
           this.model.setFilter(this.model.getCurrentLayerName(), commands[1]);
           this.view.render(this.model.getRenderContent());
         } catch (Exception ex) {
