@@ -29,7 +29,7 @@ public class ProjectTest {
 
   @Test
   public void testCreateProjectFromFile() {
-    Project project = new Project("res/tako.ppm");
+    Project project = new Project("./A4/res/tako.ppm");
     assertNotNull(project);
   }
 
@@ -68,7 +68,7 @@ public class ProjectTest {
   public void testAddImageToLayer() {
     Project project = new Project(100, 100);
     project.addLayer("layer1");
-    project.addImageToLayer("layer1", "res/tako.ppm", 0, 0);
+    project.addImageToLayer("layer1", "./A4/res/tako.ppm", 0, 0);
     assertEquals("layer1", project.getLayers().get(1).getName());
   }
 

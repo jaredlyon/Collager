@@ -12,7 +12,7 @@ public class ImageUtilTest {
 
   @Test
   public void testReadPPM() {
-    ProjConstPPM ppm = ImageUtil.readPPM("res/tako.ppm");
+    ProjConstPPM ppm = ImageUtil.readPPM("./A4/res/tako.ppm");
 
     assertNotNull(ppm);
     Assert.assertEquals(225, ppm.getWidth());

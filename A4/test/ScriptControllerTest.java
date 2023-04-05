@@ -19,7 +19,7 @@ public class ScriptControllerTest {
 
   @Test
   public void testFullScript1() {
-    Readable in = new StringReader("load-project res/tako.ppm\n" +
+    Readable in = new StringReader("load-project ./A4/res/tako.ppm\n" +
             "add-layer tako-blue\n" +
             "set-filter tako-blue BLUE_COMPONENT\n" +
             "quit\n"); // quit
@@ -47,7 +47,7 @@ public class ScriptControllerTest {
     assertEquals("add-image-to-layer <layer name> <file path> <X pos> <Y pos>", lines[8]);
     assertEquals("quit", lines[9]);
     assertEquals("Input command:", lines[10]);
-    assertEquals("Loading project with file path res/tako.ppm...", lines[11]);
+    assertEquals("Loading project with file path ./A4/res/tako.ppm...", lines[11]);
     assertEquals("Adding layer tako-blue...", lines[22]);
     assertEquals("Setting filter BLUE_COMPONENT onto tako-blue...", lines[33]);
     assertEquals("Ending collage program...", lines[44]);
@@ -55,9 +55,9 @@ public class ScriptControllerTest {
 
   @Test
   public void testFullScript2() {
-    Readable in = new StringReader("load-project res/tako.ppm\n" +
+    Readable in = new StringReader("load-project ./A4/res/tako.ppm\n" +
             "add-layer cp\n" +
-            "add-image-to-layer cp res/cp_goat.ppm 0 0\n" +
+            "add-image-to-layer cp ./A4/res/cp_goat.ppm 0 0\n" +
             "set-filter cp BLUE_COMPONENT\n" +
             "quit\n"); // quit
     Appendable log = new StringBuilder();
@@ -84,9 +84,9 @@ public class ScriptControllerTest {
     assertEquals("add-image-to-layer <layer name> <file path> <X pos> <Y pos>", lines[8]);
     assertEquals("quit", lines[9]);
     assertEquals("Input command:", lines[10]);
-    assertEquals("Loading project with file path res/tako.ppm...", lines[11]);
+    assertEquals("Loading project with file path ./A4/res/tako.ppm...", lines[11]);
     assertEquals("Adding layer cp...", lines[22]);
-    assertEquals("Adding res/cp_goat.ppm to cp at 0, 0...", lines[33]);
+    assertEquals("Adding ./A4/res/cp_goat.ppm to cp at 0, 0...", lines[33]);
     assertEquals("Setting filter BLUE_COMPONENT onto cp...", lines[44]);
     assertEquals("Ending collage program...", lines[55]);
   }
