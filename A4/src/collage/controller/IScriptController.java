@@ -1,9 +1,9 @@
 package collage.controller;
 
 /**
- * Represents the controller for the collage program.
+ * Represents a CLI controller for the collage program.
  */
-public interface IController {
+public interface IScriptController {
 
   /**
    * Starts the controller for the collage.

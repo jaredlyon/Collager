@@ -7,16 +7,16 @@ import collage.model.IModel;
 import collage.view.IScriptView;
 
 /**
- * Represents the controller for the collage program.
+ * Represents the CLI controller for the collage program.
  */
-public class ScriptController implements IController {
+public class ScriptController implements IScriptController {
   private final IModel model;
   private final IScriptView view;
   private final Readable in;
   private boolean quit = false;
 
   /**
-   * Constructs a new controller using arguments.
+   * Constructs a new controller using MVC arguments.
    *
    * @param model - a model of a SetGame
    * @param view  - a view of a SetGame
@@ -37,7 +37,9 @@ public class ScriptController implements IController {
 
   /**
    * Starts the collage program.
-   *
+   * Uses a scanner to read in commands from the user.
+   * The commands are then parsed and executed.
+   * The program will continue to run until the user enters "quit".
    * @throws IllegalStateException if the controller cannot communicate with the view
    */
   @Override
