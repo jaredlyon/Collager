@@ -171,8 +171,8 @@ public class JFrameScriptView extends JFrame implements IGUIView, ActionListener
 
     int pixelIndex = 0;
     //Iterating so x moves to the right and y moves down
-    for(int x = 0; x < image.getWidth(); x++) {
-      for(int y = 0; y < image.getHeight(); y++) {
+    for(int y = 0; y < image.getHeight(); y++) {
+      for(int x = 0; x < image.getWidth(); x++) {
         // get the pixel data
         int r = pixels1D.get(pixelIndex).getRed();
         int g = pixels1D.get(pixelIndex).getGreen();
