@@ -26,9 +26,8 @@ The two example images provided, cp_goat.ppm & jp_jersey_2017.ppm, are two image
 
 ### TODO
   - tests
-    - controller
-    - model
     - project
+    - filter
   - implementation
     - fix build image
 

@@ -26,11 +26,10 @@ public class GreenComponentFilterTest {
     image.add(row);
     ArrayList<ArrayList<RGBPixel>> expectedImage = new ArrayList<>();
     ArrayList<RGBPixel> expectedRow = new ArrayList<>();
-    row.add(new RGBPixel(1, 0, 0, 255));
-    row.add(new RGBPixel(1, 0, 0, 255));
-    row.add(new RGBPixel(1, 0, 0, 255));
+    expectedRow.add(new RGBPixel(1, 0, 255, 0));
+    expectedRow.add(new RGBPixel(1, 0, 255, 0));
+    expectedRow.add(new RGBPixel(1, 0, 255, 0));
     expectedImage.add(expectedRow);
-    expectedImage.add(row);
     IFilter filter = new GreenComponentFilter(image);
     ArrayList<ArrayList<RGBPixel>> newImage = filter.apply();
     assertEquals(expectedImage, newImage);

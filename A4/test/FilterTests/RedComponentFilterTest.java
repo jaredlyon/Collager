@@ -26,11 +26,10 @@ public class RedComponentFilterTest {
     image.add(row);
     ArrayList<ArrayList<RGBPixel>> expectedImage = new ArrayList<>();
     ArrayList<RGBPixel> expectedRow = new ArrayList<>();
-    row.add(new RGBPixel(1, 255, 0, 0));
-    row.add(new RGBPixel(1, 255, 0, 0));
-    row.add(new RGBPixel(1, 255, 0, 0));
+    expectedRow.add(new RGBPixel(1, 255, 0, 0));
+    expectedRow.add(new RGBPixel(1, 255, 0, 0));
+    expectedRow.add(new RGBPixel(1, 255, 0, 0));
     expectedImage.add(expectedRow);
-    expectedImage.add(row);
     IFilter filter = new RedComponentFilter(image);
     ArrayList<ArrayList<RGBPixel>> newImage = filter.apply();
     assertEquals(expectedImage, newImage);

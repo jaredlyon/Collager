@@ -26,13 +26,10 @@ public class BlueComponentFilterTest {
     image.add(row);
     ArrayList<ArrayList<RGBPixel>> expectedImage = new ArrayList<>();
     ArrayList<RGBPixel> expectedRow = new ArrayList<>();
-    row.add(new RGBPixel(1, 0, 0, 255));
-    row.add(new RGBPixel(1, 0, 0, 255));
-    row.add(new RGBPixel(1, 0, 0, 255));
+    expectedRow.add(new RGBPixel(1, 0, 0, 255));
+    expectedRow.add(new RGBPixel(1, 0, 0, 255));
+    expectedRow.add(new RGBPixel(1, 0, 0, 255));
     expectedImage.add(expectedRow);
-    image.add(row);
-    image.add(row);
-    image.add(row);
     IFilter filter = new BlueComponentFilter(image);
     ArrayList<ArrayList<RGBPixel>> newImage = filter.apply();
     assertEquals(expectedImage, newImage);
