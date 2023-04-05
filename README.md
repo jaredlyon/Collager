@@ -26,12 +26,9 @@ The two example images provided, cp_goat.ppm & jp_jersey_2017.ppm, are two image
 
 ### TODO
   - tests
-    - view
     - controller
     - model
     - project
-    - all filters
-    - hsl pixel
   - implementation
     - fix build image
 
