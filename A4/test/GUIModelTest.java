@@ -36,17 +36,18 @@ public class GUIModelTest {
   }
 
   @Test
-  public void testNewProject() {
-    // TODO: implement
-  }
-
-  @Test
   public void testGetRenderContent() {
     // TODO: implement
   }
 
   @Test
   public void testSelectLayer() {
-    // TODO: implement
+    GUIModel model = new GUIModel();
+    model.newProject(10, 10);
+    assertEquals("background", model.getCurrentLayerName());
+    model.addLayer("layer1");
+    assertEquals("layer1", model.getCurrentLayerName());
+    model.addLayer("layer2");
+    assertEquals("layer2", model.getCurrentLayerName());
   }
 }

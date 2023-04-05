@@ -66,10 +66,28 @@ public class GUIModel extends Model {
   }
 
   /**
+   * Adds a layer to the project.
+   * @param layerName the name of the layer to add
+   */
+  public void addLayer(String layerName) {
+    super.addLayer(layerName);
+    this.currentLayerName = layerName;
+  }
+
+  /**
    * Gets the name of the current layer.
    * @return a String representing the name of the current layer
    */
   public String getCurrentLayerName() {
     return this.currentLayerName;
   }
+
+  /**
+   * Sets the name of the current layer.
+   * @param currentLayerName the name of the current layer
+   */
+  public void setCurrentLayerName(String currentLayerName) {
+    this.currentLayerName = currentLayerName;
+  }
 }
+
