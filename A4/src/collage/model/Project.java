@@ -102,8 +102,8 @@ public class Project {
    * @param filter - the filter
    */
   public void setFilter(String layerName, String filter) throws IllegalArgumentException {
-    System.out.println("in project\n" + layerName);
     boolean found = false;
+
     for (Layer iterLayer : this.layers) {
       if (layerName.equals(iterLayer.getName())) {
         iterLayer.setFilter(filter);

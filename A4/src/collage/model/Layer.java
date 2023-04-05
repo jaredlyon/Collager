@@ -9,12 +9,12 @@ import collage.model.pixel.RGBPixel;
  * Represents a layer within a project.
  */
 public class Layer {
-  private String name;
-  private int height;
-  private int width;
-  private int maxVal;
+  private final String name;
+  private final int height;
+  private final int width;
+  private final int maxVal;
   private ArrayList<ArrayList<RGBPixel>> pixels = new ArrayList<ArrayList<RGBPixel>>();
-  private IFilter filter;
+  private String filter;
 
   /**
    * Generates this layer.
@@ -84,18 +84,33 @@ public class Layer {
    * @throws IllegalArgumentException if the filter does not exist
    */
   public void setFilter(String filter) throws IllegalArgumentException {
-    System.out.println("in layer");
     boolean found = false;
 
-    for (IFilter f : IFilter.values()) {
-      if (filter.equals(f.toString())) {
+    String[] filters = {
+            "NORMAL",
+            "RED_COMPONENT",
+            "GREEN_COMPONENT",
+            "BLUE_COMPONENT",
+            "BRIGHTEN_INTENSITY",
+            "BRIGHTEN_LUMA",
+            "BRIGHTEN_VALUE",
+            "DARKEN_INTENSITY",
+            "DARKEN_LUMA",
+            "DARKEN_VALUE",
+            "DIFFERENCE",
+            "MULTIPLY",
+            "SCREEN"};
+
+    for (String f : filters) {
+      if (filter.equals(f)) {
         found = true;
-        this.filter = f;
+        this.filter = filter;
+        break;
       }
     }
 
     if (!found) {
-      throw new IllegalArgumentException("Filter does not exist");
+      throw new IllegalArgumentException("Invalid filter; please re-enter.");
     }
   }
 
@@ -104,7 +119,7 @@ public class Layer {
    * @return a String representing a filter's name
    */
   public String getFilter() {
-    return this.filter.toString();
+    return this.filter;
   }
 
   /**
