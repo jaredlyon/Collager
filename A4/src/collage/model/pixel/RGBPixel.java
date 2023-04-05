@@ -1,7 +1,7 @@
 package collage.model.pixel;
 
 /**
- * Represents a pixel within an image.
+ * Represents a pixel in the RGB model.
  */
 public class RGBPixel implements IPixel {
   private int a; //alpha
@@ -29,6 +29,7 @@ public class RGBPixel implements IPixel {
 
   /**
    * Converts this pixel to the 3-val PPM model.
+   * @return a string of the PPM representation
    */
   @Override
   public String convertToPPMRepresentation() {

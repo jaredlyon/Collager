@@ -5,7 +5,7 @@ import java.io.IOException;
 import collage.model.IModel;
 
 /**
- * Represents the view for the collage model.
+ * Implements the CLI view for the collage model.
  */
 public class ScriptView implements IScriptView {
   public IModel model;

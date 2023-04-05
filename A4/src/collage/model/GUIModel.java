@@ -41,6 +41,9 @@ public class GUIModel extends Model {
 
   /**
    * Gets the content needed to render the current project.
+   * This data is sent to the controller to be sent to the view.
+   * @throws IllegalStateException if the project is null
+   * @return a RenderContent object containing the content needed to render the current project
    */
   public RenderContent getRenderContent() throws IllegalStateException {
     ArrayList<String> layerNames = new ArrayList<>();

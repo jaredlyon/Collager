@@ -15,6 +15,7 @@ public class ImageUtil {
    * Read an image file in the PPM format and print the colors.
    *
    * @param filename the path of the file.
+   * @return a ProjConstPPM object containing the image data.
    */
   public static ProjConstPPM readPPM(String filename) {
     Scanner sc;

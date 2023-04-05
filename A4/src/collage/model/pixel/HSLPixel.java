@@ -2,6 +2,9 @@ package collage.model.pixel;
 
 import collage.Utils;
 
+/**
+ * Represents a pixel in the HSL model.
+ */
 public class HSLPixel implements IPixel {
   private double h; // hue
   private double s; // saturation
@@ -30,6 +33,7 @@ public class HSLPixel implements IPixel {
 
   /**
    * Converts this pixel to the 3-val PPM model.
+   * @return a string of the PPM representation
    */
   @Override
   public String convertToPPMRepresentation() {
