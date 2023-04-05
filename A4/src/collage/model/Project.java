@@ -35,8 +35,13 @@ public class Project {
    *
    * @param height - the project height
    * @param width  - the project width
+   * @throws IllegalArgumentException - if the height or width is less than 1
    */
   public Project(int height, int width) {
+    if (height < 1 || width < 1) {
+      throw new IllegalArgumentException("Height and width must be greater than 0!");
+    }
+
     this.height = height;
     this.width = width;
     this.maxVal = 255;
@@ -47,8 +52,13 @@ public class Project {
    * Loads a project from an existing file.
    *
    * @param filename - the file name
+   * @throws IllegalArgumentException - if the file does not exist or if the argument is null
    */
   public Project(String filename) throws IllegalArgumentException {
+    if (filename == null) {
+      throw new IllegalArgumentException("File does not exist!");
+    }
+
     try {
       ProjConstPPM imageData = ImageUtil.readPPM(filename);
       this.height = imageData.getHeight();

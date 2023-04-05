@@ -55,7 +55,6 @@ public class DifferenceFilter implements IFilter {
    * @return a new filtered pixel
    */
   private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2) {
-    // TODO: check that alpha is handled appropriately
     RGBPixel newPixel = new RGBPixel(
             Math.abs(p1.getAlpha() - p2.getAlpha()),
             Math.abs(p1.getRed() - p2.getRed()),
