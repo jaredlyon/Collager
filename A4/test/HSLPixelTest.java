@@ -19,9 +19,9 @@ public class HSLPixelTest {
   @Test
   public void testConstructor() {
     HSLPixel constructorTest = new HSLPixel(1.0, 0.87, 0.3);
-    assertEquals(1.0, constructorTest.getHue());
-    assertEquals(0.87, constructorTest.getLightness());
-    assertEquals(0.3, constructorTest.getSaturation());
+    assertEquals(1.0, constructorTest.getHue(), 0.001);
+    assertEquals(0.3, constructorTest.getLightness(), 0.001);
+    assertEquals(0.87, constructorTest.getSaturation(), 0.001);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -33,29 +33,29 @@ public class HSLPixelTest {
 
   @Test
   public void testConvertToPPMRepresentation() {
-    HSLPixel pixel = new HSLPixel(306.2, 78.4, 14.5);
-    assertEquals("66 8 60", pixel.convertToPPMRepresentation());
+    HSLPixel pixel = new HSLPixel(306.2, 0.74, 0.35);
+    assertEquals("155 2 77", pixel.convertToPPMRepresentation());
   }
 
   @Test
   public void testSetHue() {
-    assertEquals(1, this.p1.getHue());
+    assertEquals(1, this.p1.getHue(), 0.001);
     this.p1.setHue(2);
-    assertEquals(2, this.p1.getHue());
+    assertEquals(2, this.p1.getHue(), 0.001);
   }
 
   @Test
   public void testSetSaturation() {
-    assertEquals(0.87, this.p1.getSaturation());
+    assertEquals(1.0, this.p1.getSaturation(), 0.001);
     this.p1.setSaturation(0.2);
-    assertEquals(0.2, this.p1.getSaturation());
+    assertEquals(0.2, this.p1.getSaturation(), 0.001);
   }
 
   @Test
   public void testSetLightness() {
-    assertEquals(0.3, this.p1.getLightness());
+    assertEquals(1.0, this.p1.getLightness(), 0.001);
     this.p1.setLightness(0.2);
-    assertEquals(0.2, this.p1.getLightness());
+    assertEquals(0.2, this.p1.getLightness(), 0.001);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -67,21 +67,21 @@ public class HSLPixelTest {
 
   @Test
   public void testGetHue() {
-    assertEquals(1.0, this.p1.getHue());
+    assertEquals(1.0, this.p1.getHue(), 0.001);
   }
 
   @Test
   public void testGetSaturation() {
-    assertEquals(0.87, this.p1.getSaturation());
+    assertEquals(1.0, this.p1.getSaturation(), 0.001);
   }
 
   @Test
   public void testGetLightness() {
-    assertEquals(0.3, this.p1.getLightness());
+    assertEquals(1.0, this.p1.getLightness(), 0.001);
   }
 
   @Test
   public void testGetVals() {
-    assertEquals("1.0 0.87 0.3", this.p1.getVals());
+    assertEquals("1.0 1.0 1.0", this.p1.getVals());
   }
 }
