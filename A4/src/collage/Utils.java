@@ -15,9 +15,9 @@ public class Utils {
    * @return the HSL pixel
    */
   public static HSLPixel RGBToHSL(RGBPixel pixel) {
-    double var0 = pixel.getRed();
-    double var2 = pixel.getGreen();
-    double var4 = pixel.getBlue();
+    double var0 = pixel.getRed() / 255;
+    double var2 = pixel.getGreen() / 255;
+    double var4 = pixel.getBlue() / 255;
     double var6 = Math.max(var0, Math.max(var2, var4));
     double var8 = Math.min(var0, Math.min(var2, var4));
     double var10 = var6 - var8;
