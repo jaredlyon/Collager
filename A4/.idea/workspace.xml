@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/BlueComponentFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/BlueComponentFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/DarkenValueFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/DarkenValueFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/GreenComponentFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/GreenComponentFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/MultiplyFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/MultiplyFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/NormalFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/NormalFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/RedComponentFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/RedComponentFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FilterTests/ScreenFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/ScreenFilterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +63,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GreenComponentFilterTest.testApply">
+  <component name="RunManager" selected="JUnit.FilterTests in A4">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
@@ -65,71 +72,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BrightenIntensityFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FilterTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="FilterTests" />
+      <option name="MAIN_CLASS_NAME" value="FilterTests.BrightenIntensityFilterTest" />
+      <option name="METHOD_NAME" value="testApply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BrightenLumaFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FilterTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="FilterTests" />
+      <option name="MAIN_CLASS_NAME" value="FilterTests.BrightenLumaFilterTest" />
+      <option name="METHOD_NAME" value="testApply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BrightenValueFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FilterTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="FilterTests" />
+      <option name="MAIN_CLASS_NAME" value="FilterTests.BrightenValueFilterTest" />
+      <option name="METHOD_NAME" value="testApply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DarkenIntensityFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FilterTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="FilterTests" />
+      <option name="MAIN_CLASS_NAME" value="FilterTests.DarkenIntensityFilterTest" />
+      <option name="METHOD_NAME" value="testApply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterTests in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FilterTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="FilterTests" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BlueComponentFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.BlueComponentFilterTest" />
-      <option name="METHOD_NAME" value="testApply" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUIModelTest and 9 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="GUIModelTest" />
-        <pattern testClass="HSLPixelTest" />
-        <pattern testClass="ImageUtilTest" />
-        <pattern testClass="LayerTest" />
-        <pattern testClass="ModelTest" />
-        <pattern testClass="ProjConstPPMTest" />
-        <pattern testClass="ProjectTest" />
-        <pattern testClass="RGBPixelTest" />
-        <pattern testClass="ScriptControllerTest" />
-        <pattern testClass="ViewTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GreenComponentFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.GreenComponentFilterTest" />
-      <option name="METHOD_NAME" value="testApply" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RGBPixelTest.testConvertToPPMRepresentation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RGBPixelTest" />
-      <option name="METHOD_NAME" value="testConvertToPPMRepresentation" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,19 +158,19 @@
     <list>
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="JUnit.All in A4" />
-      <item itemvalue="JUnit.GUIModelTest and 9 more" />
-      <item itemvalue="JUnit.GreenComponentFilterTest.testApply" />
-      <item itemvalue="JUnit.RGBPixelTest.testConvertToPPMRepresentation" />
-      <item itemvalue="JUnit.BlueComponentFilterTest.testApply" />
+      <item itemvalue="JUnit.BrightenIntensityFilterTest.testApply" />
+      <item itemvalue="JUnit.BrightenLumaFilterTest.testApply" />
+      <item itemvalue="JUnit.BrightenValueFilterTest.testApply" />
+      <item itemvalue="JUnit.DarkenIntensityFilterTest.testApply" />
+      <item itemvalue="JUnit.FilterTests in A4" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GreenComponentFilterTest.testApply" />
-        <item itemvalue="JUnit.BlueComponentFilterTest.testApply" />
-        <item itemvalue="JUnit.GUIModelTest and 9 more" />
-        <item itemvalue="JUnit.All in A4" />
-        <item itemvalue="JUnit.RGBPixelTest.testConvertToPPMRepresentation" />
+        <item itemvalue="JUnit.FilterTests in A4" />
+        <item itemvalue="JUnit.BrightenIntensityFilterTest.testApply" />
+        <item itemvalue="JUnit.BrightenLumaFilterTest.testApply" />
+        <item itemvalue="JUnit.BrightenValueFilterTest.testApply" />
+        <item itemvalue="JUnit.DarkenIntensityFilterTest.testApply" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +190,7 @@
       <workItem from="1679858381871" duration="7110000" />
       <workItem from="1679959405065" duration="5040000" />
       <workItem from="1680650903650" duration="1555000" />
-      <workItem from="1680729725205" duration="2814000" />
+      <workItem from="1680729725205" duration="3524000" />
     </task>
     <servers />
   </component>

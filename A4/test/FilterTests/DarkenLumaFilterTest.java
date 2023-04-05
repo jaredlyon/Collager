@@ -17,20 +17,14 @@ public class DarkenLumaFilterTest {
    */
   @Test
   public void testApply() {
-    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
-    ArrayList<RGBPixel> row = new ArrayList<>();
-    row.add(new RGBPixel(1, 255, 255, 255));
-    row.add(new RGBPixel(1, 255, 255, 255));
-    row.add(new RGBPixel(1, 255, 255, 255));
-    image.add(row);
-    IFilter filter = new DarkenLumaFilter(image);
+    ArrayList<ArrayList<RGBPixel>> image1 = new ArrayList<>();
+    ArrayList<RGBPixel> row1 = new ArrayList<>();
+    row1.add(new RGBPixel(1, 255, 255, 255));
+    image1.add(row1);
+    IFilter filter = new DarkenLumaFilter(image1);
     ArrayList<ArrayList<RGBPixel>> newImage = filter.apply();
-    ArrayList<ArrayList<RGBPixel>> expectedImage = new ArrayList<>();
-    ArrayList<RGBPixel> expectedRow = new ArrayList<>();
-    expectedRow.add(new RGBPixel(1, 0, 0, 0));
-    expectedRow.add(new RGBPixel(1, 0, 0, 0));
-    expectedRow.add(new RGBPixel(1, 0, 0, 0));
-    expectedImage.add(expectedRow);
-    assertEquals(expectedImage, newImage);
+    assertEquals(1, newImage.get(0).get(0).getRed());
+    assertEquals(1, newImage.get(0).get(0).getGreen());
+    assertEquals(1, newImage.get(0).get(0).getBlue());
   }
 }

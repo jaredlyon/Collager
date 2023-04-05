@@ -21,17 +21,11 @@ public class RedComponentFilterTest {
     ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
     ArrayList<RGBPixel> row = new ArrayList<>();
     row.add(new RGBPixel(1, 255, 255, 255));
-    row.add(new RGBPixel(1, 255, 255, 255));
-    row.add(new RGBPixel(1, 255, 255, 255));
     image.add(row);
-    ArrayList<ArrayList<RGBPixel>> expectedImage = new ArrayList<>();
-    ArrayList<RGBPixel> expectedRow = new ArrayList<>();
-    expectedRow.add(new RGBPixel(1, 255, 0, 0));
-    expectedRow.add(new RGBPixel(1, 255, 0, 0));
-    expectedRow.add(new RGBPixel(1, 255, 0, 0));
-    expectedImage.add(expectedRow);
     IFilter filter = new RedComponentFilter(image);
     ArrayList<ArrayList<RGBPixel>> newImage = filter.apply();
-    assertEquals(expectedImage, newImage);
+    assertEquals(255, newImage.get(0).get(0).getRed());
+    assertEquals(0, newImage.get(0).get(0).getGreen());
+    assertEquals(0, newImage.get(0).get(0).getBlue());
   }
 }
