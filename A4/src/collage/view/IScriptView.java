@@ -3,7 +3,7 @@ package collage.view;
 import java.io.IOException;
 
 /**
- * Represents the view for the collage program.
+ * Represents the CLI view for the collage program.
  */
 public interface IScriptView {
 

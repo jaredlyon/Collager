@@ -24,11 +24,10 @@ import collage.model.pixel.RGBPixel;
  * Represents a collage project.
  */
 public class Project {
-  private String name;
-  private int height;
-  private int width;
-  private int maxVal;
-  private ArrayList<Layer> layers = new ArrayList<Layer>();
+  private final int height;
+  private final int width;
+  private final int maxVal;
+  private final ArrayList<Layer> layers = new ArrayList<Layer>();
 
   /**
    * Generates a new project.
@@ -37,7 +36,7 @@ public class Project {
    * @param width  - the project width
    * @throws IllegalArgumentException - if the height or width is less than 1
    */
-  public Project(int height, int width) {
+  public Project(int height, int width) throws IllegalArgumentException {
     if (height < 1 || width < 1) {
       throw new IllegalArgumentException("Height and width must be greater than 0!");
     }

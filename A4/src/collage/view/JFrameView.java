@@ -149,6 +149,10 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
    * @throws IllegalArgumentException if the controller is null
    */
   public void setController(GUIController controller) {
+    if (controller == null) {
+      throw new IllegalArgumentException("The controller cannot be null");
+    }
+
     this.controller = controller;
   }
 

@@ -2,6 +2,7 @@ package collage.model;
 
 import java.util.ArrayList;
 
+import collage.model.filter.IFilter;
 import collage.model.pixel.RGBPixel;
 
 /**
@@ -13,7 +14,7 @@ public class Layer {
   private int width;
   private int maxVal;
   private ArrayList<ArrayList<RGBPixel>> pixels = new ArrayList<ArrayList<RGBPixel>>();
-  private Filter filter;
+  private IFilter filter;
 
   /**
    * Generates this layer.
@@ -86,7 +87,7 @@ public class Layer {
     System.out.println("in layer");
     boolean found = false;
 
-    for (Filter f : Filter.values()) {
+    for (IFilter f : IFilter.values()) {
       if (filter.equals(f.toString())) {
         found = true;
         this.filter = f;

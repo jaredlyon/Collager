@@ -22,6 +22,7 @@ public interface IModel {
    *
    * @param filename - the new name of the file
    * @throws IllegalArgumentException if the file does not exist
+   * @throws IOException              if the file cannot be loaded
    */
   void loadProject(String filename) throws IllegalArgumentException, IOException;
 
@@ -30,16 +31,15 @@ public interface IModel {
    *
    * @param filename - the new name of the file
    * @throws IllegalArgumentException if the filename is invalid
-   * @throws IllegalStateException    if the project cannot be saved
    */
   void saveProject(String filename) throws IllegalArgumentException;
 
   /**
    * Saves the collage to a file.
    * @param filename - the file path
-   * @throws IllegalStateException if the image cannot be saved
+   * @throws IllegalArgumentException if the filename is invalid
    */
-  void saveImage(String filename) throws IllegalStateException;
+  void saveImage(String filename) throws IllegalArgumentException;
 
   /**
    * Manipulates the RGB values of a given collage.

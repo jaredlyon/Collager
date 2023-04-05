@@ -6,10 +6,10 @@ import java.util.ArrayList;
  * Represents a class that holds PPM data for the model to process.
  */
 public class ProjConstPPM {
-  private int width;
-  private int height;
-  private int maxVal;
-  private ArrayList<Integer> rgbVals;
+  private final int width;
+  private final int height;
+  private final int maxVal;
+  private final ArrayList<Integer> rgbVals;
 
   /**
    * Generates this data class.
@@ -17,6 +17,7 @@ public class ProjConstPPM {
    * @param height - the height of the image
    * @param maxVal - the maxVal of the pixels
    * @param rgbVals - the RGB values of the pixels
+   * @throws IllegalArgumentException if any args are null
    */
   public ProjConstPPM(int width, int height, int maxVal, ArrayList<Integer> rgbVals)
           throws IllegalArgumentException {
