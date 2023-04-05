@@ -72,14 +72,15 @@ public class Project {
   /**
    * Adds an image to a layer in this project.
    *
-   * @param layer     - The layer to be added to
+   * @param layerName     - The layer to be added to
    * @param imageName - the filepath of the image
    * @param posX      - the pos X of the image
    * @param posY      - the pos Y of the image
    */
-  public void addImageToLayer(String layer, String imageName, int posX, int posY) {
+  public void addImageToLayer(String layerName, String imageName, int posX, int posY) {
     for (Layer iterLayer : this.layers) {
-      if (layer.equals(iterLayer.getName())) {
+      System.out.println(iterLayer.getName());
+      if (layerName.equals(iterLayer.getName())) {
         iterLayer.addImageToLayer(imageName, posX, posY);
       }
     }
@@ -88,13 +89,14 @@ public class Project {
   /**
    * Sets the filter of a layer in this project.
    *
-   * @param layer  - the layer to be set
+   * @param layerName  - the layer to be set
    * @param filter - the filter
    */
-  public void setFilter(String layer, String filter) throws IllegalArgumentException {
+  public void setFilter(String layerName, String filter) throws IllegalArgumentException {
+    System.out.println("in project\n" + layerName);
     boolean found = false;
     for (Layer iterLayer : this.layers) {
-      if (layer.equals(iterLayer.getName())) {
+      if (layerName.equals(iterLayer.getName())) {
         iterLayer.setFilter(filter);
         found = true;
       }
@@ -155,7 +157,9 @@ public class Project {
 
     // a project will always have at least 1 layer
     ArrayList<ArrayList<RGBPixel>> curImage = this.layers.get(0).getPixels();
-    for (int i = 0; i < layers.size() - 1; i++) {
+    System.out.println("after cur image");
+    for (int i = 0; i < layers.size(); i++) {
+      System.out.println("in layer here");
       Layer curLayer = layers.get(i);
       IFilter filter = null;
       switch (curLayer.getFilter()) {
@@ -213,42 +217,49 @@ public class Project {
         default:
           throw new IllegalStateException("Invalid filter");
       }
-
+      System.out.println(filter);
       if (filter != null) {
         ArrayList<ArrayList<RGBPixel>> curImageOnLayer = filter.apply();
-
-        // add the current image to the cumulative image
-        ArrayList<ArrayList<RGBPixel>> newImage = new ArrayList<>();
-        for (int j = 0; j < curImageOnLayer.size(); j++) {
-          ArrayList<RGBPixel> newRow = new ArrayList<>();
-          for (int k = 0; k < curImageOnLayer.get(j).size(); k++) {
-            RGBPixel curPixel = curImageOnLayer.get(j).get(k);
-            RGBPixel botPixel = curImage.get(j).get(k);
-            int topAlpha = curPixel.getAlpha();
-            int topRed = curPixel.getRed();
-            int topGreen = curPixel.getGreen();
-            int topBlue = curPixel.getBlue();
-            int botAlpha = botPixel.getAlpha();
-            int botRed = botPixel.getRed();
-            int botGreen = botPixel.getGreen();
-            int botBlue = botPixel.getBlue();
-            int alphaPrimePrime = (topAlpha / 255 + botAlpha / 255 * (1 - (topAlpha / 255)));
-            int alphaPrime = alphaPrimePrime * 255;
-            int redPrime = (topAlpha / 255 * topRed
-                    + botRed * botAlpha / 255 * (1 - (topAlpha / 255))) / alphaPrimePrime;
-            int greenPrime = (topAlpha / 255 * topGreen
-                    + botGreen * botAlpha / 255 * (1 - (topAlpha / 255))) / alphaPrimePrime;
-            int bluePrime = (topAlpha / 255 * topBlue
-                    + botBlue * botAlpha / 255 * (1 - (topAlpha / 255))) / alphaPrimePrime;
-            RGBPixel newPixel = new RGBPixel(alphaPrime, redPrime, greenPrime, bluePrime);
-            newRow.add(newPixel);
-          }
-          newImage.add(newRow);
-        }
-        curImage = newImage;
+        curLayer.setPixels(curImageOnLayer);
       }
     }
-    return curImage;
+
+    ArrayList<ArrayList<RGBPixel>> currentImage = this.layers.get(0).getPixels();
+    for (Layer layer : this.layers.subList(0, this.layers.size() - 1)) {
+      // add the current image to the cumulative image
+      ArrayList<ArrayList<RGBPixel>> newImage = new ArrayList<>();
+      for (int j = 0; j < currentImage.size(); j++) {
+        ArrayList<RGBPixel> newRow = new ArrayList<>();
+        for (int k = 0; k < currentImage.get(j).size(); k++) {
+          RGBPixel curPixel = layer.getPixels().get(j).get(k);
+          RGBPixel botPixel = currentImage.get(j).get(k);
+          double topAlpha = curPixel.getAlpha();
+          double topRed = curPixel.getRed();
+          double topGreen = curPixel.getGreen();
+          double topBlue = curPixel.getBlue();
+          double botAlpha = botPixel.getAlpha();
+          double botRed = botPixel.getRed();
+          double botGreen = botPixel.getGreen();
+          double botBlue = botPixel.getBlue();
+          double alphaPrimePrime = (topAlpha / 255.0
+                  + botAlpha / 255.0 * (1 - (topAlpha / 255.0)));
+          double alphaPrime = alphaPrimePrime * 255.0;
+          double redPrime = (topAlpha / 255.0 * topRed
+                  + botRed * botAlpha / 255.0 * (1.0 - (topAlpha / 255.0))) / alphaPrimePrime;
+          double greenPrime = (topAlpha / 255.0 * topGreen
+                  + botGreen * botAlpha / 255.0 * (1.0 - (topAlpha / 255.0))) / alphaPrimePrime;
+          double bluePrime = (topAlpha / 255.0 * topBlue
+                  + botBlue * botAlpha / 255.0 * (1.0 - (topAlpha / 255.0))) / alphaPrimePrime;
+          RGBPixel newPixel = new RGBPixel(
+                  (int)alphaPrime, (int)redPrime, (int)greenPrime, (int)bluePrime);
+          newRow.add(newPixel);
+        }
+        newImage.add(newRow);
+      }
+      currentImage = newImage;
+    }
+
+    return currentImage;
   }
 
   /**

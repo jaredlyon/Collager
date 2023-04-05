@@ -294,6 +294,7 @@ public class JFrameScriptView extends JFrame implements IGUIView, ActionListener
               null,
               "");
       if ((s != null) && (s.length() > 0)) {
+        System.out.println("in view");
         this.controller.executeCommand("set-filter " + s);
       }
     } else if (e.getSource() == this.addImageToLayerButton) {

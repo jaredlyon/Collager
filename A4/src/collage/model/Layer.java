@@ -83,6 +83,7 @@ public class Layer {
    * @throws IllegalArgumentException if the filter does not exist
    */
   public void setFilter(String filter) throws IllegalArgumentException {
+    System.out.println("in layer");
     boolean found = false;
 
     for (Filter f : Filter.values()) {

@@ -1,5 +1,7 @@
 package collage.controller;
 
+import java.io.IOException;
+
 import collage.model.GUIModel;
 import collage.view.JFrameScriptView;
 
@@ -42,7 +44,7 @@ public class GUIController implements IGUIController {
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
@@ -54,7 +56,7 @@ public class GUIController implements IGUIController {
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
@@ -66,7 +68,7 @@ public class GUIController implements IGUIController {
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
@@ -78,7 +80,7 @@ public class GUIController implements IGUIController {
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
@@ -90,7 +92,7 @@ public class GUIController implements IGUIController {
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
@@ -102,32 +104,33 @@ public class GUIController implements IGUIController {
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
       }
       case "set-filter" -> {
         try {
-          this.model.setFilter(commands[1], commands[2]);
+          System.out.println("in controller");
+          this.model.setFilter(this.model.getCurrentLayerName(), commands[1]);
           this.view.render(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
       }
       case "add-image-to-layer" -> {
         try {
-          this.model.addImageToLayer(commands[1], commands[2],
+          this.model.addImageToLayer(commands[2], commands[1],
                   Integer.parseInt(commands[3]), Integer.parseInt(commands[4]));
           this.view.render(this.model.getRenderContent());
         } catch (Exception ex) {
           try {
             this.view.renderMessage("Script failed with trace:\n" + ex + "\n");
-          } catch (Exception e) {
+          } catch (IOException e) {
             throw new IllegalStateException(e);
           }
         }
@@ -135,7 +138,7 @@ public class GUIController implements IGUIController {
       default -> {
         try {
           this.view.renderMessage("Controller failed to match input with a command!");
-        } catch (Exception e) {
+        } catch (IOException e) {
           throw new IllegalArgumentException(e);
         }
       }
