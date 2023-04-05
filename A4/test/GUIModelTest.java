@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 import collage.model.GUIModel;
+import collage.model.pixel.RGBPixel;
 import collage.view.RenderContent;
 
 /**
@@ -42,10 +43,11 @@ public class GUIModelTest {
     GUIModel model = new GUIModel();
     model.newProject(10, 10);
     model.addLayer("layer1");
+    ArrayList<ArrayList<RGBPixel>> pixels = model.getProject().buildImage();
     ArrayList<String> layerNames = new ArrayList<>();
     layerNames.add("background");
     layerNames.add("layer1");
-    RenderContent expected = new RenderContent(10, 10, layerNames, "layer1", )
+    RenderContent expected = new RenderContent(10, 10, layerNames, "layer1", pixels);
   }
 
   @Test
