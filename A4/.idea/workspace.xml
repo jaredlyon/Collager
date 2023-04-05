@@ -56,11 +56,19 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GUIModelTest.testGetRenderContent">
+  <component name="RunManager" selected="JUnit.All in A4">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
       <option name="PROGRAM_PARAMETERS" value="gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,21 +103,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModelTest.testLoadProjectInvalidFilename" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RGBPixelTest.testConvertToPPMRepresentation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ModelTest" />
-      <option name="METHOD_NAME" value="testLoadProjectInvalidFilename" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelTest.testLoadProjectNonExistentFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ModelTest" />
-      <option name="METHOD_NAME" value="testLoadProjectNonExistentFile" />
+      <option name="MAIN_CLASS_NAME" value="RGBPixelTest" />
+      <option name="METHOD_NAME" value="testConvertToPPMRepresentation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,19 +121,19 @@
     <list>
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.All in A4" />
       <item itemvalue="JUnit.GUIModelTest.testGetRenderContent" />
       <item itemvalue="JUnit.GUIModelTest.testSelectLayer" />
-      <item itemvalue="JUnit.ModelTest.testLoadProjectInvalidFilename" />
-      <item itemvalue="JUnit.ModelTest.testLoadProjectNonExistentFile" />
+      <item itemvalue="JUnit.RGBPixelTest.testConvertToPPMRepresentation" />
       <item itemvalue="JUnit.GUIModelTest.testLoadProject" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in A4" />
+        <item itemvalue="JUnit.RGBPixelTest.testConvertToPPMRepresentation" />
         <item itemvalue="JUnit.GUIModelTest.testGetRenderContent" />
         <item itemvalue="JUnit.GUIModelTest.testSelectLayer" />
         <item itemvalue="JUnit.GUIModelTest.testLoadProject" />
-        <item itemvalue="JUnit.ModelTest.testLoadProjectInvalidFilename" />
-        <item itemvalue="JUnit.ModelTest.testLoadProjectNonExistentFile" />
       </list>
     </recent_temporary>
   </component>

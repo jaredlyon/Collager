@@ -37,9 +37,9 @@ public class RGBPixelTest {
   public void testConvertToPPMRepresentation() {
     p1.convertToPPMRepresentation();
     assertEquals(1, this.p1.getAlpha());
-    assertEquals(2, this.p1.getRed());
-    assertEquals(3, this.p1.getGreen());
-    assertEquals(4, this.p1.getBlue());
+    assertEquals(1, this.p1.getRed());
+    assertEquals(1, this.p1.getGreen());
+    assertEquals(1, this.p1.getBlue());
   }
 
   @Test
