@@ -1,10 +1,12 @@
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
 import collage.model.GUIModel;
+import collage.view.RenderContent;
 
 /**
  * Tests the GUIModel class.
@@ -37,7 +39,13 @@ public class GUIModelTest {
 
   @Test
   public void testGetRenderContent() {
-    // TODO: implement
+    GUIModel model = new GUIModel();
+    model.newProject(10, 10);
+    model.addLayer("layer1");
+    ArrayList<String> layerNames = new ArrayList<>();
+    layerNames.add("background");
+    layerNames.add("layer1");
+    RenderContent expected = new RenderContent(10, 10, layerNames, "layer1", )
   }
 
   @Test

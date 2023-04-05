@@ -84,13 +84,5 @@ public class GUIModel extends Model {
   public String getCurrentLayerName() {
     return this.currentLayerName;
   }
-
-  /**
-   * Sets the name of the current layer.
-   * @param currentLayerName the name of the current layer
-   */
-  public void setCurrentLayerName(String currentLayerName) {
-    this.currentLayerName = currentLayerName;
-  }
 }
 
