@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/BrightenIntensityFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/BrightenLumaFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/BrightenValueFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/DarkenIntensityFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/DarkenLumaFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/DarkenValueFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/GreenComponentFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/MultiplyFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/NormalFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/FilterTests/ScreenFilterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/GUIModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/GUIModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FilterTests/BlueComponentFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/BlueComponentFilterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FilterTests/RedComponentFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/RedComponentFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,27 +58,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DarkenLumaFilterTest.testApply">
+  <component name="RunManager" selected="JUnit.ModelTest.testLoadProjectInvalidFilename">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
       <option name="PROGRAM_PARAMETERS" value="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BlueComponentFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.BlueComponentFilterTest" />
-      <option name="METHOD_NAME" value="testApply" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,17 +93,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedComponentFilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModelTest.testLoadProjectInvalidFilename" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.RedComponentFilterTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ModelTest" />
+      <option name="METHOD_NAME" value="testLoadProjectInvalidFilename" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModelTest.testLoadProjectNonExistentFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ModelTest" />
+      <option name="METHOD_NAME" value="testLoadProjectNonExistentFile" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,19 +137,19 @@
     <list>
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="JUnit.BlueComponentFilterTest.testApply" />
+      <item itemvalue="JUnit.ModelTest.testLoadProjectInvalidFilename" />
+      <item itemvalue="JUnit.ModelTest.testLoadProjectNonExistentFile" />
       <item itemvalue="JUnit.DarkenLumaFilterTest.testApply" />
       <item itemvalue="JUnit.GUIModelTest.testLoadProject" />
-      <item itemvalue="JUnit.RedComponentFilterTest" />
       <item itemvalue="JUnit.RedComponentFilterTest.testApply" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ModelTest.testLoadProjectInvalidFilename" />
+        <item itemvalue="JUnit.ModelTest.testLoadProjectNonExistentFile" />
         <item itemvalue="JUnit.DarkenLumaFilterTest.testApply" />
         <item itemvalue="JUnit.RedComponentFilterTest.testApply" />
         <item itemvalue="JUnit.GUIModelTest.testLoadProject" />
-        <item itemvalue="JUnit.BlueComponentFilterTest.testApply" />
-        <item itemvalue="JUnit.RedComponentFilterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,6 +168,8 @@
       <workItem from="1679442428316" duration="6955000" />
       <workItem from="1679858381871" duration="7110000" />
       <workItem from="1679959405065" duration="5040000" />
+      <workItem from="1680650903650" duration="1555000" />
+      <workItem from="1680729725205" duration="736000" />
     </task>
     <servers />
   </component>

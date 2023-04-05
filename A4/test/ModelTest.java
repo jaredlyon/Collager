@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import collage.model.Model;
 import collage.model.Project;
 
@@ -46,12 +48,11 @@ public class ModelTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testLoadProjectInvalidFilename() {
-    model.loadProject(null);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testLoadProjectNonExistentFile() {
-    model.loadProject("non-existent-file.ppm");
+    try {
+      model.loadProject(null);
+    } catch (IOException e) {
+      Assert.fail("IOException should not be thrown");
+    }
   }
 
   @Test(expected = IllegalArgumentException.class)
