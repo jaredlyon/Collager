@@ -23,3 +23,17 @@ The user can create a new project, load a project, add a layer to the project, a
 
 ### Image Citation
 The two example images provided, cp_goat.ppm & jp_jersey_2017.ppm, are two images created by Jared Lyon and Jaron R. in 2017 when we were coming up with a fake Club Penguin International tournament. We have authorized the use of these images.
+
+### TODO
+  - tests
+    - view
+    - controller
+    - model
+    - project
+    - all filters
+    - hsl pixel
+  - implementation
+    - fix build image
+
+  - optimizations (optional)
+    - better looking gui
