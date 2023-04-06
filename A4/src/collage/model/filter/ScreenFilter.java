@@ -57,23 +57,14 @@ public class ScreenFilter implements IFilter {
    * @return a new filtered pixel
    */
   private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2, int value) {
-    System.out.println("in generate new pixel");
     HSLPixel hsl1 = Utils.RGBToHSL(p1);
-    System.out.println(String.format("hsl1: %f, %f, %f", hsl1.getHue(), hsl1.getSaturation(),
-            hsl1.getLightness()));
-    System.out.println("p2: " + p2.convertToPPMRepresentation());
     HSLPixel hsl2 = Utils.RGBToHSL(p2);
-    System.out.println(String.format("hsl2: %f, %f, %f", hsl2.getHue(), hsl2.getSaturation(),
-            hsl2.getLightness()));
     double newLightness = 1 - ((1 - hsl1.getLightness()) * (1 - hsl2.getLightness()));
-    System.out.println(String.format("hue: %f, sat: %f, light: %f", hsl1.getHue(),
-            hsl1.getSaturation(), newLightness));
     HSLPixel transformedPixelHSL = new HSLPixel(
             hsl1.getHue(),
             hsl1.getSaturation(),
             newLightness
     );
-    RGBPixel newPixel = Utils.HSLToRGB(transformedPixelHSL, value);
-    return newPixel;
+    return Utils.HSLToRGB(transformedPixelHSL, value);
   }
 }

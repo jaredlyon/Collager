@@ -66,7 +66,6 @@ public class MultiplyFilter implements IFilter {
             hsl1.getSaturation(),
             hsl1.getLightness() * hsl2.getLightness()
     );
-    RGBPixel newPixel = Utils.HSLToRGB(transformedPixelHSL, value);
-    return newPixel;
+    return Utils.HSLToRGB(transformedPixelHSL, value);
   }
 }

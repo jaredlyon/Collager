@@ -88,7 +88,6 @@ public class Project {
    */
   public void addImageToLayer(String layerName, String imageName, int posX, int posY) {
     for (Layer iterLayer : this.layers) {
-      System.out.println(iterLayer.getName());
       if (layerName.equals(iterLayer.getName())) {
         iterLayer.addImageToLayer(imageName, posX, posY);
       }
@@ -172,63 +171,41 @@ public class Project {
       IFilter filter;
 
       switch (curLayer.getFilter()) {
-        case "NORMAL":
-          filter = new NormalFilter(curLayer.getPixels());
-          break;
-        case "RED_COMPONENT":
-          filter = new RedComponentFilter(curLayer.getPixels());
-          break;
-        case "GREEN_COMPONENT":
-          filter = new GreenComponentFilter(curLayer.getPixels());
-          break;
-        case "BLUE_COMPONENT":
-          filter = new BlueComponentFilter(curLayer.getPixels());
-          break;
-        case "BRIGHTEN_VALUE":
-          filter = new BrightenValueFilter(curLayer.getPixels());
-          break;
-        case "BRIGHTEN_INTENSITY":
-          filter = new BrightenIntensityFilter(curLayer.getPixels());
-          break;
-        case "BRIGHTEN_LUNA":
-          filter = new BrightenLumaFilter(curLayer.getPixels());
-          break;
-        case "DARKEN_VALUE":
-          filter = new DarkenValueFilter(curLayer.getPixels());
-          break;
-        case "DARKEN_INTENSITY":
-          filter = new DarkenIntensityFilter(curLayer.getPixels());
-          break;
-        case "DARKEN_LUNA":
-          filter = new DarkenLumaFilter(curLayer.getPixels());
-          break;
-        case "DIFFERENCE":
+        case "NORMAL" -> filter = new NormalFilter(curLayer.getPixels());
+        case "RED_COMPONENT" -> filter = new RedComponentFilter(curLayer.getPixels());
+        case "GREEN_COMPONENT" -> filter = new GreenComponentFilter(curLayer.getPixels());
+        case "BLUE_COMPONENT" -> filter = new BlueComponentFilter(curLayer.getPixels());
+        case "BRIGHTEN_VALUE" -> filter = new BrightenValueFilter(curLayer.getPixels());
+        case "BRIGHTEN_INTENSITY" -> filter = new BrightenIntensityFilter(curLayer.getPixels());
+        case "BRIGHTEN_LUNA" -> filter = new BrightenLumaFilter(curLayer.getPixels());
+        case "DARKEN_VALUE" -> filter = new DarkenValueFilter(curLayer.getPixels());
+        case "DARKEN_INTENSITY" -> filter = new DarkenIntensityFilter(curLayer.getPixels());
+        case "DARKEN_LUNA" -> filter = new DarkenLumaFilter(curLayer.getPixels());
+        case "DIFFERENCE" -> {
           if (i == 0) {
             throw new IllegalStateException("Difference filter cannot be applied to the " +
                     "first layer.");
           }
           filter = new DifferenceFilter(curLayer.getPixels(), curImage);
-          break;
-        case "MULTIPLY":
+        }
+        case "MULTIPLY" -> {
           if (i == 0) {
             throw new IllegalStateException("Multiply filter cannot be applied to the " +
                     "first layer.");
           }
           filter = new MultiplyFilter(curLayer.getPixels(), curImage);
-          break;
-        case "SCREEN":
+        }
+        case "SCREEN" -> {
           if (i == 0) {
             throw new IllegalStateException("Screen filter cannot be applied to the " +
                     "first layer.");
           }
           filter = new ScreenFilter(curLayer.getPixels(), curImage);
-          break;
-        default:
-          throw new IllegalStateException("Invalid filter");
+        }
+        default -> throw new IllegalStateException("Invalid filter");
       }
       if (filter != null) {
         ArrayList<ArrayList<RGBPixel>> curImageOnLayer = filter.apply();
-        System.out.println(curImageOnLayer.get(0).get(0).getBlue());
         layers.get(i).setPixels(curImageOnLayer);
       }
     }
