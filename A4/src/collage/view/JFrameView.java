@@ -20,6 +20,7 @@ import collage.model.pixel.RGBPixel;
  * passed through the controller in order to prevent unwanted mutable errors.
  */
 public class JFrameView extends JFrame implements IGUIView, ActionListener {
+  private final JPanel mainPanel;
   private GUIController controller;
   private final JButton newProjectButton;
   private final JButton loadProjectButton;
@@ -29,6 +30,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
   private final JButton selectLayerButton;
   private final JButton setFilterButton;
   private final JButton addImageToLayerButton;
+  private final JFrame imageFrame;
   private final JPanel imagePanel;
   private final JLabel layerText;
   private final JLabel currentLayer;
@@ -43,13 +45,13 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     // generate the base frame
     this.setTitle("Collager");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(1200, 1200);
-    this.setLayout(new GridLayout(4, 1));
-    // this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    this.setSize(1200, 300);
+    this.mainPanel = new JPanel();
+    this.mainPanel.setSize(new Dimension(1200, 250));
+    this.add(this.mainPanel);
 
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
-    buttonPanel.setSize(new Dimension(1200, 100));
     buttonPanel.setBorder(BorderFactory.createTitledBorder("User Controls"));
     this.newProjectButton = new JButton("New Project");
     this.newProjectButton.addActionListener(this);
@@ -75,27 +77,30 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     this.addImageToLayerButton = new JButton("Add Image to Layer");
     this.addImageToLayerButton.addActionListener(this);
     buttonPanel.add(this.addImageToLayerButton);
-    this.add(buttonPanel);
+    this.mainPanel.add(buttonPanel);
 
     // show the composite image field
+    this.imageFrame = new JFrame();
+    this.imageFrame.setTitle("Composite Project Image");
+    this.imageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.imageFrame.setSize(1200, 900);
     this.imagePanel = new JPanel();
-    this.imagePanel.setSize(new Dimension(1200, 900));
     this.imagePanel.setBorder(BorderFactory.createTitledBorder("Composite Project Image"));
-    this.add(this.imagePanel);
+    this.imageFrame.add(this.imagePanel);
 
     // display the project layers
     this.layerText = new JLabel("No layers yet");
-    this.layerText.setSize(new Dimension(1200, 100));
     this.layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-    this.add(this.layerText);
+    this.mainPanel.add(this.layerText);
 
     // tell the use which layer they're currently on
     this.currentLayer = new JLabel("No layer selected");
-    this.currentLayer.setSize(new Dimension(1200, 100));
     this.currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
-    this.add(this.currentLayer);
+    this.mainPanel.add(this.currentLayer);
 
     // set the window to visible
+    this.mainPanel.setLayout(new GridLayout(3, 1));
+    this.imageFrame.setVisible(true);
     this.setVisible(true);
   }
 
@@ -109,10 +114,13 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     try {
       this.content = content;
       this.updateComponents();
+      this.updateImage();
 
       try {
         this.revalidate();
         this.repaint();
+        this.imageFrame.revalidate();
+        this.imageFrame.repaint();
       } catch (Exception e) {
         System.out.println("Could not update");
       }
@@ -125,14 +133,6 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
    * Renders the collager data to the user.
    */
   private void updateComponents() {
-    // clear the image component
-    this.imagePanel.removeAll();
-
-    // show the composite image with a scrollbar
-    this.imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
-            this.content.getHeight(),
-            this.content.getPixels()))));
-
     // display the project layers
     ArrayList<String> layers = this.content.getLayers();
     String layersOutput = "";
@@ -143,6 +143,19 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
 
     // tell the use which layer they're currently on
     this.currentLayer.setText(this.content.getCurrentLayer());
+  }
+
+  /**
+   * Renders the collager composite image to the user.
+   */
+  private void updateImage() {
+    // clear the image component
+    this.imagePanel.removeAll();
+
+    // show the composite image with a scrollbar
+    this.imagePanel.add(new JLabel(new ImageIcon(createImageFromScratch(this.content.getWidth(),
+            this.content.getHeight(),
+            this.content.getPixels()))));
   }
 
   /**
