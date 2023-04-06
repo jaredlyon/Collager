@@ -217,27 +217,36 @@ public class Project {
       for (int j = 0; j < currentImage.size(); j++) {
         ArrayList<RGBPixel> newRow = new ArrayList<>();
         for (int k = 0; k < currentImage.get(j).size(); k++) {
+          // top pixel
           RGBPixel curPixel = layer.getPixels().get(j).get(k);
+          // bottom pixel
           RGBPixel botPixel = currentImage.get(j).get(k);
-          double topAlpha = curPixel.getAlpha();
-          double topRed = curPixel.getRed();
-          double topGreen = curPixel.getGreen();
-          double topBlue = curPixel.getBlue();
-          double botAlpha = botPixel.getAlpha();
-          double botRed = botPixel.getRed();
-          double botGreen = botPixel.getGreen();
-          double botBlue = botPixel.getBlue();
-          double alphaPrimePrime = (topAlpha / 255.0
-                  + botAlpha / 255.0 * (1 - (topAlpha / 255.0)));
-          double alphaPrime = alphaPrimePrime * 255.0;
-          double redPrime = (topAlpha / 255.0 * topRed
-                  + botRed * botAlpha / 255.0 * (1.0 - (topAlpha / 255.0))) / alphaPrimePrime;
-          double greenPrime = (topAlpha / 255.0 * topGreen
-                  + botGreen * botAlpha / 255.0 * (1.0 - (topAlpha / 255.0))) / alphaPrimePrime;
-          double bluePrime = (topAlpha / 255.0 * topBlue
-                  + botBlue * botAlpha / 255.0 * (1.0 - (topAlpha / 255.0))) / alphaPrimePrime;
-          RGBPixel newPixel = new RGBPixel(
-                  (int)alphaPrime, (int)redPrime, (int)greenPrime, (int)bluePrime);
+
+          // get top pixel vals
+          double topA = curPixel.getAlpha();
+          double topR = curPixel.getRed();
+          double topG = curPixel.getGreen();
+          double topB = curPixel.getBlue();
+
+          // get bottom pixel vals
+          double botA = botPixel.getAlpha();
+          double botR = botPixel.getRed();
+          double botG = botPixel.getGreen();
+          double botB = botPixel.getBlue();
+
+          // a''
+          double percentAlpha = ((topA / 255.0) + (botA / 255.0) * (1 - (topA / 255.0)));
+          // r' b' g' a'
+          int a = (int) percentAlpha * 255;
+          int r = (int) (((topA / 255.0) * topR + (botR * (botA / 255.0) * (1 - (topA / 255.0))))
+                  * (1 / percentAlpha));
+          int g = (int) (((topA / 255.0) * topG + (botG * (botA / 255.0) * (1 - (topA / 255.0))))
+                  * (1 / percentAlpha));
+          int b = (int) (((topA / 255.0) * topB + (botB * (botA / 255.0) * (1 - (topA / 255.0))))
+                  * (1 / percentAlpha));
+
+          // make new pixel
+          RGBPixel newPixel = new RGBPixel(a, r, g, b);
           newRow.add(newPixel);
         }
         newImage.add(newRow);
@@ -257,15 +266,21 @@ public class Project {
    */
   public void saveImage(String filename) throws IllegalArgumentException, IllegalStateException {
     ArrayList<ArrayList<RGBPixel>> image = this.buildImage();
-
     StringBuilder rgbVals = new StringBuilder();
+
     for (ArrayList<RGBPixel> row : image) {
       for (RGBPixel p : row) {
-        int alpha = p.getAlpha();
-        p.setRed(p.getRed() * (alpha / 255));
-        p.setGreen(p.getGreen() * (alpha / 255));
-        p.setBlue(p.getBlue() * (alpha / 255));
-        rgbVals.append(p.getVals());
+        double alpha = p.getAlpha();
+        double red = p.getRed();
+        double green = p.getGreen();
+        double blue = p.getBlue();
+
+        double redPrime = red * (alpha / 255.0);
+        double greenPrime = green * (alpha / 255.0);
+        double bluePrime = blue * (alpha / 255.0);
+
+        rgbVals.append("\n").append((int)redPrime).append(" ").append((int)greenPrime).append(" ")
+                .append((int)bluePrime).append(" ");
       }
     }
 
@@ -282,10 +297,10 @@ public class Project {
 
     try {
       writer = new FileWriter(filename + ".ppm");
-      writer.write("P3\n");
-      writer.write(this.getWidth() + " " + this.getHeight() + "\n");
-      writer.write(this.getMaxVal() + "\n");
-      writer.write(rgbVals.toString() + "\n");
+      writer.write("P3");
+      writer.write("\n" + this.getWidth() + " " + this.getHeight());
+      writer.write("\n" + this.getMaxVal());
+      writer.write(rgbVals + "\n");
       writer.close();
     } catch (IOException ex) {
       throw new IllegalStateException(ex);

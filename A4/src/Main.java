@@ -24,30 +24,32 @@ public final class Main {
    * @param args - a String[] determining which version to play
    */
   public static void main(String[] args) {
-    if (args[0].equals("-file")) {
-      Readable reader;
-      try {
-        reader = new FileReader(args[1]);
-        Scanner scan = new Scanner(reader);
+    if (args.length > 0) {
+      if (args[0].equals("-file")) {
+        Readable reader;
+        try {
+          reader = new FileReader(args[1]);
+          Scanner scan = new Scanner(reader);
+          IModel model = new Model();
+          IScriptView view = new ScriptView(model);
+          StringBuilder executable = new StringBuilder();
+          while (scan.hasNextLine()) {
+            executable.append(scan.nextLine()).append("\n");
+          }
+          Readable in = new StringReader(executable.toString());
+          IScriptController controller = new ScriptController(model, view, in);
+          controller.startCollage();
+        } catch (FileNotFoundException ex) {
+          System.out.println("File not found.");
+        }
+      } else if (args[0].equals("-text")) {
+        // starts the script version
         IModel model = new Model();
         IScriptView view = new ScriptView(model);
-        StringBuilder executable = new StringBuilder();
-        while (scan.hasNextLine()) {
-          executable.append(scan.nextLine()).append("\n");
-        }
-        Readable in = new StringReader(executable.toString());
+        Readable in = new InputStreamReader(System.in);
         IScriptController controller = new ScriptController(model, view, in);
         controller.startCollage();
-      } catch (FileNotFoundException ex) {
-        System.out.println("File not found.");
       }
-    } else if (args[0].equals("-text")) {
-      // starts the script version
-      IModel model = new Model();
-      IScriptView view = new ScriptView(model);
-      Readable in = new InputStreamReader(System.in);
-      IScriptController controller = new ScriptController(model, view, in);
-      controller.startCollage();
     }
 
     // else starts gui version
