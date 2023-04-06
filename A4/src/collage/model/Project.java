@@ -167,7 +167,6 @@ public class Project {
     // a project will always have at least 1 layer
     ArrayList<ArrayList<RGBPixel>> curImage = this.layers.get(0).getPixels();
     for (int i = 1; i < layers.size(); i++) {
-      System.out.println("in layer here");
       Layer curLayer = layers.get(i);
       IFilter filter = null;
       switch (curLayer.getFilter()) {
@@ -225,10 +224,9 @@ public class Project {
         default:
           throw new IllegalStateException("Invalid filter");
       }
-      System.out.println(filter);
       if (filter != null) {
         ArrayList<ArrayList<RGBPixel>> curImageOnLayer = filter.apply();
-        curLayer.setPixels(curImageOnLayer);
+        layers.get(i).setPixels(curImageOnLayer);
       }
     }
 
