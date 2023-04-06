@@ -20,7 +20,7 @@ The user can create a new project, load a project, add a layer to the project, a
 
 ### A5: GUI Instructions
 The GUI will present you with a line of buttons across the top. All collage functions are accomplished through the use of these buttons. Each button will invite you to input the necessary arguments to execute the command, some buttons will provide examples on how to use them. As shown below, the view will also show the composite image that is currently being worked on, as well as the project layers and which layer is currently being worked on.
-![Screen Shot 2023-04-05 at 10.39.15 PM.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_f%2Fv38cfpbn36bc4n752_czh7ch0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_BfQDRh%2FScreen%20Shot%202023-04-05%20at%2010.39.15%20PM.png)
+<img width="1195" alt="Screen Shot 2023-04-05 at 10 44 04 PM" src="https://user-images.githubusercontent.com/29807461/230259403-46a20792-9cde-4495-be38-695f70e6f830.png">
 
 ### Possible Errors
 Some users experienced success with different file paths. The test suite is designed to work using the `./A4/res/image.ppm` path, but some users reported only using the `./res/image.ppm` path.
