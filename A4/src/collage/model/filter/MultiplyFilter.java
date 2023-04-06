@@ -43,7 +43,7 @@ public class MultiplyFilter implements IFilter {
       for (int j = 0; j < topImage.get(i).size(); j++) {
         RGBPixel p1 = topImage.get(i).get(j);
         RGBPixel p2 = botImageCumulative.get(i).get(j);
-        RGBPixel newPixel = this.generateNewPixel(p1, p2);
+        RGBPixel newPixel = this.generateNewPixel(p1, p2, p1.getAlpha());
         row.add(newPixel);
       }
       newImage.add(row);
@@ -58,7 +58,7 @@ public class MultiplyFilter implements IFilter {
    * @param p2 the bottom pixel
    * @return a new filtered pixel
    */
-  private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2) {
+  private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2, int value) {
     HSLPixel hsl1 = Utils.RGBToHSL(p1);
     HSLPixel hsl2 = Utils.RGBToHSL(p2);
     HSLPixel transformedPixelHSL = new HSLPixel(
@@ -66,7 +66,7 @@ public class MultiplyFilter implements IFilter {
             hsl1.getSaturation(),
             hsl1.getLightness() * hsl2.getLightness()
     );
-    RGBPixel newPixel = Utils.HSLToRGB(transformedPixelHSL);
+    RGBPixel newPixel = Utils.HSLToRGB(transformedPixelHSL, value);
     return newPixel;
   }
 }

@@ -33,6 +33,9 @@ public class Utils {
       if (var6 == var0) {
         var14 = (var2 - var4) / var10;
         var14 %= 6.0;
+        if (var14 < 0.0) {
+          var14 += 6.0;
+        }
       } else if (var6 == var2) {
         var14 = (var4 - var0) / var10;
         var14 += 2.0;
@@ -44,6 +47,10 @@ public class Utils {
       var14 *= 60.0;
     }
 
+    if (var16 > 1.0) {
+      var16 = 1.0;
+    }
+
     return new HSLPixel(var14, var16, var12);
   }
 
@@ -53,14 +60,14 @@ public class Utils {
    * @param pixel the HSL pixel to convert
    * @return the RGB pixel
    */
-  public static RGBPixel HSLToRGB(HSLPixel pixel) {
+  public static RGBPixel HSLToRGB(HSLPixel pixel, int alpha) {
     double var0 = pixel.getHue();
     double var2 = pixel.getSaturation();
     double var4 = pixel.getLightness();
     double var6 = convertFn(var0, var2, var4, 0) * 255.0;
     double var8 = convertFn(var0, var2, var4, 8) * 255.0;
     double var10 = convertFn(var0, var2, var4, 4) * 255.0;
-    return new RGBPixel(255, (int)var6, (int)var8, (int)var10);
+    return new RGBPixel(alpha, (int)var6, (int)var8, (int)var10);
   }
 
   /**

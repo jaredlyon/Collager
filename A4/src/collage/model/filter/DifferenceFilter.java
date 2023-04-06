@@ -55,12 +55,11 @@ public class DifferenceFilter implements IFilter {
    * @return a new filtered pixel
    */
   private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2) {
-    RGBPixel newPixel = new RGBPixel(
+    return new RGBPixel(
             Math.abs(p1.getAlpha() - p2.getAlpha()),
             Math.abs(p1.getRed() - p2.getRed()),
             Math.abs(p1.getGreen() - p2.getGreen()),
             Math.abs(p1.getBlue() - p2.getBlue())
     );
-    return newPixel;
   }
 }

@@ -38,7 +38,7 @@ public class HSLPixel implements IPixel {
    */
   @Override
   public String convertToPPMRepresentation() {
-    return Utils.HSLToRGB(this).convertToPPMRepresentation();
+    return Utils.HSLToRGB(this, 255).convertToPPMRepresentation();
   }
 
   /**
