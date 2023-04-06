@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/res/multiply.ppm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/screen.ppm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FilterTests/ScreenFilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTests/ScreenFilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/difference.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/difference.ppm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in A4">
+  <component name="RunManager" selected="Application.GUICollage">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
@@ -184,7 +186,7 @@
       <workItem from="1680650903650" duration="1555000" />
       <workItem from="1680729725205" duration="7549000" />
       <workItem from="1680750777761" duration="2107000" />
-      <workItem from="1680813935602" duration="279000" />
+      <workItem from="1680813935602" duration="2170000" />
     </task>
     <servers />
   </component>
