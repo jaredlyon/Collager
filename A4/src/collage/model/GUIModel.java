@@ -34,8 +34,8 @@ public class GUIModel extends Model {
    * @param height the height of the project
    * @throws IllegalArgumentException if the dimensions are negative
    */
-  public void newProject(int width, int height) throws IllegalArgumentException {
-    super.newProject(width, height);
+  public void newProject(int height, int width) throws IllegalArgumentException {
+    super.newProject(height, width);
     this.currentLayerName = "background";
   }
 
