@@ -20,6 +20,7 @@ public class HSLPixel implements IPixel {
    */
   public HSLPixel(double h, double s, double l) throws IllegalArgumentException {
     if (h < 0.0 || h > 360.0) {
+      System.out.println(String.format("Hue: %f", h));
       throw new IllegalArgumentException("Hue must be between 0.0 and 360.");
     } else if (s < 0.0 || s > 1.0) {
       throw new IllegalArgumentException("Saturation must be between 0.0 and 1.0");

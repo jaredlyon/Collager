@@ -165,35 +165,76 @@ public class Project {
     }
 
     // a project will always have at least 1 layer
-    ArrayList<ArrayList<RGBPixel>> curImage = this.layers.get(0).getPixels();
-    for (int i = 1; i < layers.size(); i++) {
+    ArrayList<ArrayList<RGBPixel>> curImage = layers.get(0).getPixels();
+    for (int i = 0; i < layers.size(); i++) {
       Layer curLayer = layers.get(i);
 
-      // define layer filter
-      IFilter filter = switch (curLayer.getFilter()) {
-        case "NORMAL" -> new NormalFilter(curLayer.getPixels());
-        case "RED_COMPONENT" -> new RedComponentFilter(curLayer.getPixels());
-        case "GREEN_COMPONENT" -> new GreenComponentFilter(curLayer.getPixels());
-        case "BLUE_COMPONENT" -> new BlueComponentFilter(curLayer.getPixels());
-        case "BRIGHTEN_VALUE" -> new BrightenValueFilter(curLayer.getPixels());
-        case "BRIGHTEN_INTENSITY" -> new BrightenIntensityFilter(curLayer.getPixels());
-        case "BRIGHTEN_LUNA" -> new BrightenLumaFilter(curLayer.getPixels());
-        case "DARKEN_VALUE" -> new DarkenValueFilter(curLayer.getPixels());
-        case "DARKEN_INTENSITY" -> new DarkenIntensityFilter(curLayer.getPixels());
-        case "DARKEN_LUNA" -> new DarkenLumaFilter(curLayer.getPixels());
-        case "DIFFERENCE" -> new DifferenceFilter(curLayer.getPixels(), curImage);
-        case "MULTIPLY" -> new MultiplyFilter(curLayer.getPixels(), curImage);
-        case "SCREEN" -> new ScreenFilter(curLayer.getPixels(), curImage);
-        default -> throw new IllegalStateException("Invalid filter");
-      };
+      IFilter filter;
 
-      // apply the filter
-      ArrayList<ArrayList<RGBPixel>> curImageOnLayer = filter.apply();
-      layers.get(i).setPixels(curImageOnLayer);
+      switch (curLayer.getFilter()) {
+        case "NORMAL":
+          filter = new NormalFilter(curLayer.getPixels());
+          break;
+        case "RED_COMPONENT":
+          filter = new RedComponentFilter(curLayer.getPixels());
+          break;
+        case "GREEN_COMPONENT":
+          filter = new GreenComponentFilter(curLayer.getPixels());
+          break;
+        case "BLUE_COMPONENT":
+          filter = new BlueComponentFilter(curLayer.getPixels());
+          break;
+        case "BRIGHTEN_VALUE":
+          filter = new BrightenValueFilter(curLayer.getPixels());
+          break;
+        case "BRIGHTEN_INTENSITY":
+          filter = new BrightenIntensityFilter(curLayer.getPixels());
+          break;
+        case "BRIGHTEN_LUNA":
+          filter = new BrightenLumaFilter(curLayer.getPixels());
+          break;
+        case "DARKEN_VALUE":
+          filter = new DarkenValueFilter(curLayer.getPixels());
+          break;
+        case "DARKEN_INTENSITY":
+          filter = new DarkenIntensityFilter(curLayer.getPixels());
+          break;
+        case "DARKEN_LUNA":
+          filter = new DarkenLumaFilter(curLayer.getPixels());
+          break;
+        case "DIFFERENCE":
+          if (i == 0) {
+            throw new IllegalStateException("Difference filter cannot be applied to the " +
+                    "first layer.");
+          }
+          filter = new DifferenceFilter(curLayer.getPixels(), curImage);
+          break;
+        case "MULTIPLY":
+          if (i == 0) {
+            throw new IllegalStateException("Multiply filter cannot be applied to the " +
+                    "first layer.");
+          }
+          filter = new MultiplyFilter(curLayer.getPixels(), curImage);
+          break;
+        case "SCREEN":
+          if (i == 0) {
+            throw new IllegalStateException("Screen filter cannot be applied to the " +
+                    "first layer.");
+          }
+          filter = new ScreenFilter(curLayer.getPixels(), curImage);
+          break;
+        default:
+          throw new IllegalStateException("Invalid filter");
+      }
+      if (filter != null) {
+        ArrayList<ArrayList<RGBPixel>> curImageOnLayer = filter.apply();
+        System.out.println(curImageOnLayer.get(0).get(0).getBlue());
+        layers.get(i).setPixels(curImageOnLayer);
+      }
     }
 
     ArrayList<ArrayList<RGBPixel>> currentImage = this.layers.get(0).getPixels();
-    for (Layer layer : this.layers.subList(0, this.layers.size() - 1)) {
+    for (Layer layer : this.layers.subList(1, this.layers.size())) {
       // add the current image to the cumulative image
       ArrayList<ArrayList<RGBPixel>> newImage = new ArrayList<>();
       for (int j = 0; j < currentImage.size(); j++) {

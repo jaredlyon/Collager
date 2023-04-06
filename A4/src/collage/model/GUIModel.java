@@ -49,6 +49,7 @@ public class GUIModel extends Model {
     ArrayList<String> layerNames = new ArrayList<>();
     for (Layer layer : this.project.getLayers()) {
       layerNames.add(layer.getName());
+      System.out.println(layer.getName());
     }
     RenderContent content = new RenderContent(
             this.project.getWidth(),
