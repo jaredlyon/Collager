@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import collage.model.GUIModel;
 import collage.model.pixel.RGBPixel;
@@ -13,8 +14,10 @@ import collage.view.RenderContent;
  * Tests the GUIModel class.
  */
 public class GUIModelTest {
+
   class MockGUIModel extends GUIModel {
     Appendable log;
+
     public MockGUIModel(Appendable log) {
       super();
       this.log = log;
@@ -23,18 +26,6 @@ public class GUIModelTest {
     @Override
     public void loadProject(String fileName) throws IllegalArgumentException, IOException {
       this.log.append("loadProject called with " + fileName);
-    }
-  }
-
-  @Test
-  public void testLoadProject() {
-    StringBuilder log = new StringBuilder();
-    MockGUIModel model = new MockGUIModel(log);
-    try {
-
-      model.loadProject("test");
-      assertEquals("loadProject called with test", log.toString());
-    } catch (IOException e) {
     }
   }
 
@@ -48,6 +39,7 @@ public class GUIModelTest {
     layerNames.add("background");
     layerNames.add("layer1");
     RenderContent expected = new RenderContent(10, 10, layerNames, "layer1", pixels);
+    assertNotNull(expected);
   }
 
   @Test

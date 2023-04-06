@@ -59,13 +59,13 @@ public class MultiplyFilter implements IFilter {
    * @return a new filtered pixel
    */
   private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2, int value) {
-    HSLPixel hsl1 = Utils.RGBToHSL(p1);
-    HSLPixel hsl2 = Utils.RGBToHSL(p2);
+    HSLPixel hsl1 = Utils.rgbToHsl(p1);
+    HSLPixel hsl2 = Utils.rgbToHsl(p2);
     HSLPixel transformedPixelHSL = new HSLPixel(
             hsl1.getHue(),
             hsl1.getSaturation(),
             hsl1.getLightness() * hsl2.getLightness()
     );
-    return Utils.HSLToRGB(transformedPixelHSL, value);
+    return Utils.hslToRgb(transformedPixelHSL, value);
   }
 }

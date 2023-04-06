@@ -1,5 +1,8 @@
 package collage.controller;
 
+/**
+ * Represents a controller for the GUI version of the collager project.
+ */
 public interface IGUIController {
 
   /**

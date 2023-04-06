@@ -1,4 +1,5 @@
-package FilterTests;
+package filtertests;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -12,9 +13,6 @@ import collage.model.pixel.RGBPixel;
  * Tests the BlueComponentFilter class.
  */
 public class BlueComponentFilterTest {
-  @Test
-  public void testBlueComponentFilter() {
-  }
 
   @Test
   public void testApply() {

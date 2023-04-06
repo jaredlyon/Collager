@@ -37,7 +37,7 @@ public class GUIController implements IGUIController {
     String[] commands = command.split(" ");
 
     switch (commands[0]) {
-      case "new-project" -> {
+      case "new-project" : {
         try {
           this.model.newProject(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]));
           this.view.render(this.model.getRenderContent());
@@ -48,8 +48,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "load-project" -> {
+      case "load-project" : {
         try {
           this.model.loadProject(commands[1]);
           this.view.render(this.model.getRenderContent());
@@ -60,8 +61,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "save-project" -> {
+      case "save-project" : {
         try {
           this.model.saveProject(commands[1]);
           this.view.render(this.model.getRenderContent());
@@ -72,8 +74,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "save-image" -> {
+      case "save-image" : {
         try {
           this.model.saveImage(commands[1]);
           this.view.render(this.model.getRenderContent());
@@ -84,8 +87,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "add-layer" -> {
+      case "add-layer" : {
         try {
           this.model.addLayer(commands[1]);
           this.view.render(this.model.getRenderContent());
@@ -96,8 +100,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "select-layer" -> {
+      case "select-layer" : {
         try {
           this.model.selectLayer(commands[1]);
           this.view.render(this.model.getRenderContent());
@@ -108,8 +113,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "set-filter" -> {
+      case "set-filter" : {
         try {
           this.model.setFilter(this.model.getCurrentLayerName(), commands[1]);
           this.view.render(this.model.getRenderContent());
@@ -120,8 +126,9 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      case "add-image-to-layer" -> {
+      case "add-image-to-layer" : {
         try {
           this.model.addImageToLayer(commands[2], commands[1],
                   Integer.parseInt(commands[3]), Integer.parseInt(commands[4]));
@@ -133,13 +140,15 @@ public class GUIController implements IGUIController {
             throw new IllegalStateException(e);
           }
         }
+        break;
       }
-      default -> {
+      default : {
         try {
           this.view.renderMessage("Controller failed to match input with a command!");
         } catch (IOException e) {
           throw new IllegalArgumentException(e);
         }
+        break;
       }
     }
   }

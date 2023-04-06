@@ -1,6 +1,5 @@
 package collage.view;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -8,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import java.awt.*;
 
 import collage.controller.GUIController;
 import collage.model.pixel.RGBPixel;
@@ -20,7 +20,6 @@ import collage.model.pixel.RGBPixel;
  * passed through the controller in order to prevent unwanted mutable errors.
  */
 public class JFrameView extends JFrame implements IGUIView, ActionListener {
-  private final JPanel mainPanel;
   private GUIController controller;
   private final JButton newProjectButton;
   private final JButton loadProjectButton;
@@ -46,9 +45,9 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     this.setTitle("Collager");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(1200, 300);
-    this.mainPanel = new JPanel();
-    this.mainPanel.setSize(new Dimension(1200, 250));
-    this.add(this.mainPanel);
+    JPanel mainPanel = new JPanel();
+    mainPanel.setSize(new Dimension(1200, 250));
+    this.add(mainPanel);
 
     // generate the buttons for the user to interact with
     JPanel buttonPanel = new JPanel();
@@ -77,7 +76,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     this.addImageToLayerButton = new JButton("Add Image to Layer");
     this.addImageToLayerButton.addActionListener(this);
     buttonPanel.add(this.addImageToLayerButton);
-    this.mainPanel.add(buttonPanel);
+    mainPanel.add(buttonPanel);
 
     // show the composite image field
     this.imageFrame = new JFrame();
@@ -91,15 +90,15 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     // display the project layers
     this.layerText = new JLabel("No layers yet");
     this.layerText.setBorder(BorderFactory.createTitledBorder("Project Layers"));
-    this.mainPanel.add(this.layerText);
+    mainPanel.add(this.layerText);
 
     // tell the use which layer they're currently on
     this.currentLayer = new JLabel("No layer selected");
     this.currentLayer.setBorder(BorderFactory.createTitledBorder("Current Layer"));
-    this.mainPanel.add(this.currentLayer);
+    mainPanel.add(this.currentLayer);
 
     // set the window to visible
-    this.mainPanel.setLayout(new GridLayout(3, 1));
+    mainPanel.setLayout(new GridLayout(3, 1));
     this.imageFrame.setVisible(true);
     this.setLocationRelativeTo(null);
     this.setVisible(true);
@@ -176,12 +175,14 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
   /**
    * Creates an image from scratch using the given arguments.
    *
-   * @param width - the width of the image
+   * @param width  - the width of the image
    * @param height - the height of the image
    * @param pixels - the pixels of the image
    * @return an image created from scratch
    */
-  private Image createImageFromScratch(int width, int height, ArrayList<ArrayList<RGBPixel>> pixels) {
+  private Image createImageFromScratch(int width,
+                                       int height,
+                                       ArrayList<ArrayList<RGBPixel>> pixels) {
     BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
     // convert pixels to 1D arrayList
@@ -191,9 +192,9 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     }
 
     int pixelIndex = 0;
-    //Iterating so x moves to the right and y moves down
-    for(int y = 0; y < image.getHeight(); y++) {
-      for(int x = 0; x < image.getWidth(); x++) {
+    // Iterating so x moves to the right and y moves down
+    for (int y = 0; y < image.getHeight(); y++) {
+      for (int x = 0; x < image.getWidth(); x++) {
         // get the pixel data
         int r = pixels1D.get(pixelIndex).getRed();
         int g = pixels1D.get(pixelIndex).getGreen();
@@ -234,7 +235,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
    */
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == this.newProjectButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Enter the width and height of the project, separated by a space:",
               "New Project",
@@ -246,7 +247,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("new-project " + s);
       }
     } else if (e.getSource() == this.loadProjectButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Enter file path to load project from:",
               "Load Project",
@@ -258,7 +259,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("load-project " + s);
       }
     } else if (e.getSource() == this.saveProjectButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Enter file path to save project to:",
               "Save Project",
@@ -270,7 +271,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("save-project " + s);
       }
     } else if (e.getSource() == this.saveImageButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Enter file path to save image to:",
               "Save Image",
@@ -282,7 +283,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("save-image " + s);
       }
     } else if (e.getSource() == this.addLayerButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "New layer name:",
               "Add Layer",
@@ -294,7 +295,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("add-layer " + s);
       }
     } else if (e.getSource() == this.selectLayerButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Target layer name:",
               "Select Layer",
@@ -306,7 +307,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("select-layer " + s);
       }
     } else if (e.getSource() == this.setFilterButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Filter name:",
               "Set Filter",
@@ -318,7 +319,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
         this.controller.executeCommand("set-filter " + s);
       }
     } else if (e.getSource() == this.addImageToLayerButton) {
-      String s = (String)JOptionPane.showInputDialog(
+      String s = (String) JOptionPane.showInputDialog(
               this,
               "Enter file path to load image from as well as target layer and" +
                       " positional coordinates separated by spaces",

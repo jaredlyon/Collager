@@ -145,10 +145,5 @@ public class ProjectTest {
     String content = new String(Files.readAllBytes(file.toPath()));
     assertNotNull(content);
   }
-
-  @Test
-  public void testBuildImage() {
-    // TODO: implement
-  }
 }
 

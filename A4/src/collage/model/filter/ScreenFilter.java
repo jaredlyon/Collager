@@ -57,14 +57,14 @@ public class ScreenFilter implements IFilter {
    * @return a new filtered pixel
    */
   private RGBPixel generateNewPixel(RGBPixel p1, RGBPixel p2, int value) {
-    HSLPixel hsl1 = Utils.RGBToHSL(p1);
-    HSLPixel hsl2 = Utils.RGBToHSL(p2);
+    HSLPixel hsl1 = Utils.rgbToHsl(p1);
+    HSLPixel hsl2 = Utils.rgbToHsl(p2);
     double newLightness = 1 - ((1 - hsl1.getLightness()) * (1 - hsl2.getLightness()));
     HSLPixel transformedPixelHSL = new HSLPixel(
             hsl1.getHue(),
             hsl1.getSaturation(),
             newLightness
     );
-    return Utils.HSLToRGB(transformedPixelHSL, value);
+    return Utils.hslToRgb(transformedPixelHSL, value);
   }
 }

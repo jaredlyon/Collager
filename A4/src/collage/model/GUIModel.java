@@ -40,10 +40,10 @@ public class GUIModel extends Model {
   }
 
   /**
-   * Gets the content needed to render the current project.
-   * This data is sent to the controller to be sent to the view.
+   * Gets the render content for the current project.
+   * This will be passed to the view via the controller for the user.
+   * @return a RenderContent object representing the current project
    * @throws IllegalStateException if the project is null
-   * @return a RenderContent object containing the content needed to render the current project
    */
   public RenderContent getRenderContent() throws IllegalStateException {
     ArrayList<String> layerNames = new ArrayList<>();
@@ -63,6 +63,7 @@ public class GUIModel extends Model {
 
   /**
    * Selects a layer.
+   *
    * @param layerName the name of the layer to select
    */
   public void selectLayer(String layerName) {
@@ -71,6 +72,7 @@ public class GUIModel extends Model {
 
   /**
    * Adds a layer to the project.
+   *
    * @param layerName the name of the layer to add
    */
   public void addLayer(String layerName) {
@@ -80,6 +82,7 @@ public class GUIModel extends Model {
 
   /**
    * Gets the name of the current layer.
+   *
    * @return a String representing the name of the current layer
    */
   public String getCurrentLayerName() {

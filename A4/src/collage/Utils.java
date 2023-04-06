@@ -14,7 +14,7 @@ public class Utils {
    * @param pixel the RGB pixel to convert
    * @return the HSL pixel
    */
-  public static HSLPixel RGBToHSL(RGBPixel pixel) {
+  public static HSLPixel rgbToHsl(RGBPixel pixel) {
     double var0 = pixel.getRed() / 255.0;
     double var2 = pixel.getGreen() / 255.0;
     double var4 = pixel.getBlue() / 255.0;
@@ -60,7 +60,7 @@ public class Utils {
    * @param pixel the HSL pixel to convert
    * @return the RGB pixel
    */
-  public static RGBPixel HSLToRGB(HSLPixel pixel, int alpha) {
+  public static RGBPixel hslToRgb(HSLPixel pixel, int alpha) {
     double var0 = pixel.getHue();
     double var2 = pixel.getSaturation();
     double var4 = pixel.getLightness();

@@ -44,6 +44,7 @@ public class Layer {
 
   /**
    * Reads a file to generate a layer with an image.
+   *
    * @param filename - the image file path
    * @throws IllegalArgumentException if the filepath is null
    */
@@ -85,20 +86,9 @@ public class Layer {
   public void setFilter(String filter) throws IllegalArgumentException {
     boolean found = false;
 
-    String[] filters = {
-            "NORMAL",
-            "RED_COMPONENT",
-            "GREEN_COMPONENT",
-            "BLUE_COMPONENT",
-            "BRIGHTEN_INTENSITY",
-            "BRIGHTEN_LUMA",
-            "BRIGHTEN_VALUE",
-            "DARKEN_INTENSITY",
-            "DARKEN_LUMA",
-            "DARKEN_VALUE",
-            "DIFFERENCE",
-            "MULTIPLY",
-            "SCREEN"};
+    String[] filters = {"NORMAL", "RED_COMPONENT", "GREEN_COMPONENT", "BLUE_COMPONENT",
+            "BRIGHTEN_INTENSITY", "BRIGHTEN_LUMA", "BRIGHTEN_VALUE", "DARKEN_INTENSITY",
+            "DARKEN_LUMA", "DARKEN_VALUE", "DIFFERENCE", "MULTIPLY", "SCREEN"};
 
     for (String f : filters) {
       if (filter.equals(f)) {
@@ -115,6 +105,7 @@ public class Layer {
 
   /**
    * Gets the filter on this layer.
+   *
    * @return a String representing a filter's name
    */
   public String getFilter() {
@@ -123,11 +114,12 @@ public class Layer {
 
   /**
    * Adds an image to this layer.
+   *
    * @param imageName - the file path of the image
-   * @param posX - the x pos of where it needs to be added
-   * @param posY - the y pos of where it needs to be added
+   * @param posX      - the x pos of where it needs to be added
+   * @param posY      - the y pos of where it needs to be added
    * @throws IllegalArgumentException if any arguments are invalid
-   * @throws IllegalStateException if the image data is null
+   * @throws IllegalStateException    if the image data is null
    */
   public void addImageToLayer(String imageName, int posX, int posY)
           throws IllegalArgumentException, IllegalStateException {
@@ -181,6 +173,7 @@ public class Layer {
 
   /**
    * Gets the name of this layer.
+   *
    * @return a String
    */
   public String getName() {
@@ -189,6 +182,7 @@ public class Layer {
 
   /**
    * Gets the width of this layer.
+   *
    * @return a String
    */
   public int getWidth() {
@@ -197,6 +191,7 @@ public class Layer {
 
   /**
    * Gets the height of this layer.
+   *
    * @return a String.
    */
   public int getHeight() {
@@ -205,6 +200,7 @@ public class Layer {
 
   /**
    * Gets the data from a pixel in this layer.
+   *
    * @param i - the pixel height coord
    * @param j - the pixel width coord
    * @return a String of pixel data
@@ -218,6 +214,7 @@ public class Layer {
 
   /**
    * Gets the pixels within this layer.
+   *
    * @return an ArrayList of pixels
    */
   public ArrayList<RGBPixel> getRawPixels() {
@@ -234,6 +231,7 @@ public class Layer {
 
   /**
    * Gets the pixels within this layer.
+   *
    * @return an ArrayList of ArrayList of pixels
    */
   public ArrayList<ArrayList<RGBPixel>> getPixels() {
@@ -242,6 +240,7 @@ public class Layer {
 
   /**
    * Sets the pixels within this layer.
+   *
    * @param pixels - the pixels to set
    */
   public void setPixels(ArrayList<ArrayList<RGBPixel>> pixels) {
