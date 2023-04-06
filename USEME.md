@@ -21,7 +21,7 @@ The user can create a new project, load a project, add a layer to the project, a
 ### A5: GUI Instructions
 The GUI will spawn two separate windows:
 - The larger window is the composite image screen - this will show you how the project looks as you work on it.
-- The smaller window is the control panel - a line of buttons controls all collager functions, and each will request certain arguments such as file paths, layer names, and/or positioning values. These dialogs will instruct you on the proper argument format, and some will provide examples!
+- The smaller window is the control panel - a line of buttons controls all collager functions, and each will request certain arguments such as file paths, layer names, and/or positioning values. These dialogs will instruct you on the proper argument format, and some will provide examples! This control panel will also list the current project's layers, as well as the current layer that is being edited.
 
 As shown below, the panels may be moved around independently of one another for your convenience.
 <img width="1606" alt="Screen Shot 2023-04-06 at 5 29 46 PM" src="https://user-images.githubusercontent.com/29807461/230497524-3180c1a9-fb06-415f-9b1a-8f16eb7b1faf.png">
