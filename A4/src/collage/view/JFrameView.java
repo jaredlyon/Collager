@@ -101,6 +101,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
     // set the window to visible
     this.mainPanel.setLayout(new GridLayout(3, 1));
     this.imageFrame.setVisible(true);
+    this.setLocationRelativeTo(null);
     this.setVisible(true);
   }
 
