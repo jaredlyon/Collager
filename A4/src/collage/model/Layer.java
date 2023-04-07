@@ -87,8 +87,8 @@ public class Layer {
     boolean found = false;
 
     String[] filters = {"NORMAL", "RED_COMPONENT", "GREEN_COMPONENT", "BLUE_COMPONENT",
-            "BRIGHTEN_INTENSITY", "BRIGHTEN_LUMA", "BRIGHTEN_VALUE", "DARKEN_INTENSITY",
-            "DARKEN_LUMA", "DARKEN_VALUE", "DIFFERENCE", "MULTIPLY", "SCREEN"};
+                        "BRIGHTEN_INTENSITY", "BRIGHTEN_LUMA", "BRIGHTEN_VALUE", "DARKEN_INTENSITY",
+                        "DARKEN_LUMA", "DARKEN_VALUE", "DIFFERENCE", "MULTIPLY", "SCREEN"};
 
     for (String f : filters) {
       if (filter.equals(f)) {
