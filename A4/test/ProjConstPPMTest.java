@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import collage.model.ProjConstPPM;
+import collage.model.pixel.RGBPixel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,32 +17,29 @@ public class ProjConstPPMTest {
 
   @Before
   public void init() {
-    ArrayList<Integer> rgbVals = new ArrayList<Integer>();
-    rgbVals.add(1);
-    rgbVals.add(2);
-    rgbVals.add(3);
-    p1 = new ProjConstPPM(1, 1, 1, rgbVals);
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
+    ArrayList<RGBPixel> row = new ArrayList<>();
+    row.add(new RGBPixel(255, 1, 2, 3));
+    p1 = new ProjConstPPM(1, 1, 1, image);
   }
 
   @Test
   public void testConstructor() {
-    ArrayList<Integer> rgbVals = new ArrayList<Integer>();
-    rgbVals.add(1);
-    rgbVals.add(2);
-    rgbVals.add(3);
-    ProjConstPPM constructorTest = new ProjConstPPM(1, 2, 3, rgbVals);
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
+    ArrayList<RGBPixel> row = new ArrayList<>();
+    row.add(new RGBPixel(255, 1, 2, 3));
+    ProjConstPPM constructorTest = new ProjConstPPM(1, 2, 3, image);
     assertNotNull(constructorTest);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidConstructor() {
-    ArrayList<Integer> rgbVals = new ArrayList<Integer>();
-    rgbVals.add(1);
-    rgbVals.add(2);
-    rgbVals.add(3);
-    ProjConstPPM badConstructorTest1 = new ProjConstPPM(-1, 2, 3, rgbVals);
-    ProjConstPPM badConstructorTest2 = new ProjConstPPM(1, -2, 3, rgbVals);
-    ProjConstPPM badConstructorTest3 = new ProjConstPPM(1, 2, -3, rgbVals);
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
+    ArrayList<RGBPixel> row = new ArrayList<>();
+    row.add(new RGBPixel(255, 1, 2, 3));
+    ProjConstPPM badConstructorTest1 = new ProjConstPPM(-1, 2, 3, image);
+    ProjConstPPM badConstructorTest2 = new ProjConstPPM(1, -2, 3, image);
+    ProjConstPPM badConstructorTest3 = new ProjConstPPM(1, 2, -3, image);
     ProjConstPPM badConstructorTest4 = new ProjConstPPM(1, 2, 3, null);
   }
 
@@ -62,10 +60,9 @@ public class ProjConstPPMTest {
 
   @Test
   public void testGetRGBVals() {
-    ArrayList<Integer> rgbVals = new ArrayList<Integer>();
-    rgbVals.add(1);
-    rgbVals.add(2);
-    rgbVals.add(3);
-    assertEquals(rgbVals, this.p1.getRgbVals());
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
+    ArrayList<RGBPixel> row = new ArrayList<>();
+    row.add(new RGBPixel(255, 1, 2, 3));
+    assertEquals(image, this.p1.getImage());
   }
 }

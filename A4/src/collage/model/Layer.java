@@ -1,6 +1,7 @@
 package collage.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import collage.model.pixel.RGBPixel;
 
@@ -53,8 +54,34 @@ public class Layer {
       throw new IllegalArgumentException("Illegal layer arguments!");
     }
 
-    ProjConstPPM imageData = ImageUtil.readPPM(filename);
-    // TODO: use a switch to either call readPPM, readJPEG, or readPNG
+    String extension = filename.substring(filename.lastIndexOf(".") + 1);
+    ProjConstPPM imageData = null;
+    switch (extension) {
+      case "ppm":
+        try {
+          imageData = ImageUtil.readPPM(filename);
+        } catch (Exception e) {
+          throw new IllegalStateException("error");
+        }
+        break;
+      case "jpg":
+        try {
+          imageData = ImageUtil.readJPG(filename);
+        } catch (Exception e) {
+          throw new IllegalStateException("error");
+        }
+        break;
+      case "png":
+        try {
+          imageData = ImageUtil.readPNG(filename);
+        } catch (Exception e) {
+          throw new IllegalStateException("error");
+        }
+        break;
+      default:
+        throw new IllegalArgumentException("Invalid file extension!");
+    }
+    Objects.requireNonNull(imageData);
 
     this.name = "background";
     this.height = imageData.getHeight();
@@ -132,7 +159,7 @@ public class Layer {
         break;
       case "jpg":
         try {
-          imageData = ImageUtil.readJPEG(imageName);
+          imageData = ImageUtil.readJPG(imageName);
         } catch (Exception e) {
           throw new IllegalStateException("error");
         }

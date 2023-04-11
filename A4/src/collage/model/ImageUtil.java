@@ -1,10 +1,5 @@
 package collage.model;
 
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferInt;
-import java.awt.image.DirectColorModel;
-import java.awt.image.Raster;
-import java.awt.image.WritableRaster;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -171,7 +166,7 @@ public class ImageUtil {
    * @return a ProjConstPPM object containing the image data.
    * @throws IOException if the file cannot be read.
    */
-  public static ProjConstPPM readJPEG(String filename) throws IOException {
+  public static ProjConstPPM readJPG(String filename) throws IOException {
     File file = new File(filename);
     BufferedImage bufImage = ImageIO.read(file);
     int height = bufImage.getHeight();

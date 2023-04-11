@@ -32,10 +32,10 @@ public class ImageUtilTest {
   }
 
   @Test
-  public void testReadJPEG() {
+  public void testReadJPG() {
     ProjConstPPM ppm = null;
     try {
-      ppm = ImageUtil.readJPEG("./A4/res/test.jpeg");
+      ppm = ImageUtil.readJPG("./A4/res/jpgtest.jpg");
     } catch (Exception e) {
       fail();
     }
@@ -55,7 +55,7 @@ public class ImageUtilTest {
   public void testReadPNG() {
     ProjConstPPM ppm = null;
     try {
-      ppm = ImageUtil.readJPEG("./A4/res/test.png");
+      ppm = ImageUtil.readJPG("./A4/res/pngtest.png");
     } catch (Exception e) {
       fail();
     }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="" />
+    <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ImageUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageUtilTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,6 +189,7 @@
       <workItem from="1680813935602" duration="4215000" />
       <workItem from="1680822320250" duration="339000" />
       <workItem from="1680833101179" duration="641000" />
+      <workItem from="1681171548751" duration="4985000" />
     </task>
     <servers />
   </component>
