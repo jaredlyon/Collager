@@ -12,7 +12,7 @@ public class Layer {
   private final int height;
   private final int width;
   private final int maxVal;
-  private ArrayList<ArrayList<RGBPixel>> pixels = new ArrayList<ArrayList<RGBPixel>>();
+  private ArrayList<ArrayList<RGBPixel>> pixels = new ArrayList<>();
   private String filter;
 
   /**
@@ -61,22 +61,7 @@ public class Layer {
     this.width = imageData.getWidth();
     this.maxVal = imageData.getMaxVal();
     this.setFilter("NORMAL");
-
-    // convert the rgb values into pixels
-    ArrayList<RGBPixel> pixels = new ArrayList<RGBPixel>();
-    for (int i = 0; i < imageData.getRgbVals().size(); i += 3) {
-      pixels.add(new RGBPixel(this.maxVal,
-              imageData.getRgbVals().get(i),
-              imageData.getRgbVals().get(i + 1),
-              imageData.getRgbVals().get(i + 2)));
-    }
-
-    // send pixels to row/col list
-    for (int i = 0; i < pixels.size() / this.width; i++) {
-      ArrayList<RGBPixel> row = new ArrayList<RGBPixel>(pixels.subList(this.width * i,
-              this.width * (i + 1)));
-      this.pixels.add(row);
-    }
+    this.pixels = imageData.getImage();
   }
 
   /**
@@ -135,7 +120,33 @@ public class Layer {
       throw new IllegalArgumentException("Invalid position.");
     }
 
-    ProjConstPPM imageData = ImageUtil.readPPM(imageName);
+    ProjConstPPM imageData;
+    String extension = imageName.substring(imageName.lastIndexOf(".") + 1);
+    switch (extension) {
+      case "ppm":
+        try {
+          imageData = ImageUtil.readPPM(imageName);
+        } catch (Exception e) {
+          throw new IllegalStateException("error");
+        }
+        break;
+      case "jpg":
+        try {
+          imageData = ImageUtil.readJPEG(imageName);
+        } catch (Exception e) {
+          throw new IllegalStateException("error");
+        }
+        break;
+      case "png":
+        try {
+          imageData = ImageUtil.readPNG(imageName);
+        } catch (Exception e) {
+          throw new IllegalStateException("error");
+        }
+        break;
+      default:
+        throw new IllegalArgumentException("Invalid file extension.");
+    }
     // TODO: use a switch to either call readPPM, readJPEG, or readPNG
 
     if (imageData == null) {
@@ -145,23 +156,7 @@ public class Layer {
     int width = imageData.getWidth();
     int height = imageData.getHeight();
     int maxVal = imageData.getMaxVal();
-    ArrayList<Integer> rgbVals = imageData.getRgbVals();
-    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<ArrayList<RGBPixel>>();
-
-    // convert the rgb values into pixels
-    ArrayList<RGBPixel> pixels = new ArrayList<RGBPixel>();
-    for (int i = 0; i < rgbVals.size(); i += 3) {
-      pixels.add(new RGBPixel(maxVal,
-              imageData.getRgbVals().get(i),
-              imageData.getRgbVals().get(i + 1),
-              imageData.getRgbVals().get(i + 2)));
-    }
-
-    // send pixels to row/col list
-    for (int i = 0; i < pixels.size() / width; i++) {
-      ArrayList<RGBPixel> row = new ArrayList<RGBPixel>(pixels.subList(width * i, width * (i + 1)));
-      image.add(row);
-    }
+    ArrayList<ArrayList<RGBPixel>> image = imageData.getImage();
 
     for (int i = 0; i < image.size() - 1; i++) {
       for (int j = 0; j < image.get(0).size() - 1; j++) {

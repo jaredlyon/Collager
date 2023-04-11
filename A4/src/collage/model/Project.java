@@ -286,44 +286,38 @@ public class Project {
    */
   public void saveImage(String filename) throws IllegalArgumentException, IllegalStateException {
     ArrayList<ArrayList<RGBPixel>> image = this.buildImage();
-    StringBuilder rgbVals = new StringBuilder();
-
-    for (ArrayList<RGBPixel> row : image) {
-      for (RGBPixel p : row) {
-        double alpha = p.getAlpha();
-        double red = p.getRed();
-        double green = p.getGreen();
-        double blue = p.getBlue();
-
-        double redPrime = red * (alpha / 255.0);
-        double greenPrime = green * (alpha / 255.0);
-        double bluePrime = blue * (alpha / 255.0);
-
-        rgbVals.append("\n").append((int) redPrime).append(" ").append((int) greenPrime).append(" ")
-                .append((int) bluePrime).append(" ");
-      }
-    }
-
-    // save the file
     if (filename == null) {
       throw new IllegalArgumentException("File path cannot be null");
     }
+    if (image == null) {
+      throw new IllegalStateException("There are no layers or the layers dont match dimensions");
+    }
 
-    FileWriter writer = null;
-    // P3
-    // width height
-    // maxVal
-    // rgbVals
-
-    try {
-      writer = new FileWriter(filename + ".ppm");
-      writer.write("P3");
-      writer.write("\n" + this.getWidth() + " " + this.getHeight());
-      writer.write("\n" + this.getMaxVal());
-      writer.write(rgbVals + "\n");
-      writer.close();
-    } catch (IOException ex) {
-      throw new IllegalStateException(ex);
+    String fileExtension = filename.substring(filename.lastIndexOf(".") + 1);
+    switch (fileExtension) {
+      case "ppm":
+        try {
+          ImageUtil.writePPM(filename, image, this.getMaxVal());
+        } catch (IOException e) {
+          throw new IllegalStateException("Could not write to file");
+        }
+        break;
+      case "jpeg":
+        try {
+          ImageUtil.writeJPEG(filename, image);
+        } catch (IOException e) {
+          throw new IllegalStateException("Could not write to file");
+        }
+        break;
+      case "png":
+        try {
+          ImageUtil.writePNG(filename, image);
+        } catch (IOException e) {
+          throw new IllegalStateException("Could not write to file");
+        }
+        break;
+      default:
+        throw new IllegalArgumentException("Invalid file type");
     }
   }
 

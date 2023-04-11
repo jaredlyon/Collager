@@ -2,6 +2,8 @@ package collage.model;
 
 import java.util.ArrayList;
 
+import collage.model.pixel.RGBPixel;
+
 /**
  * Represents a class that holds PPM data for the model to process.
  */
@@ -9,26 +11,26 @@ public class ProjConstPPM {
   private final int width;
   private final int height;
   private final int maxVal;
-  private final ArrayList<Integer> rgbVals;
+  private final ArrayList<ArrayList<RGBPixel>> image;
 
   /**
    * Generates this data class.
    * @param width - the width of the image
    * @param height - the height of the image
    * @param maxVal - the maxVal of the pixels
-   * @param rgbVals - the RGB values of the pixels
+   * @param image - the image data
    * @throws IllegalArgumentException if any args are null
    */
-  public ProjConstPPM(int width, int height, int maxVal, ArrayList<Integer> rgbVals)
+  public ProjConstPPM(int width, int height, int maxVal, ArrayList<ArrayList<RGBPixel>> image)
           throws IllegalArgumentException {
-    if (rgbVals == null || width < 1 || height < 1 || maxVal < 1) {
+    if (image == null || width < 1 || height < 1 || maxVal < 1) {
       throw new IllegalArgumentException("Args cannot be null for ProjConstPPM.");
     }
 
     this.width = width;
     this.height = height;
     this.maxVal = maxVal;
-    this.rgbVals = rgbVals;
+    this.image = image;
   }
 
   /**
@@ -56,10 +58,10 @@ public class ProjConstPPM {
   }
 
   /**
-   * Returns the RGB values of the image.
-   * @return an ArrayList of RGB vals
+   * Returns the image data.
+   * @return an ArrayList<ArrayList<RGBPixel>>
    */
-  public ArrayList<Integer> getRgbVals() {
-    return this.rgbVals;
+  public ArrayList<ArrayList<RGBPixel>> getImage() {
+    return this.image;
   }
 }
