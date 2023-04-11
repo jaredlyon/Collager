@@ -63,7 +63,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GUICollage">
+  <component name="RunManager" selected="JUnit.ImageUtilTest">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
@@ -114,22 +114,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BrightenValueFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.BrightenValueFilterTest" />
-      <option name="METHOD_NAME" value="testApply" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FilterTests in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <extension name="coverage">
@@ -144,6 +128,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImageUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ImageUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -152,19 +145,19 @@
     <list>
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.ImageUtilTest" />
       <item itemvalue="JUnit.All in A4" />
       <item itemvalue="JUnit.BrightenIntensityFilterTest.testApply" />
       <item itemvalue="JUnit.BrightenLumaFilterTest.testApply" />
-      <item itemvalue="JUnit.BrightenValueFilterTest.testApply" />
       <item itemvalue="JUnit.FilterTests in A4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ImageUtilTest" />
         <item itemvalue="JUnit.All in A4" />
         <item itemvalue="JUnit.FilterTests in A4" />
         <item itemvalue="JUnit.BrightenIntensityFilterTest.testApply" />
         <item itemvalue="JUnit.BrightenLumaFilterTest.testApply" />
-        <item itemvalue="JUnit.BrightenValueFilterTest.testApply" />
       </list>
     </recent_temporary>
   </component>
