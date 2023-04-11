@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
 
+import collage.model.pixel.RGBPixel;
+
 /**
  * This class contains utility methods to read a PPM image from file and simply print its contents.
  * Feel free to change this method as required.
@@ -47,11 +49,8 @@ public class ImageUtil {
       System.out.println("Invalid PPM file: plain RAW file should begin with P3");
     }
     int width = sc.nextInt();
-    // System.out.println("Width of image: "+width);
     int height = sc.nextInt();
-    // System.out.println("Height of image: "+height);
     int maxValue = sc.nextInt();
-    // System.out.println("Maximum value of a color in this file (usually 255): "+maxValue);
 
     ArrayList<Integer> rgbVals = new ArrayList<Integer>();
     for (int i = 0; i < height; i++) {
@@ -62,11 +61,60 @@ public class ImageUtil {
         rgbVals.add(g);
         int b = sc.nextInt();
         rgbVals.add(b);
-        // System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
       }
     }
 
     return new ProjConstPPM(width, height, maxValue, rgbVals);
+  }
+
+  /**
+   * Write an image file in the PPM format.
+   *
+   * @param filename the path of the file.
+   * @param image the image data.
+   */
+  public static void writePPM(String filename, ArrayList<ArrayList<RGBPixel>> image) {
+    // TODO: implement
+  }
+
+  /**
+   * Read an image file in the JPEG format and print the colors.
+   *
+   * @param filename the path of the file.
+   * @return a ProjConstPPM object containing the image data.
+   */
+  public static ProjConstPPM readJPEG(String filename) {
+    // TODO: implement
+  }
+
+  /**
+   * Write an image file in the JPEG format.
+   *
+   * @param filename the path of the file.
+   * @param image the image data.
+   */
+  public static void writeJPEG(String filename, ArrayList<ArrayList<RGBPixel>> image) {
+    // TODO: implement
+  }
+
+  /**
+   * Read an image file in the PNG format and print the colors.
+   *
+   * @param filename the path of the file.
+   * @return a ProjConstPPM object containing the image data.
+   */
+  public static ProjConstPPM readPNG(String filename) {
+    // TODO: implement
+  }
+
+  /**
+   * Write an image file in the PNG format.
+   *
+   * @param filename the path of the file.
+   * @param image the image data.
+   */
+  public static void writePNG(String filename, ArrayList<ArrayList<RGBPixel>> image) {
+    // TODO: implement
   }
 
   /**
@@ -85,5 +133,6 @@ public class ImageUtil {
 
     ImageUtil.readPPM(filename);
   }
+
 }
 

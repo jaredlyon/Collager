@@ -20,4 +20,29 @@ public class ImageUtilTest {
     Assert.assertEquals(255, ppm.getMaxVal());
     assertNotNull(ppm.getRgbVals());
   }
+
+  @Test
+  public void testWritePPM() {
+    // TODO: implement
+  }
+
+  @Test
+  public void testReadJPEG() {
+    // TODO: implement
+  }
+
+  @Test
+  public void testWriteJPEG() {
+    // TODO: implement
+  }
+
+  @Test
+  public void testReadPNG() {
+    // TODO: implement
+  }
+
+  @Test
+  public void testWritePNG() {
+    // TODO: implement
+  }
 }
