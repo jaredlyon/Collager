@@ -25,31 +25,6 @@ public class ImageUtil {
    */
   static class ImageUtilHelpers {
     /**
-     * Read an image file in the PPM format and print the colors.
-     *
-     * @param bufImage the buffered image to be read
-     * @return a ProjConstPPM object containing the image data.
-     */
-    private static ArrayList<ArrayList<RGBPixel>> getImageFromBufImage(BufferedImage bufImage) {
-      int width = bufImage.getWidth();
-      int height = bufImage.getHeight();
-      ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
-      for (int i = 0; i < height; i++) {
-        ArrayList<RGBPixel> row = new ArrayList<>();
-        for (int j = 0; j < width; j++) {
-          int rgb = bufImage.getRGB(j, i);
-          int a = bufImage.getColorModel().getAlpha(rgb);
-          int r = (rgb >> 16) & 0xFF;
-          int g = (rgb >> 8) & 0xFF;
-          int b = (rgb) & 0xFF;
-          row.add(new RGBPixel(a, r, g, b));
-        }
-        image.add(row);
-      }
-      return image;
-    }
-
-    /**
      * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage.
      * @param image the image to be converted
      * @return a BufferedImage
@@ -180,7 +155,19 @@ public class ImageUtil {
     BufferedImage bufImage = ImageIO.read(file);
     int height = bufImage.getHeight();
     int width = bufImage.getWidth();
-    ArrayList<ArrayList<RGBPixel>> image = ImageUtilHelpers.getImageFromBufImage(bufImage);
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
+    for (int i = 0; i < height; i++) {
+      ArrayList<RGBPixel> row = new ArrayList<>();
+      for (int j = 0; j < width; j++) {
+        int rgb = bufImage.getRGB(j, i);
+        int a = bufImage.getColorModel().getAlpha(rgb);
+        int r = (rgb >> 16) & 0xFF;
+        int g = (rgb >> 8) & 0xFF;
+        int b = (rgb) & 0xFF;
+        row.add(new RGBPixel(a, r, g, b));
+      }
+      image.add(row);
+    }
     return new ProjConstPPM(width, height, 255, image);
   }
 
@@ -215,7 +202,20 @@ public class ImageUtil {
     BufferedImage bufImage = ImageIO.read(file);
     int height = bufImage.getHeight();
     int width = bufImage.getWidth();
-    ArrayList<ArrayList<RGBPixel>> image = ImageUtilHelpers.getImageFromBufImage(bufImage);
+    ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
+    for (int i = 0; i < height; i++) {
+      ArrayList<RGBPixel> row = new ArrayList<>();
+      for (int j = 0; j < width; j++) {
+        int rgb = bufImage.getRGB(j, i);
+        int alpha = (rgb >> 24) & 0xFF;
+        int red = (rgb >> 16) & 0xFF;
+        int green = (rgb >> 8) & 0xFF;
+        int blue = (rgb >> 0) & 0xFF;
+        RGBPixel pixel = new RGBPixel(alpha, red, green, blue);
+        row.add(pixel);
+      }
+      image.add(row);
+    }
     return new ProjConstPPM(width, height, 255, image);
   }
 

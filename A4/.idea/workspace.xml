@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ImageUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageUtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +63,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ImageUtilTest">
+  <component name="RunManager" selected="JUnit.ImageUtilTest.testReadPNG">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
@@ -78,38 +78,6 @@
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BrightenIntensityFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.BrightenIntensityFilterTest" />
-      <option name="METHOD_NAME" value="testApply" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BrightenLumaFilterTest.testApply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="MAIN_CLASS_NAME" value="FilterTests.BrightenLumaFilterTest" />
-      <option name="METHOD_NAME" value="testApply" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,6 +105,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImageUtilTest.testReadJPG" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ImageUtilTest" />
+      <option name="METHOD_NAME" value="testReadJPG" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageUtilTest.testReadPNG" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ImageUtilTest" />
+      <option name="METHOD_NAME" value="testReadPNG" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -146,18 +134,18 @@
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="JUnit.ImageUtilTest" />
+      <item itemvalue="JUnit.ImageUtilTest.testReadJPG" />
+      <item itemvalue="JUnit.ImageUtilTest.testReadPNG" />
       <item itemvalue="JUnit.All in A4" />
-      <item itemvalue="JUnit.BrightenIntensityFilterTest.testApply" />
-      <item itemvalue="JUnit.BrightenLumaFilterTest.testApply" />
       <item itemvalue="JUnit.FilterTests in A4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ImageUtilTest.testReadPNG" />
+        <item itemvalue="JUnit.ImageUtilTest.testReadJPG" />
         <item itemvalue="JUnit.ImageUtilTest" />
         <item itemvalue="JUnit.All in A4" />
         <item itemvalue="JUnit.FilterTests in A4" />
-        <item itemvalue="JUnit.BrightenIntensityFilterTest.testApply" />
-        <item itemvalue="JUnit.BrightenLumaFilterTest.testApply" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +170,7 @@
       <workItem from="1680813935602" duration="4215000" />
       <workItem from="1680822320250" duration="339000" />
       <workItem from="1680833101179" duration="641000" />
-      <workItem from="1681171548751" duration="4985000" />
+      <workItem from="1681171548751" duration="6030000" />
     </task>
     <servers />
   </component>
@@ -199,6 +187,11 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/ImageUtilTest.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
