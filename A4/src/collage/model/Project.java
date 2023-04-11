@@ -60,6 +60,7 @@ public class Project {
 
     try {
       ProjConstPPM imageData = ImageUtil.readPPM(filename);
+      // TODO: use a switch to either call readPPM, readJPEG, or readPNG
       this.height = imageData.getHeight();
       this.width = imageData.getWidth();
       this.maxVal = imageData.getMaxVal();
