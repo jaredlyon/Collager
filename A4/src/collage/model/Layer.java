@@ -54,6 +54,8 @@ public class Layer {
     }
 
     ProjConstPPM imageData = ImageUtil.readPPM(filename);
+    // TODO: use a switch to either call readPPM, readJPEG, or readPNG
+
     this.name = "background";
     this.height = imageData.getHeight();
     this.width = imageData.getWidth();
@@ -134,6 +136,7 @@ public class Layer {
     }
 
     ProjConstPPM imageData = ImageUtil.readPPM(imageName);
+    // TODO: use a switch to either call readPPM, readJPEG, or readPNG
 
     if (imageData == null) {
       throw new IllegalStateException("imageData is null.");
