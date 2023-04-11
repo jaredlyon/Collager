@@ -19,14 +19,18 @@ import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
  * Feel free to change this method as required.
  */
 public class ImageUtil {
-  class ImageUtilHelpers {
+
+  /**
+   * Represents the helper methods for BufferedImage processing.
+   */
+  static class ImageUtilHelpers {
     /**
      * Read an image file in the PPM format and print the colors.
      *
      * @param bufImage the buffered image to be read
      * @return a ProjConstPPM object containing the image data.
      */
-    public static ArrayList<ArrayList<RGBPixel>> getImageFromBufImage(BufferedImage bufImage) {
+    private static ArrayList<ArrayList<RGBPixel>> getImageFromBufImage(BufferedImage bufImage) {
       int width = bufImage.getWidth();
       int height = bufImage.getHeight();
       ArrayList<ArrayList<RGBPixel>> image = new ArrayList<>();
@@ -45,7 +49,12 @@ public class ImageUtil {
       return image;
     }
 
-    public static BufferedImage imageToBufImage(ArrayList<ArrayList<RGBPixel>> image) {
+    /**
+     * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage.
+     * @param image the image to be converted
+     * @return a BufferedImage
+     */
+    private static BufferedImage imageToBufImage(ArrayList<ArrayList<RGBPixel>> image) {
       int height = image.size();
       int width = image.get(0).size();
       BufferedImage bufImage = new BufferedImage(width, height, TYPE_INT_ARGB);

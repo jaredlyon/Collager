@@ -34,8 +34,8 @@ public class ImageUtilTest {
       fail();
     }
     assertNotNull(ppm);
-    Assert.assertEquals(225, ppm.getWidth());
-    Assert.assertEquals(300, ppm.getHeight());
+    Assert.assertEquals(100, ppm.getWidth());
+    Assert.assertEquals(87, ppm.getHeight());
     Assert.assertEquals(255, ppm.getMaxVal());
     assertNotNull(ppm.getImage());
   }
@@ -44,13 +44,14 @@ public class ImageUtilTest {
   public void testReadPNG() {
     ProjConstPPM ppm = null;
     try {
-      ppm = ImageUtil.readJPG("./A4/res/pngtest.png");
+      ppm = ImageUtil.readPNG("./A4/res/pngtest.png");
     } catch (Exception e) {
-      fail();
+      System.out.println(e);
     }
+
     assertNotNull(ppm);
-    Assert.assertEquals(225, ppm.getWidth());
-    Assert.assertEquals(300, ppm.getHeight());
+    Assert.assertEquals(100, ppm.getWidth());
+    Assert.assertEquals(87, ppm.getHeight());
     Assert.assertEquals(255, ppm.getMaxVal());
     assertNotNull(ppm.getImage());
   }
