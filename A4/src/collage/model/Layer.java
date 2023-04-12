@@ -174,7 +174,6 @@ public class Layer {
       default:
         throw new IllegalArgumentException("Invalid file extension.");
     }
-    // TODO: use a switch to either call readPPM, readJPEG, or readPNG
 
     if (imageData == null) {
       throw new IllegalStateException("imageData is null.");

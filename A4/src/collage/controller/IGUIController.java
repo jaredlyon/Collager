@@ -6,7 +6,7 @@ package collage.controller;
 public interface IGUIController {
 
   /**
-   * Executes the given command.
+   * Executes a command given from the view by instructing the model.
    * @param command - the command to execute
    * @throws IllegalStateException if the command is not valid
    */

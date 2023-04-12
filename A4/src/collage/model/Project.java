@@ -3,6 +3,7 @@ package collage.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import collage.model.filter.BlueComponentFilter;
 import collage.model.filter.BrightenIntensityFilter;
@@ -55,18 +56,45 @@ public class Project {
    */
   public Project(String filename) throws IllegalArgumentException {
     if (filename == null) {
-      throw new IllegalArgumentException("File does not exist!");
+      throw new IllegalArgumentException("Project(String filename) had null argument.");
     }
 
     try {
-      ProjConstPPM imageData = ImageUtil.readPPM(filename);
-      // TODO: use a switch to either call readPPM, readJPEG, or readPNG
+      String extension = filename.substring(filename.lastIndexOf(".") + 1);
+      ProjConstPPM imageData = null;
+      switch (extension) {
+        case "ppm":
+          try {
+            imageData = ImageUtil.readPPM(filename);
+          } catch (Exception e) {
+            throw new IllegalStateException("Failed to read ppm!");
+          }
+          break;
+        case "jpg":
+          try {
+            imageData = ImageUtil.readJPG(filename);
+          } catch (Exception e) {
+            throw new IllegalStateException("Failed to read jpg!");
+          }
+          break;
+        case "png":
+          try {
+            imageData = ImageUtil.readPNG(filename);
+          } catch (Exception e) {
+            throw new IllegalStateException("Failed to read png!");
+          }
+          break;
+        default:
+          throw new IllegalArgumentException("Invalid file extension!");
+      }
+
+      Objects.requireNonNull(imageData);
       this.height = imageData.getHeight();
       this.width = imageData.getWidth();
       this.maxVal = imageData.getMaxVal();
       this.layers.add(new Layer(filename));
     } catch (Exception e) {
-      throw new IllegalArgumentException("File does not exist!");
+      throw new IllegalArgumentException(e);
     }
   }
 
@@ -302,9 +330,9 @@ public class Project {
           throw new IllegalStateException("Could not write to file");
         }
         break;
-      case "jpeg":
+      case "jpg":
         try {
-          ImageUtil.writeJPEG(filename, image);
+          ImageUtil.writeJPG(filename, image);
         } catch (IOException e) {
           throw new IllegalStateException("Could not write to file");
         }

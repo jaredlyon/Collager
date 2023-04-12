@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import collage.model.pixel.RGBPixel;
 
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
+import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 
 /**
  * This class contains utility methods to read a PPM image from file and simply print its contents.
@@ -25,11 +26,12 @@ public class ImageUtil {
    */
   static class ImageUtilHelpers {
     /**
-     * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage.
+     * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage for the PNG write method.
+     * This method conserves ARGB values.
      * @param image the image to be converted
      * @return a BufferedImage
      */
-    private static BufferedImage imageToBufImage(ArrayList<ArrayList<RGBPixel>> image) {
+    private static BufferedImage imageToBufImagePNG(ArrayList<ArrayList<RGBPixel>> image) {
       int height = image.size();
       int width = image.get(0).size();
       BufferedImage bufImage = new BufferedImage(width, height, TYPE_INT_ARGB);
@@ -39,7 +41,28 @@ public class ImageUtil {
           RGBPixel pixel = image.get(i).get(j);
           int argb = (pixel.getAlpha() << 24) + (pixel.getRed() << 16) + (pixel.getGreen() << 8)
                   + pixel.getBlue();
-          bufImage.setRGB(i, j, argb);
+          bufImage.setRGB(j, i, argb);
+        }
+      }
+      return bufImage;
+    }
+
+    /**
+     * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage for the JPG write method.
+     * This method omits the alpha channel.
+     * @param image the image to be converted
+     * @return a BufferedImage
+     */
+    private static BufferedImage imageToBufImageJPG(ArrayList<ArrayList<RGBPixel>> image) {
+      int height = image.size();
+      int width = image.get(0).size();
+      BufferedImage bufImage = new BufferedImage(width, height, TYPE_INT_RGB);
+
+      for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+          RGBPixel pixel = image.get(i).get(j);
+          int rgb = (pixel.getRed() << 16) + (pixel.getGreen() << 8) + pixel.getBlue();
+          bufImage.setRGB(j, i, rgb);
         }
       }
       return bufImage;
@@ -179,12 +202,12 @@ public class ImageUtil {
    * @throws IOException if the file cannot be written.
    * @throws IllegalArgumentException if the file path is null.
    */
-  public static void writeJPEG(String filename, ArrayList<ArrayList<RGBPixel>> image)
+  public static void writeJPG(String filename, ArrayList<ArrayList<RGBPixel>> image)
           throws IOException, IllegalArgumentException {
     if (filename == null) {
       throw new IllegalArgumentException("File path cannot be null");
     }
-    BufferedImage bufImage = ImageUtilHelpers.imageToBufImage(image);
+    BufferedImage bufImage = ImageUtilHelpers.imageToBufImageJPG(image);
 
     File file = new File(filename);
     ImageIO.write(bufImage, "JPG", file);
@@ -232,7 +255,7 @@ public class ImageUtil {
     if (filename == null) {
       throw new IllegalArgumentException("File path cannot be null");
     }
-    BufferedImage bufImage = ImageUtilHelpers.imageToBufImage(image);
+    BufferedImage bufImage = ImageUtilHelpers.imageToBufImagePNG(image);
 
     File file = new File(filename);
     ImageIO.write(bufImage, "PNG", file);

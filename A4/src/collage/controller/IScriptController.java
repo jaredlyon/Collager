@@ -6,7 +6,7 @@ package collage.controller;
 public interface IScriptController {
 
   /**
-   * Starts the controller for the collage.
+   * Starts a controller loop that listens for user script inputs.
    * @throws IllegalStateException if the collage program is not ready to start.
    */
   void startCollage() throws IllegalStateException;
