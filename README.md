@@ -20,7 +20,7 @@ This is a collage program! It uses an MVC design wherein a controller instructs 
 ## CS3500 A6: Collage Maker v3
 - The model was updated to allow for the import and export of PNG and JPG images - this change is reflected by the presence of new switch statements throughout that point to the ImageUtils class.
 - The ImageUtils class was updated to allow for the import and export of PNG and JPG images. This class is now responsible for reading and writing images, and it does so by using the javax.imageio package.
-- All program parts are complete and support the following script commands, which are also reflected in the example .jar file.
+- All program parts are complete and support script commands, which are also reflected in the example .jar file.
 
 ## Decoupling Demonstration
 To show that the views are decoupled, we created a new package called DecouplingPackage with the following files:
