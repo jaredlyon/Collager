@@ -5,22 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/script.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/GUIController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/GUIModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/JFrameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/RenderContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/ScriptView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../A4 Class Diagram.png" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/class_diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/jpgtestred.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/differenceScript.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/jpgtestred.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/USEME.md" beforeDir="false" afterPath="$PROJECT_DIR$/USEME.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/bi.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/bi.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/bl.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/bl.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/blue.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/blue.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/bv.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/bv.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/di.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/di.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/difference.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/difference.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/dl.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/dl.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/dv.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/dv.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/green.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/green.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/multiply.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/multiply.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/purplestripe.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/purplestripe.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/red.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/red.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/screen.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/screen.ppm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tako.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/tako.ppm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../USEME.md" beforeDir="false" afterPath="$PROJECT_DIR$/../USEME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Collager/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Collager/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Collager/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Collager/collage/model/Project.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +80,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="DecouplingPackage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ImageUtilTest.testReadPNG">
+  <component name="RunManager" selected="Application.GUICollage">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
@@ -187,7 +195,7 @@
       <workItem from="1680822320250" duration="339000" />
       <workItem from="1680833101179" duration="641000" />
       <workItem from="1681171548751" duration="6645000" />
-      <workItem from="1681348024206" duration="1714000" />
+      <workItem from="1681348024206" duration="3489000" />
     </task>
     <servers />
   </component>

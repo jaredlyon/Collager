@@ -17,5 +17,31 @@ This is a collage program! It uses an MVC design wherein a controller instructs 
 - A new pixel implementation was added (HSLPixel) which uses the HSL color model to represent color. This pixel implementation is used by some of the new filters, and relied on conversion methods defined in the new Utils class.
 - A .jar file now comes in the /res folder, more info on this can be found in the USEME.md file.
 
+## CS3500 A6: Collage Maker v3
+- The model was updated to allow for the import and export of PNG and JPG images - this change is reflected by the presence of new switch statements throughout that point to the ImageUtils class.
+- The ImageUtils class was updated to allow for the import and export of PNG and JPG images. This class is now responsible for reading and writing images, and it does so by using the javax.imageio package.
+- All program parts are complete and support script commands, which are also reflected in the example .jar file.
+
+## Decoupling Demonstration
+To show that the views are decoupled, we created a new package called DecouplingPackage with the following files:
+- IScriptView: The CLI view.
+- ScriptView: The implementation for the CLI view.
+- IGUIView: The GUI view.
+- JFrameView: The implementation for the GUI view.
+- IRenderContent: Used to pass structured information between the model, controller, and view.
+- RenderContent: The implementation for IRenderContent.
+- IGUIController: The GUI controller.
+- GUIController: The implementation for the GUI controller.
+- IModel: The model.
+- IGUIModel: The GUI implementation for the model.
+- RGBPixel: The RGB pixel. This is the only class that is explicitly needed.
+
 ### Image Citation
 The two example images provided, cp_goat.ppm & jp_jersey_2017.ppm, are two images created by Jared Lyon and Jaron R. in 2017 when we were coming up with a fake Club Penguin International tournament. We have authorized the use of these images.
+
+# TODO
+  - example script for png and jpg
+  - updated JAR file
+  - updated class diagram
+  - updated README with design changes
+  - updated USEME?

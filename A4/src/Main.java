@@ -24,7 +24,7 @@ public final class Main {
    * @param args - a String[] determining which version to play
    */
   public static void main(String[] args) {
-    if (args.length > 0) {
+    if (args.length > 1) {
       if (args[0].equals("-file")) {
         Readable reader;
         try {
