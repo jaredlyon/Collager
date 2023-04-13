@@ -50,12 +50,12 @@ public final class Main {
         IScriptController controller = new ScriptController(model, view, in);
         controller.startCollage();
       }
+    } else {
+      // else starts gui version
+      GUIModel model = new GUIModel();
+      JFrameView view = new JFrameView();
+      GUIController controller = new GUIController(model, view);
+      view.setController(controller);
     }
-
-    // else starts gui version
-    GUIModel model = new GUIModel();
-    JFrameView view = new JFrameView();
-    GUIController controller = new GUIController(model, view);
-    view.setController(controller);
   }
 }

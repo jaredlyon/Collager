@@ -5,21 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IGUIController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IGUIView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IRenderContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IScriptView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/collage/view/IRenderContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/script.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/GUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/GUIModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/JFrameView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/RenderContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/ScriptView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A4 Class Diagram.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/ImageUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Layer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/A4/ImageUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ImageUtilTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/GUIModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/GUIModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/view/IGUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/IGUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/view/JFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/JFrameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/view/RenderContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/RenderContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/differenceScript.rtf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/jpgtestred.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../USEME.md" beforeDir="false" afterPath="$PROJECT_DIR$/../USEME.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Collager/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Collager/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Collager/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Collager/collage/model/Project.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +187,7 @@
       <workItem from="1680822320250" duration="339000" />
       <workItem from="1680833101179" duration="641000" />
       <workItem from="1681171548751" duration="6645000" />
-      <workItem from="1681348024206" duration="1149000" />
+      <workItem from="1681348024206" duration="1714000" />
     </task>
     <servers />
   </component>

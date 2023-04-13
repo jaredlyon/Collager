@@ -363,7 +363,7 @@ public class Project {
     FileWriter writer = null;
 
     try {
-      writer = new FileWriter(filename + ".ppm");
+      writer = new FileWriter(filename);
       writer.write("C1\n");
       writer.write(this.getWidth() + " " + this.getHeight() + "\n");
       writer.write(this.getMaxVal() + "\n");
