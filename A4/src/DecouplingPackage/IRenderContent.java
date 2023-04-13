@@ -2,8 +2,6 @@ package DecouplingPackage;
 
 import java.util.ArrayList;
 
-import collage.model.pixel.RGBPixel;
-
 /**
  * Represents a class that carries relevant data for the view to render.
  */
