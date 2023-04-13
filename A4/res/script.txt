@@ -1,0 +1,8 @@
+load-project jp_jersey_2017.ppm
+add-layer layer1
+add-image-to-layer layer1 cp_goat.ppm 0 0
+set-filter background RED_COMPONENT
+set-filter layer1 DIFFERENCE
+save-project newProject
+save-image newImage
+quit

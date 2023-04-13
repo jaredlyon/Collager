@@ -1,8 +1,8 @@
 ## .jar File Instructions
 The .jar file is located in the /res folder. To run the program, open a terminal and navigate to the /res folder. Then, run any of the following commands:
-- `java -jar Program.jar -file path-of-script-file`: when invoked in this manner the program should open the script file, execute it and then shut down. A sample script file is provided in the /res folder.
-- `java -jar Program.jar -text`: when invoked in this manner the ScriptController and ScriptView from A4 will take control of the program and the user will be able to interact with the program through the command line.
-- `java -jar Program.jar`: when invoked in this manner the GUIController and JFrameView from A5 will take control of the program and the user will be able to interact with the program through a GUI.
+- `java -jar Collager.jar -file path-of-script-file`: when invoked in this manner the program should open the script file, execute it and then shut down. A sample script file is provided in the /res folder.
+- `java -jar Collager.jar -text`: when invoked in this manner the ScriptController and ScriptView from A4 will take control of the program and the user will be able to interact with the program through the command line.
+- `java -jar Collager.jar`: when invoked in this manner the GUIController and JFrameView from A5 will take control of the program and the user will be able to interact with the program through a GUI.
 
 ### A4: Script Instructions (-script)
 The ScriptController will present you with instructions on what commands you can run each time you start it or execute a command. Below is a list of scripts that you can use to generate a small collage. You can run the Main function to start the MVC collage program, and input these commands into the CLI.
@@ -26,6 +26,20 @@ The GUI will spawn two separate windows:
 As shown below, the panels may be moved around independently of one another for your convenience.
 <img width="1606" alt="Screen Shot 2023-04-06 at 5 29 46 PM" src="https://user-images.githubusercontent.com/29807461/230497524-3180c1a9-fb06-415f-9b1a-8f16eb7b1faf.png">
 
+### A6: script.txt
+You can run the example script file using the CLI command `java -jar Collager.jar -file script.txt` which will run the following script:
+```
+load-project jp_jersey_2017.ppm
+add-layer layer1
+add-image-to-layer layer1 cp_goat.ppm 0 0
+set-filter background RED_COMPONENT
+set-filter layer1 DIFFERENCE
+save-project newProject
+save-image newImage
+quit
+```
+The new files, `newProject.ppm` & `newImage.ppm` will be saved in the /res folder for your convenience.
 
 ### Possible Errors
 Some users experienced success with different file paths. The test suite is designed to work using the `./A4/res/image.ppm` path, but some users reported only using the `./res/image.ppm` path.
+Note that the example .jar file is built to work using the `image.ppm` path relative to the src folder since the deliverables of this project request a slightly different directory structure.
