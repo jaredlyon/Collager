@@ -1,6 +1,7 @@
-package collage.view;
+package DecouplingPackage;
 
 import java.io.IOException;
+
 
 /**
  * Represents the GUI view of the collage program.

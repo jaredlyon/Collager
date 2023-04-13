@@ -3,6 +3,7 @@ package collage.model;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import collage.view.IRenderContent;
 import collage.view.RenderContent;
 
 /**
@@ -45,13 +46,13 @@ public class GUIModel extends Model {
    * @return a RenderContent object representing the current project
    * @throws IllegalStateException if the project is null
    */
-  public RenderContent getRenderContent() throws IllegalStateException {
+  public IRenderContent getRenderContent() throws IllegalStateException {
     ArrayList<String> layerNames = new ArrayList<>();
     for (Layer layer : this.project.getLayers()) {
       layerNames.add(layer.getName());
       System.out.println(layer.getName());
     }
-    RenderContent content = new RenderContent(
+    IRenderContent content = new RenderContent(
             this.project.getWidth(),
             this.project.getHeight(),
             layerNames,

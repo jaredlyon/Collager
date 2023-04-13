@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IGUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IGUIView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IRenderContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DecouplingPackage/IScriptView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collage/view/IRenderContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImageUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/ImageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Layer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/A4/ImageUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/A4/ImageUtilTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/GUIModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/GUIModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/view/IGUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/IGUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/view/JFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/JFrameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/view/RenderContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/view/RenderContent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -61,6 +73,9 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="DecouplingPackage" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.ImageUtilTest.testReadPNG">
@@ -170,7 +185,8 @@
       <workItem from="1680813935602" duration="4215000" />
       <workItem from="1680822320250" duration="339000" />
       <workItem from="1680833101179" duration="641000" />
-      <workItem from="1681171548751" duration="6030000" />
+      <workItem from="1681171548751" duration="6645000" />
+      <workItem from="1681348024206" duration="1149000" />
     </task>
     <servers />
   </component>
@@ -187,11 +203,6 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/ImageUtilTest.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

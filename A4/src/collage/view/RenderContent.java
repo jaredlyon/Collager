@@ -7,7 +7,7 @@ import collage.model.pixel.RGBPixel;
 /**
  * Represents a class that carries relevant data for the view to render.
  */
-public class RenderContent {
+public class RenderContent implements IRenderContent {
   private final int width;
   private final int height;
   private final ArrayList<String> layerNames;

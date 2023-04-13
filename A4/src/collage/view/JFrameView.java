@@ -42,7 +42,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
   private final JPanel imagePanel;
   private final JLabel layerText;
   private final JLabel currentLayer;
-  private RenderContent content;
+  private IRenderContent content;
 
   /**
    * Constructs a new JFrameView.
@@ -119,7 +119,7 @@ public class JFrameView extends JFrame implements IGUIView, ActionListener {
    * @param content - the content to be rendered
    * @throws IOException if the content cannot be rendered
    */
-  public void render(RenderContent content) throws IOException {
+  public void render(IRenderContent content) throws IOException {
     try {
       this.content = content;
       this.updateComponents();

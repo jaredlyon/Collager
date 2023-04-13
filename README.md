@@ -21,7 +21,6 @@ This is a collage program! It uses an MVC design wherein a controller instructs 
 The two example images provided, cp_goat.ppm & jp_jersey_2017.ppm, are two images created by Jared Lyon and Jaron R. in 2017 when we were coming up with a fake Club Penguin International tournament. We have authorized the use of these images.
 
 # TODO
-  - 1 example of red component filter for png, jpg, png
   - example script for png and jpg
   - updated JAR file
   - updated class diagram
