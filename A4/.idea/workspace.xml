@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="A4:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c699438-28b1-4cba-9bbd-f0a7d408aacb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/class_diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/jpgtestred.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A4/collage/model/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/USEME.md" beforeDir="false" afterPath="$PROJECT_DIR$/USEME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bi.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/bi.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bl.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/bl.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/blue.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/blue.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bv.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/bv.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/di.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/di.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/difference.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/difference.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dl.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/dl.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dv.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/dv.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/green.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/green.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/multiply.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/multiply.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/purplestripe.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/purplestripe.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/red.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/red.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/screen.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/screen.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tako.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/scratch/tako.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../USEME.md" beforeDir="false" afterPath="$PROJECT_DIR$/../USEME.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a6.zip" beforeDir="false" afterPath="$PROJECT_DIR$/a6.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/GUIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/GUIModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/IGUIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/IGUIView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/IModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/IRenderContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/IScriptView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/JFrameView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/RGBPixel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/RenderContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecouplingPackage/ScriptView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collage/model/ProjConstPPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collage/model/ProjConstPPM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,35 +84,11 @@
       <recent name="DecouplingPackage" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GUICollage">
+  <component name="RunManager" selected="JAR Application.Collager.jar (1)">
     <configuration name="GUICollage" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="A4" />
       <option name="PROGRAM_PARAMETERS" value="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterTests in A4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="FilterTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="FilterTests" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,6 +122,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Collager.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/res/Collager.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Collager.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/A4_jar/Collager.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -157,19 +138,19 @@
     <list>
       <item itemvalue="Application.GUICollage" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JAR Application.Collager.jar" />
+      <item itemvalue="JAR Application.Collager.jar (1)" />
       <item itemvalue="JUnit.ImageUtilTest" />
       <item itemvalue="JUnit.ImageUtilTest.testReadJPG" />
       <item itemvalue="JUnit.ImageUtilTest.testReadPNG" />
-      <item itemvalue="JUnit.All in A4" />
-      <item itemvalue="JUnit.FilterTests in A4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.Collager.jar (1)" />
+        <item itemvalue="JAR Application.Collager.jar" />
         <item itemvalue="JUnit.ImageUtilTest.testReadPNG" />
         <item itemvalue="JUnit.ImageUtilTest.testReadJPG" />
         <item itemvalue="JUnit.ImageUtilTest" />
-        <item itemvalue="JUnit.All in A4" />
-        <item itemvalue="JUnit.FilterTests in A4" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +176,7 @@
       <workItem from="1680822320250" duration="339000" />
       <workItem from="1680833101179" duration="641000" />
       <workItem from="1681171548751" duration="6645000" />
-      <workItem from="1681348024206" duration="3489000" />
+      <workItem from="1681348024206" duration="5519000" />
     </task>
     <servers />
   </component>

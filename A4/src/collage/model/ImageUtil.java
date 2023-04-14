@@ -26,7 +26,7 @@ public class ImageUtil {
    */
   static class ImageUtilHelpers {
     /**
-     * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage for the PNG write method.
+     * Converts an arraylist of arraylist of pixel to a BufferedImage for the PNG write method.
      * This method conserves ARGB values.
      * @param image the image to be converted
      * @return a BufferedImage
@@ -48,7 +48,7 @@ public class ImageUtil {
     }
 
     /**
-     * Converts an ArrayList<ArrayList<RGBPixel>> to a BufferedImage for the JPG write method.
+     * Converts an arraylist of arraylist of pixel to a BufferedImage for the JPG write method.
      * This method omits the alpha channel.
      * @param image the image to be converted
      * @return a BufferedImage

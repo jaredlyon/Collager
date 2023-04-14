@@ -59,7 +59,7 @@ public class ProjConstPPM {
 
   /**
    * Returns the image data.
-   * @return an ArrayList<ArrayList<RGBPixel>>
+   * @return an arraylist of arraylist of pixel
    */
   public ArrayList<ArrayList<RGBPixel>> getImage() {
     return this.image;

@@ -23,7 +23,7 @@ This is a collage program! It uses an MVC design wherein a controller instructs 
 - All program parts are complete and support script commands, which are also reflected in the example .jar file.
 
 ## Decoupling Demonstration
-To show that the views are decoupled, we created a new package called DecouplingPackage with the following files:
+To show that the views are decoupled, we created a new package called decouplingpackage with the following files:
 - IScriptView: The CLI view.
 - ScriptView: The implementation for the CLI view.
 - IGUIView: The GUI view.
