@@ -38,10 +38,3 @@ To show that the views are decoupled, we created a new package called decoupling
 
 ### Image Citation
 The two example images provided, cp_goat.ppm & jp_jersey_2017.ppm, are two images created by Jared Lyon and Jaron R. in 2017 when we were coming up with a fake Club Penguin International tournament. We have authorized the use of these images.
-
-# TODO
-  - example script for png and jpg
-  - updated JAR file
-  - updated class diagram
-  - updated README with design changes
-  - updated USEME?
