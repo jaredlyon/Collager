@@ -1,8 +1,11 @@
-load-project jp_jersey_2017.ppm
+load-project jareshandr.ppm
 add-layer layer1
 add-image-to-layer layer1 cp_goat.ppm 0 0
-set-filter background RED_COMPONENT
-set-filter layer1 DIFFERENCE
-save-project newProject
-save-image newImage
+add-layer layer2
+add-image-to-layer layer2 jp_jersey_2017.ppm 200 200
+set-filter layer2 SCREEN
+set-filter layer1 RED_COMPONENT
+set-filter background BRIGHTEN_INTENSITY
+save-image scriptImage.png
+save-project scriptProject.ppm
 quit

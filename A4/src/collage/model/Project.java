@@ -321,11 +321,12 @@ public class Project {
       throw new IllegalStateException("There are no layers or the layers dont match dimensions");
     }
 
-    String fileExtension = filename.substring(filename.lastIndexOf(".") + 1);
+    String fileExtension = filename.substring(filename.length() - 3);
     switch (fileExtension) {
       case "ppm":
         try {
           ImageUtil.writePPM(filename, image, this.getMaxVal());
+          System.out.println("ppm");
         } catch (IOException e) {
           throw new IllegalStateException("Could not write to file");
         }
@@ -340,6 +341,7 @@ public class Project {
       case "png":
         try {
           ImageUtil.writePNG(filename, image);
+          System.out.println("png");
         } catch (IOException e) {
           throw new IllegalStateException("Could not write to file");
         }
